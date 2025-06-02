@@ -9,12 +9,17 @@ import SwiftUI
 
 struct AnnonceCardSmall: View {
     
+    var titre: String = defaultTitre
+    var thematique: String = defaultThematique
+    var auteur: String = defaultAuteur
+    var illustration: String = defaultIllustration
+    
     var body: some View {
             ZStack {
                 Rectangle()
                     .fill(Color("AlmostWhite"))
                 HStack {
-                    Image(annonceImage)
+                    Image(illustration)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 118)
@@ -22,13 +27,13 @@ struct AnnonceCardSmall: View {
                     Spacer()
                     HStack {
                         VStack(alignment:.leading) {
-                            Text(annonceTitre)
+                            Text(titre)
                                 .font(Font.custom("Poppins-Medium", size: 14))
-                            Text("Avec \(annonceAuteur)")
+                            Text("Avec \(auteur)")
                                 .font(Font.custom("Poppins-Medium", size: 10))
                         }
                         Spacer()
-                        Text(annonceTheme)
+                        Text(thematique)
                             .font(Font.custom("Poppins-Regular", size: 10))
                         Image(systemName: "chevron.right")
                     }

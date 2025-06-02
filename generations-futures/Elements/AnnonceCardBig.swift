@@ -9,28 +9,34 @@ import SwiftUI
 
 struct AnnonceCardBig: View {
     
+    var titre: String = defaultTitre
+    var thematique: String = defaultThematique
+    var auteur: String = defaultAuteur
+    var lieu: String = defaultLieu
+    var illustration: String = defaultIllustration
+    
     var body: some View {
         
             ZStack {
                 Rectangle()
                     .fill(Color("AlmostWhite"))
                 VStack {
-                    Image(annonceImage)
+                    Image(illustration)
                         .resizable()
                         .scaledToFill()
-                        .frame(height:220)
+                        .frame(width: 200, height:220)
                         .clipped()
                     HStack(alignment:.top) {
                         VStack(alignment:.leading) {
-                            Text(annonceTitre)
+                            Text(titre)
                                 .font(Font.custom("Poppins-Medium", size: 14))
-                            Text(annonceTheme)
+                            Text(thematique)
                                 .font(Font.custom("Poppins-Regular", size: 10))
-                            Text("Avec \(annonceAuteur)")
+                            Text("Avec \(auteur)")
                                 .font(Font.custom("Poppins-Medium", size: 10))
                         }
                         Spacer()
-                        Text(annonceLieu)
+                        Text(lieu)
                             .font(Font.custom("Poppins-Medium", size: 12))
                     }
                     .foregroundStyle(Color("Grey-900"))
