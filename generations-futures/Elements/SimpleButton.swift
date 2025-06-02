@@ -9,16 +9,19 @@ import SwiftUI
 
 struct SimpleButton: View {
     
+    var content: String = "Bouton"
+    var background: Color = Color("Colors/Red-500")
+    
     var body: some View {
 
         Button(action: {}, label: {
-            Text("Bouton")
+            Text(content)
                 .font(Font.custom("Poppins-Regular", size: 12))
                 .foregroundStyle(Color("Colors/Grey-50"))
                 .frame(maxWidth: 256)
         })
         .padding()
-        .background(Color("Colors/Red-500"))
+        .background(background)
         .cornerRadius(cornerRadiusBig)
         .shadow(color: Color("Colors/Grey-300"), radius: shadowAmount, x: 0, y: 4)
         
