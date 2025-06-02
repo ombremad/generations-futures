@@ -13,7 +13,7 @@ struct AnnonceCardBig: View {
         
             ZStack {
                 Rectangle()
-                    .fill(Color("Colors/White"))
+                    .fill(Color("White"))
                 VStack {
                     Image(annonceImage)
                         .resizable()
@@ -33,7 +33,7 @@ struct AnnonceCardBig: View {
                         Text(annonceLieu)
                             .font(Font.custom("Poppins-Medium", size: 12))
                     }
-                    .foregroundStyle(Color("Colors/Black"))
+                    .foregroundStyle(Color("Black"))
                     .padding(.horizontal, 12)
                     .padding(.bottom, 12)
                 }

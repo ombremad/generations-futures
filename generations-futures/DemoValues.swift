@@ -9,7 +9,7 @@ import SwiftUI
 
 // Quelques valeurs par défaut
 let shadowAmount: CGFloat = 4
-let shadowColor: Color = Color("Colors/Grey-200")
+let shadowColor: Color = Color("Grey-200")
 let cornerRadiusSmall: CGFloat = 12
 let cornerRadiusBig: CGFloat = 90
 
