@@ -17,7 +17,7 @@ struct DemoView: View {
                 
                 SimpleButton(content:"Message")
                 
-                SimpleButton(content:"Élément de menu", background: Color("Colors/Grey-500"))
+                SimpleButton(content:"Élément de menu", background: Color("Grey-500"))
                                 
                 ScrollView(.horizontal) {
                     LazyHStack(spacing: 24) {

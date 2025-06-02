@@ -12,7 +12,7 @@ struct AnnonceCardSmall: View {
     var body: some View {
             ZStack {
                 Rectangle()
-                    .fill(Color("Colors/White"))
+                    .fill(Color("White"))
                 HStack {
                     Image(annonceImage)
                         .resizable()
@@ -35,7 +35,7 @@ struct AnnonceCardSmall: View {
                     .padding(.trailing, 12)
                 }
             }
-            .foregroundStyle(Color("Colors/Black"))
+            .foregroundStyle(Color("Black"))
             .frame(height: 65)
             .clipped()
             .cornerRadius(cornerRadiusSmall)
