@@ -22,8 +22,8 @@ struct DemoView: View {
                 ScrollView(.horizontal) {
                     LazyHStack(spacing: 24) {
                         AnnonceCardBig()
-                        AnnonceCardBig()
-                        AnnonceCardBig()
+                        AnnonceCardBig(titre: "Un café et parler", thematique: "Discussion", auteur: "Jean-Paul", lieu: "Roubaix", illustration: "samples/coffee")
+                        AnnonceCardBig(titre: "Le nouveau Avatar !", thematique: "Sorties", auteur: "Béatrice", lieu: "Marseille", illustration: "samples/cinema")
                         AnnonceCardBig()
                         AnnonceCardBig()
                         AnnonceCardBig()
@@ -33,8 +33,8 @@ struct DemoView: View {
                 
                 VStack (spacing:18) {
                     AnnonceCardSmall()
-                    AnnonceCardSmall()
-                    AnnonceCardSmall()
+                    AnnonceCardSmall(titre: "Un café et parler", thematique: "Discussion", auteur: "Jean-Paul", illustration: "samples/coffee")
+                    AnnonceCardSmall(titre: "Le nouveau Avatar !", thematique: "Sorties", auteur: "Béatrice", illustration: "samples/cinema")
                     AnnonceCardSmall()
                     AnnonceCardSmall()
                     AnnonceCardSmall()
