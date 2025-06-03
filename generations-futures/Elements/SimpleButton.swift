@@ -10,7 +10,7 @@ import SwiftUI
 struct SimpleButton: View {
     
     var content: String = "Bouton"
-    var background: Color = Color("Red-500")
+    var highlighted: Bool = false
     
     var body: some View {
 
@@ -21,7 +21,7 @@ struct SimpleButton: View {
                 .frame(maxWidth: 256)
         })
         .padding()
-        .background(background)
+        .background(highlighted ? Color("Red-500") : Color("Grey-500"))
         .cornerRadius(cornerRadiusBig)
         .shadow(color: Color("Grey-300"), radius: shadowAmount, x: 0, y: 4)
         
