@@ -29,8 +29,10 @@ struct AnnonceCardSmall: View {
                         VStack(alignment:.leading) {
                             Text(titre)
                                 .font(Font.custom("Poppins-Medium", size: 14))
+                                .lineLimit(2)
                             Text("Avec \(auteur)")
                                 .font(Font.custom("Poppins-Medium", size: 10))
+                                .lineLimit(1)
                         }
                         Spacer()
                         Text(thematique)

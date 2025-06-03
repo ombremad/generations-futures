@@ -38,6 +38,7 @@ struct AnnonceCardBig: View {
                         Spacer()
                         Text(lieu)
                             .font(Font.custom("Poppins-Medium", size: 12))
+                            .lineLimit(1)
                     }
                     .foregroundStyle(Color("Grey-900"))
                     .padding(.horizontal, 12)
