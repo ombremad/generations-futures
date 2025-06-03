@@ -7,12 +7,13 @@
 
 import SwiftUI
 
-// Valeurs par défaut pour les annonces
+// Valeurs par défaut pour les démos
 let defaultTitre: String = "Mise en pot"
 let defaultThematique: String = "Jardinage"
 let defaultAuteur: String = "Émilie"
 let defaultLieu: String = "Lille"
 let defaultIllustration: String = "samples/plant"
+let defaultBadge: String = "carrot"
 
 // Valeurs visuelles par défaut
 let shadowAmount: CGFloat = 4
