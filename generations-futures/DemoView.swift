@@ -15,16 +15,30 @@ struct DemoView: View {
                 
                 Text("Quelques éléments réutilisables...")
                 
-                SimpleButton(
-                    content:"Message"
-                )
-                
-                SimpleButton(
-                    content:"Élément de menu",
-                    background: Color("Grey-500")
-                )
-                                
-                ScrollView(.horizontal) {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(spacing: 0) {
+                        SimpleBadge(
+                            thematique: "Filtres",
+                            badge: "rectangle.stack",
+                            background: Color("Red-500"),
+                            foreground: Color("Grey-50")
+                        )
+                        SimpleBadge(
+                            thematique: "Un thème avec un nom plus long",
+                            badge: "popcorn.fill"
+                        )
+                        SimpleBadge()
+                        SimpleBadge()
+                        SimpleBadge()
+                        SimpleBadge()
+                        SimpleBadge()
+                        SimpleBadge()
+                    }
+                }
+                .frame(height: 90)
+                .clipped()
+                                                
+                ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 24) {
                         AnnonceCardBig()
                         AnnonceCardBig(
@@ -62,14 +76,21 @@ struct DemoView: View {
                         auteur: "Béatrice",
                         illustration: "samples/cinema"
                     )
-                    AnnonceCardSmall()
-                    AnnonceCardSmall()
-                    AnnonceCardSmall()
                 }
                 .padding()
                 
+                SimpleButton(
+                    content:"Message"
+                )
+                
+                SimpleButton(
+                    content:"Élément de menu",
+                    background: Color("Grey-500")
+                )
+                
             }
             .font(Font.custom("Poppins-Regular", size: 12))
+            .foregroundStyle(Color("Grey-900"))
         }
     }
 }
