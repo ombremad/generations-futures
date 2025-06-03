@@ -11,17 +11,14 @@ struct DemoView: View {
     var body: some View {
         ScrollView {
             
-            VStack (spacing: 18) {
-                
-                Text("Quelques éléments réutilisables...")
-                
+            VStack {
+                                
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 0) {
                         SimpleBadge(
                             thematique: "Filtres",
                             badge: "rectangle.stack",
-                            background: Color("Red-500"),
-                            foreground: Color("Grey-50")
+                            highlighted: true
                         )
                         SimpleBadge(
                             thematique: "Un thème avec un nom plus long",
@@ -36,7 +33,6 @@ struct DemoView: View {
                     }
                 }
                 .frame(height: 90)
-                .clipped()
                                                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 24) {
@@ -62,7 +58,7 @@ struct DemoView: View {
                     .padding()
                 }
                 
-                VStack (spacing:18) {
+                VStack(spacing:18) {
                     AnnonceCardSmall()
                     AnnonceCardSmall(
                         titre: "Un café et parler",
@@ -80,12 +76,12 @@ struct DemoView: View {
                 .padding()
                 
                 SimpleButton(
-                    content:"Message"
+                    content:"Message",
+                    highlighted: true
                 )
                 
                 SimpleButton(
-                    content:"Élément de menu",
-                    background: Color("Grey-500")
+                    content:"Élément de menu"
                 )
                 
             }

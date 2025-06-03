@@ -12,16 +12,15 @@ struct SimpleBadge: View {
     
     var thematique: String = defaultThematique
     var badge: String = defaultBadge
-    var background: Color = Color("Grey-50")
-    var foreground: Color = Color("Grey-700")
+    var highlighted: Bool = false
     
     var body: some View {
         VStack {
             ZStack {
                 Circle()
-                    .fill(background)
+                    .fill(highlighted ? Color("Red-500") : Color("Grey-50"))
                 Image(systemName: badge)
-                    .foregroundStyle(foreground)
+                    .foregroundStyle(highlighted ? Color("Grey-50") : Color("Grey-700"))
                     .font(.system(size: 18))
                     .fontWeight(.semibold)
             }
