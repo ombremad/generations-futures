@@ -9,15 +9,8 @@ import SwiftUI
 
 struct ListingAnnoncesView: View {
     
-    func header() -> some View {
+    func annoncesFilters() -> some View {
         VStack {
-            
-            HStack {
-                Text("Annonces")
-            }
-            .font(Font.custom("Poppins-Regular", size: 16))
-            .foregroundStyle(Color("Grey-900"))
-            
             SearchBar()
                 .padding()
             
@@ -40,7 +33,7 @@ struct ListingAnnoncesView: View {
                     SimpleBadge()
                 }
             }
-            .frame(height: 100)
+            .frame(height: 90)
         }
     }
     func annoncesReco() -> some View {
@@ -70,7 +63,7 @@ struct ListingAnnoncesView: View {
                     AnnonceCardBig()
                 }
                 .padding(.horizontal)
-                .padding(.bottom, 30)
+                .padding(.bottom, 15)
             }
         }
     }
@@ -98,18 +91,24 @@ struct ListingAnnoncesView: View {
         }
     }
     
-    
     var body: some View {
         ScrollView {
             
-            header()
+            HStack {
+                Text("Annonces")
+            }
+            .font(Font.custom("Poppins-Regular", size: 16))
+            .foregroundStyle(Color("Grey-900"))
+            
             VStack(spacing:20) {
+                annoncesFilters()
                 annoncesReco()
                 annoncesRecent()
             }
-            .font(Font.custom("Poppins-Regular", size: 12))
-            .foregroundStyle(Color("Grey-900"))
+            
         }
+        .font(Font.custom("Poppins-Regular", size: 12))
+        .foregroundStyle(Color("Grey-900"))
     }
 }
 
