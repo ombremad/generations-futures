@@ -26,7 +26,7 @@ struct AnnonceCardBig: View {
                         .scaledToFill()
                         .frame(width: 200, height:220)
                         .clipped()
-                    HStack(alignment:.top) {
+                    HStack(alignment:.bottom) {
                         VStack(alignment:.leading) {
                             Text(titre)
                                 .font(Font.custom("Poppins-Medium", size: 14))

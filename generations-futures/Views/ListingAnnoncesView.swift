@@ -16,6 +16,7 @@ struct ListingAnnoncesView: View {
                 Text("Annonces")
             }
             .font(Font.custom("Poppins-Regular", size: 16))
+            .foregroundStyle(Color("Grey-900"))
             
             SearchBar()
                 .padding()
