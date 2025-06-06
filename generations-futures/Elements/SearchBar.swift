@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchBar: View {
     
-    var textSearchBar: String = "Rechercher une expérience..."
+    @State private var textSearchBar: String = ""
     
     var body: some View {
         
@@ -18,7 +18,7 @@ struct SearchBar: View {
                 Rectangle()
                     .fill(Color("Grey-50"))
                 HStack {
-                    Text(textSearchBar)
+                    TextField("Rechercher une expérience", text:$textSearchBar)
                         .foregroundColor(Color("Grey-300"))
                         .font(Font.custom("Poppins-Regular", size: 12))
                         .padding()
