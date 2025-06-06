@@ -33,6 +33,8 @@ struct SimpleBadge: View {
             Spacer()
         }
         .frame(width: 90, height: 90)
+        
+        // Ceci est un commentaire
     }
 }
 
