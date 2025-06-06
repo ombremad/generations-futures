@@ -29,6 +29,7 @@ struct ProfilView: View {
                 
                 VStack {
                     Text("Profil")
+                        .font(Font.custom("Poppins-Regular", size: 16))
                         .foregroundStyle(.white)
                         .padding(.bottom)
                     ZStack(alignment: .bottomTrailing) {
@@ -48,15 +49,17 @@ struct ProfilView: View {
             
             VStack {
                 Text("Robert")
-                    .font(.title)
-                    .bold()
+                    .font(Font.custom("Poppins-Bold", size: 25))
                 Text("Génération Baobab")
+                    .font(Font.custom("Poppins-Regular", size: 14))
                     .foregroundColor(.accentColor)
                    
                 Text("Lille, France")
-                    .padding()
+                    .font(Font.custom("Poppins-Regular", size: 12))
+                    .padding(10)
                 
                 Text("Un roadtrip au Brésil m’a suffi pour tomber amoureux de la samba. \n17 ans d’expériences dans les pattes!")
+                    .font(Font.custom("Poppins-Regular", size: 16))
                     .padding(.horizontal)
                     .fixedSize(horizontal: false, vertical: true)
                     .multilineTextAlignment(.center)
@@ -68,16 +71,10 @@ struct ProfilView: View {
                     hobby(name: "tortoise.fill")
                 } .padding(.vertical, 50)
                 
-                Button(action: {}) {
-                    Text("Message")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(width: 200, height: 50)
-                        .background(Color.accentColor)
-                        .cornerRadius(25)
-                } .shadow(color: .gray, radius: 2, x: 0, y: 5)
-                    .padding(.bottom, 150)
+                SimpleButton(
+                    content:"Message",
+                    highlighted: true
+                ) .padding(.bottom, 150)
             }
         }
     }
