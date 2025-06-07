@@ -27,7 +27,7 @@ struct Questionnaire_View_5: View {
                 HeaderQuestionnaire(num: 5, titre: "Où voulez vous aller?")
                 
                 ZStack {
-                    
+                    // créer un filtre pour chercher les plus grandes villes de France
                     TextField("Recherchez le lieu ici", text: $recherche)
                         .font(Font.custom("Poppins-Regular", size: 12))
                         .multilineTextAlignment(.center)
@@ -45,12 +45,11 @@ struct Questionnaire_View_5: View {
                 }.padding(.bottom, 24)
                 
                 
-                
+                // relier le résultat de la recherche aux coordonées montrées par la Map
                 Map(position: $position,interactionModes: [.zoom, .pan])
                     .mapStyle(.standard(elevation: .realistic))
                     .frame(width: 300, height: 200)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
-                // MapKit + SearchBar du lieu
                 
 //                HStack(spacing: 50) {
 //                    Button("Londres") {
