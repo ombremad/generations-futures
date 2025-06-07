@@ -9,8 +9,45 @@ import SwiftUI
 
 struct Questionnaire_View_6: View {
     var body: some View {
-        VStack {
-            HeaderQuestionnaire(num: 6, titre: "Quand êtes vous disponible pour cette expérience?")
+        ZStack {
+            Color.almostWhite
+                .ignoresSafeArea()
+            VStack {
+                HeaderQuestionnaire(num: 6, titre: "Quand êtes vous\n disponible pour cette expérience?")
+                
+                NavigationLink {
+                    //
+                } label: {
+                    Text("Renseigner une date précise")
+                        .font(Font.custom("Poppins-Regular", size: 12))
+                        .foregroundStyle(.almostWhite)
+                        .frame(width: 300, height: 50)
+                        .background{
+                            RoundedRectangle(cornerRadius: 32)
+                                .foregroundStyle(.grey500)
+                        }
+                    
+                }.padding(.bottom, 24)
+                
+                NavigationLink {
+                    //
+                } label: {
+                    Text("Renseigner une période de disponibilités")
+                        .font(Font.custom("Poppins-Regular", size: 12))
+                        .foregroundStyle(.almostWhite)
+                        .frame(width: 300, height: 50)
+                        .background{
+                            RoundedRectangle(cornerRadius: 32)
+                                .foregroundStyle(.grey500)
+                        }
+                    
+                }
+
+                Spacer()
+                
+                SuivantButton()
+            }
+
         }
     }
 }
