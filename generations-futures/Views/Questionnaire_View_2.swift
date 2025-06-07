@@ -9,7 +9,18 @@ import SwiftUI
 
 struct Questionnaire_View_2: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color.almostWhite
+                .ignoresSafeArea()
+            VStack{
+                HeaderQuestionnaire(num: 2, titre: "Quel est le thème?")
+                
+                
+                SuivantButton()
+            }
+            
+        }
+       
     }
 }
 

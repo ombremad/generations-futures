@@ -26,16 +26,17 @@ struct Questionaire_View_1: View {
                     Spacer()
                     
                     TextField("Inscrire le titre ici", text: $saisieText)
+                        .font(Font.custom("Poppins-Regular", size: 16))
                         .foregroundStyle(.grey900)
-                        .frame(width: 250, height: 50)
-                        .font(Font.custom("Poppins-Regular", size: 10))
+                        .frame(width: 300, height: 50)
+                        .multilineTextAlignment(.center)
+//                        .padding(.leading, 20)
                         .background {
                             RoundedRectangle(cornerRadius: 32)
                                 .fill(Color.grey50)
                         }
                     Spacer()
                     SuivantButton()
-                    Spacer()
                     
                     
                 }

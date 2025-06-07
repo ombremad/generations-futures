@@ -9,7 +9,20 @@ import SwiftUI
 
 struct SuivantButton: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationLink {
+            // page suivante
+        } label: {
+            HStack{
+                Text("Suivant")
+                    .font(Font.custom("Poppins-SemiBold", size: 24))
+                    .foregroundStyle(.grey500)
+                Image(systemName: "chevron.right")
+                    .foregroundStyle(.grey500)
+            }
+        }
+        .frame(width: 350, alignment: .trailing)
+        .padding(.trailing, 40)
+        .padding(.bottom, 120)
     }
 }
 

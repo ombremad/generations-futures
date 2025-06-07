@@ -30,36 +30,34 @@ struct HeaderQuestionnaire: View {
             .padding(.trailing, 125)
     }
     
-    func question() -> some View{
-        
-        Text("1 sur 6")
-            .font(Font.custom("Poppins-Regular", size: 12))
-        
-        return Text("Trouvez un titre pour votre annonce")
-            .font(Font.custom("Poppins-SemiBold", size: 24))
-            .multilineTextAlignment(.center)
-            .foregroundStyle(.grey500)
-            .padding(.bottom, 40)
-    }
-
-
-    var body: some View {
-        ZStack{
-            Color.almostWhite
-                .ignoresSafeArea()
-            VStack{
-                header()
-                
-                question()
-            }
+    func question(num: Int = 1, titre: String = "Trouvez un titre \npour votre annonce") -> some View{
+        VStack{
+            Text("\(num) sur 6")
+                .font(Font.custom("Poppins-Regular", size: 12))
             
+            Text("\(titre)")
+                .font(Font.custom("Poppins-SemiBold", size: 24))
+                .multilineTextAlignment(.center)
+                .foregroundStyle(.grey500)
+                .padding(.bottom, 40)
+        }
+        
+    }
+    
+    @State var num : Int
+    @State var titre : String
+    var body: some View {
+       
+        
+        VStack{
+            header()
+                .padding(.bottom, 100)
+            question(num: num, titre: titre)
             
         }
-      
-        
     }
 }
 
 #Preview {
-    HeaderQuestionnaire()
+    HeaderQuestionnaire(num: 1, titre: "Nouveau titre")
 }
