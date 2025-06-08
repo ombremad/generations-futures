@@ -8,16 +8,6 @@
 import SwiftUI
 
 struct ProfilView: View {
-    func hobby(name: String) -> some View {
-        Image(systemName: name)
-            .font(.system(size: 32, weight: .bold))
-            .foregroundStyle(.black.opacity(0.1))
-            .padding()
-            .frame(width: 80, height: 80)
-            .background(RoundedRectangle(cornerRadius: 50).stroke(.black.opacity(0.1), lineWidth: 8))
-            .padding(.horizontal, 5)
-    }
-    
     var body: some View {
         VStack {
             ZStack(alignment: .top) {
@@ -33,16 +23,16 @@ struct ProfilView: View {
                         .foregroundStyle(.white)
                         .padding(.bottom)
                     ZStack(alignment: .bottomTrailing) {
-                        Image(.image)
+                        Image(.robert)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .clipShape(Circle())
                             .frame(width: 230, height: 230)
-                        
-                        Image(systemName: "checkmark.circle.fill")
-                            .foregroundColor(.accentColor)
-                            .font(.system(size: 40))
-                            .offset(x: -11, y: -10)
+                            .overlay(alignment: .bottomTrailing) {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(.accentColor)
+                                    .font(.system(size: 50))
+                            }
                     }
                 } .padding(.top, 100)
             }
@@ -65,10 +55,10 @@ struct ProfilView: View {
                     .multilineTextAlignment(.center)
                 
                 HStack {
-                    hobby(name: "figure.run")
-                    hobby(name: "theatermasks.fill")
-                    hobby(name: "airplane")
-                    hobby(name: "tortoise.fill")
+                    HobbyBadge()
+                    HobbyBadge(hobby: "theatermasks.fill")
+                    HobbyBadge(hobby: "airplane")
+                    HobbyBadge(hobby: "tortoise.fill")
                 } .padding(.vertical, 50)
                 
                 SimpleButton(

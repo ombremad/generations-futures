@@ -11,7 +11,7 @@ struct AnnonceCardSmall: View {
     
     var titre: String = defaultTitre
     var thematique: String = defaultThematique
-    var auteur: String = defaultAuteur
+    var name: String = defaultName
     var illustration: String = defaultIllustration
     
     var body: some View {
@@ -30,7 +30,7 @@ struct AnnonceCardSmall: View {
                             Text(titre)
                                 .font(Font.custom("Poppins-Medium", size: 14))
                                 .lineLimit(2)
-                            Text("Avec \(auteur)")
+                            Text("Avec \(name)")
                                 .font(Font.custom("Poppins-Medium", size: 10))
                                 .lineLimit(1)
                         }
