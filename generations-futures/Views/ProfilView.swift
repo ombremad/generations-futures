@@ -16,6 +16,7 @@ struct ProfilView: View {
                     .fill(.accent)
                     .frame(width: 581, height: 581)
                     .padding(.top, -300)
+                    .shadow(color: Color(shadowColor), radius: shadowAmount, x: 0, y: 4)
                 
                 VStack {
                     Text("Profil")
@@ -28,6 +29,7 @@ struct ProfilView: View {
                             .aspectRatio(contentMode: .fill)
                             .clipShape(Circle())
                             .frame(width: 230, height: 230)
+                            .shadow(color: Color(shadowColor), radius: shadowAmount, x: 0, y: 4)
                             .overlay(alignment: .bottomTrailing) {
                                 Image(systemName: "checkmark.circle.fill")
                                     .foregroundColor(.accentColor)
