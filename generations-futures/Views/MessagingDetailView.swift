@@ -20,12 +20,14 @@ struct MessagingDetailView: View {
                 .frame(width: 48, height: 48)
             Text(defaultName)
         }
-        .padding()
+        .padding(.vertical, 5)
     }
-
+    
     func messagesHistory() -> some View {
         ScrollView {
             VStack {
+                AnnonceCardSmall()
+                    .padding(.bottom, 12)
                 SpeechBubble(
                     message: "Bonjour !",
                     isSender: true
@@ -39,7 +41,11 @@ struct MessagingDetailView: View {
                     isSender: false
                 )
                 SpeechBubble(
-                    message: "Ça me tenterait bien une petite balade dans un parc !",
+                    message: "Je me fais justement une petite session jardinage, la météo est parfaite, mais les plantes ont besoin d'eau.",
+                    isSender: false
+                )
+                SpeechBubble(
+                    message: "Je prends toute aide disponible 👀",
                     isSender: false
                 )
                 SpeechBubble(
@@ -82,16 +88,17 @@ struct MessagingDetailView: View {
         }
         .frame(maxHeight: 35)
         .clipped()
-        .padding()
+        .padding(.horizontal)
+        .padding(.vertical, 8)
     }
-        
+
     var body: some View {
         VStack {
             header()
             messagesHistory()
             footer()
         }
-        .font(Font.custom("Poppins-Regular", size: 12))
+        .font(Font.custom("Poppins-Regular", size: 16))
         .foregroundStyle(Color("Grey-900"))
     }
 }

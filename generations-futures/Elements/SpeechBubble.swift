@@ -25,8 +25,10 @@ struct SpeechBubble: View {
                 .multilineTextAlignment(.leading)
                 .cornerRadius(cornerRadiusSmall)
                 .frame(maxWidth: 300, alignment: (isSender ? .trailing : .leading))
+                .shadow(color: Color("Grey-100"), radius: shadowAmount, x: 0, y: 4)
             if !isSender { Spacer() }
         }
+        .padding(.bottom, 5)
     }
 }
 
