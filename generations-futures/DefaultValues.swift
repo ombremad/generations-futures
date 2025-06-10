@@ -42,3 +42,22 @@ let messages : [Message] = [
     Message(text: "👏👏👏", isSender: true),
     Message(text: "Let's go !!!", isSender: true)
 ]
+
+struct Hobby: Hashable {
+    var icon: String
+    var label: String
+}
+
+let hobbies: [Hobby] = [
+    Hobby(icon: "figure.run", label: "Sport"),
+    Hobby(icon: "theatermasks.fill", label: "théâtre"),
+    Hobby(icon: "music.note", label: "Musique"),
+    Hobby(icon: "book.fill", label: "Lecture"),
+    Hobby(icon: "pencil", label: "Écriture"),
+    Hobby(icon: "camera.fill", label: "Photo"),
+    Hobby(icon: "gamecontroller.fill", label: "Jeux vidéo"),
+    Hobby(icon: "carrot.fill", label: "Jardinage"),
+    Hobby(icon: "popcorn.fill", label: "Cinéma"),
+    Hobby(icon: "airplane", label: "Voyages"),
+    Hobby(icon: "tortoise.fill", label: "Animaux")
+   ]
