@@ -40,14 +40,14 @@ struct DemoView: View {
                         AnnonceCardBig(
                             titre: "Un café et parler",
                             thematique: "Discussion",
-                            auteur: "Jean-Paul",
+                            name: "Jean-Paul",
                             lieu: "Roubaix",
                             illustration: "samples/coffee"
                         )
                         AnnonceCardBig(
                             titre: "Le nouveau Avatar !",
                             thematique: "Sorties",
-                            auteur: "Béatrice",
+                            name: "Béatrice",
                             lieu: "Marseille",
                             illustration: "samples/cinema"
                         )
@@ -63,13 +63,13 @@ struct DemoView: View {
                     AnnonceCardSmall(
                         titre: "Un café et parler",
                         thematique: "Discussion",
-                        auteur: "Jean-Paul",
+                        name: "Jean-Paul",
                         illustration: "samples/coffee"
                     )
                     AnnonceCardSmall(
                         titre: "Le nouveau Avatar !",
                         thematique: "Sorties",
-                        auteur: "Béatrice",
+                        name: "Béatrice",
                         illustration: "samples/cinema"
                     )
                 }

@@ -1,0 +1,177 @@
+//
+//  ProfilEditionView.swift
+//  generations-futures
+//
+//  Created by Noa Cengarle on 06/06/2025.
+//
+
+import SwiftUI
+
+struct ProfilEditionView: View {
+    @State var surname: String = defaultSurname
+    @State var name: String = defaultName
+    @State var lieu: String = defaultLieu
+    @State var biography: String = "Un roadtrip au Brésil m’a suffi pour tomber amoureux de la samba. 17 ans d’expériences dans les pattes!"
+    
+    
+    let yearOfBirth: String = String(defaultYearOfBirth)
+    let generation: String = defaultGeneration
+    
+    func editingPen() -> some View {
+        Image(systemName: "pencil")
+            .font(.system(size: 20))
+            .foregroundColor(.accent)
+            .padding(.bottom, 10)
+            .padding(.trailing, 10)
+    }
+    
+    var body: some View {
+        VStack {
+            Text("Edition du profil")
+            
+            VStack {
+                GeometryReader { geometry in
+                    HStack(alignment: .top) {
+                        VStack {
+                            ZStack {
+                                Image(.robert)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle())
+                                    .frame(width: geometry.size.width/3)
+                                    .overlay(alignment: .bottomTrailing) {
+                                        Image(systemName: "checkmark.circle.badge.xmark")
+                                            .foregroundStyle(.accent)
+                                            .font(.system(size: 36))
+                                    }
+                                Circle()
+                                    .fill(.black.opacity(0.3))
+                                    .frame(width: geometry.size.width/3)
+                                    .overlay {
+                                        Image(systemName: "camera.fill")
+                                            .foregroundStyle(.white.opacity(0.6))
+                                            .font(.system(size: 35))
+                                    }
+                            }
+                            Text("Vérifier le profil")
+                                .foregroundStyle(.accent)
+                                .font(Font.custom("Poppins-Regular", size: 14))
+                        } .padding(.trailing, 20)
+                        
+                        VStack(alignment: .leading) {
+                            VStack(alignment: .leading) {
+                                Text("Nom")
+                                    .font(Font.custom("Poppins-Regular", size: 15))
+                                HStack {
+                                    TextField(
+                                                "Surname",
+                                                text: $surname
+                                            )
+                                    .textFieldStyle(.roundedBorder)
+                                    .font(.custom("Poppins-Bold", size: 20))
+                                    .overlay(alignment: .bottomTrailing) {
+                                        editingPen()
+                                    }
+                                    Spacer()
+                            }
+                        }
+                            
+                            VStack(alignment: .leading) {
+                                Text("Prénom")
+                                    .font(Font.custom("Poppins-Regular", size: 15))
+                                HStack {
+                                    TextField(
+                                                "Name",
+                                                text: $name
+                                            )
+                                    .textFieldStyle(.roundedBorder)
+                                    .font(.custom("Poppins-Bold", size: 20))
+                                    .overlay(alignment: .bottomTrailing) {
+                                        editingPen()
+                                    }
+                                    Spacer()
+                            }
+                        }
+                            
+                            VStack(alignment: .leading) {
+                                Text("Localisation")
+                                    .font(Font.custom("Poppins-Regular", size: 15))
+                                HStack {
+                                    TextField(
+                                                "Localisation",
+                                                text: $lieu
+                                            )
+                                    .textFieldStyle(.roundedBorder)
+                                    .font(.custom("Poppins-Regular", size: 16))
+                                    .overlay(alignment: .bottomTrailing) {
+                                        editingPen()
+                                    }
+                                    Spacer()
+                            }
+                        }
+                            
+                            VStack(alignment: .leading) {
+                                Text("Année de naissance")
+                                    .font(Font.custom("Poppins-Regular", size: 15))
+                                HStack {
+                                    Text(yearOfBirth)
+                                        .font(Font.custom("Poppins-Bold", size: 15))
+                                    Text(generation)
+                                        .font(Font.custom("Poppins-Regular", size: 15))
+                                        .foregroundColor(.accent)
+                                }
+                            } .padding(.vertical)
+                        }
+                    }
+                }
+                
+                GeometryReader { geometry in
+                    VStack {
+                        HStack {
+                            Text("Biographie")
+                                .font(Font.custom("Poppins-Regular", size: 15))
+                            Spacer()
+                        }
+                        HStack {
+                            TextEditor(text: $biography)
+                                .padding()
+                                .scrollContentBackground(.hidden)
+                                .background(
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .fill(Color.grey100.opacity(0.5))
+                                    )
+                                .frame(height: geometry.size.width * 0.4)
+                                .overlay(alignment: .bottomTrailing) {
+                                    editingPen()
+                                }
+                        }
+                        HStack {
+                            Spacer()
+                            Text("\(biography.count)/200 caractères")
+                                .font(Font.custom("Poppins-Regular", size: 14))
+                                .foregroundColor(Color.grey200)
+                        }
+                        
+                        HStack {
+                            Text("Centres d'intérêt")
+                            Spacer()
+                            Text("Voir plus")
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 15))
+                        }
+                        HStack {
+                            HobbyBadge(hobby: "figure.run", highlighted: false)
+                            HobbyBadge(hobby: "theatermasks.fill", highlighted: true)
+                            HobbyBadge(hobby: "carrot.fill", highlighted: false)
+                            HobbyBadge(hobby: "figure.outdoor.soccer", highlighted: true)
+                        }
+                    }
+                }
+            } .padding()
+        }
+    }
+}
+
+#Preview {
+    ProfilEditionView()
+}

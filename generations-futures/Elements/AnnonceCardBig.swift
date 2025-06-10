@@ -11,7 +11,7 @@ struct AnnonceCardBig: View {
     
     var titre: String = defaultTitre
     var thematique: String = defaultThematique
-    var auteur: String = defaultAuteur
+    var name: String = defaultName
     var lieu: String = defaultLieu
     var illustration: String = defaultIllustration
     
@@ -33,7 +33,7 @@ struct AnnonceCardBig: View {
                             VStack(alignment:.leading) {
                                 Text(thematique)
                                     .font(Font.custom("Poppins-Regular", size: 10))
-                                Text("Avec \(auteur)")
+                                Text("Avec \(name)")
                                     .font(Font.custom("Poppins-Medium", size: 10))
                             }
                             Spacer()
