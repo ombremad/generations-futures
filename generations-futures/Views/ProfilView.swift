@@ -57,7 +57,7 @@ struct ProfilView: View {
                     .multilineTextAlignment(.center)
                 
                 HStack {
-                    HobbyBadge()
+                    HobbyBadge(hobby: "figure.run")
                     HobbyBadge(hobby: "theatermasks.fill")
                     HobbyBadge(hobby: "airplane")
                     HobbyBadge(hobby: "tortoise.fill")
