@@ -26,8 +26,12 @@ struct Questionnaire_View_6_Date: View {
                         RoundedRectangle(cornerRadius: 32)
                             .foregroundStyle(.grey500)
                     }.padding(.bottom, 24)
-                // faire en sorte de pouvoir selectionner une date supérieure à la date du jour
-                DatePicker("Date Selectionnée", selection: $selectedDate)
+                
+                // faire en sorte de pouvoir selectionner une date supérieure à la date du jour et de faire une date range
+                    // possible en natif ?
+                
+                DatePicker("Moment Selectionnée", selection: $selectedDate,in: Date.now...)
+                    .labelsHidden()
                     .font(Font.custom("Poppins-Regular", size: 12))
                     .padding(.horizontal, 24)
                 
