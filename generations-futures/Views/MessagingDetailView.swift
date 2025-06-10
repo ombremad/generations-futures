@@ -10,7 +10,7 @@ import SwiftUI
 struct MessagingDetailView: View {
     
     @State private var messageInput: String = ""
-    
+        
     func header() -> some View {
         VStack {
             Image(defaultProfilePicture)
@@ -20,42 +20,15 @@ struct MessagingDetailView: View {
                 .frame(width: 48, height: 48)
             Text(defaultName)
         }
-        .padding(.vertical, 5)
     }
-    
     func messagesHistory() -> some View {
         ScrollView {
             VStack {
                 AnnonceCardSmall()
                     .padding(.bottom, 12)
-                SpeechBubble(
-                    message: "Bonjour !",
-                    isSender: true
-                )
-                SpeechBubble(
-                    message: "Comment ça va aujourd'hui ?",
-                    isSender: true
-                )
-                SpeechBubble(
-                    message: "Super, il fait beau",
-                    isSender: false
-                )
-                SpeechBubble(
-                    message: "Je me fais justement une petite session jardinage, la météo est parfaite, mais les plantes ont besoin d'eau.",
-                    isSender: false
-                )
-                SpeechBubble(
-                    message: "Je prends toute aide disponible 👀",
-                    isSender: false
-                )
-                SpeechBubble(
-                    message: "👏👏👏",
-                    isSender: true
-                )
-                SpeechBubble(
-                    message: "Let's go !",
-                    isSender: true
-                )
+                ForEach(messages, id: \.self) { message in
+                    SpeechBubble(message: message.text, isSender: message.isSender)
+                }
             }
             .padding()
         }
@@ -98,7 +71,7 @@ struct MessagingDetailView: View {
             messagesHistory()
             footer()
         }
-        .font(Font.custom("Poppins-Regular", size: 16))
+        .font(Font.custom("Poppins-Regular", size: 12))
         .foregroundStyle(Color("Grey-900"))
     }
 }
