@@ -20,3 +20,4 @@ let shadowAmount: CGFloat = 4
 let shadowColor: Color = Color("Grey-200")
 let cornerRadiusSmall: CGFloat = 12
 let cornerRadiusBig: CGFloat = 90
+

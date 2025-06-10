@@ -4,120 +4,180 @@
 //
 //  Created by Apprenant156 on 06/06/2025.
 //
+//
+//  AnnonceDetailView.swift
+//  generations-futures
+//
+//  Created by Apprenant156 on 06/06/2025.
+//
 
 import SwiftUI
+import MapKit
 
 struct AnnonceDetailView: View {
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                
-                // Image d’en-tête
-                Image(.Samples.coktail)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 250)
-                    .clipped()
-                    .overlay(
-                        VStack {
-                            HStack {
-                                Button(action: {
-                                    // Action retour
-                                }) {
-                                    Image(systemName: "chevron.left")
-                                        .padding()
-                                        .background(Color.white.opacity(0.7))
-                                        .clipShape(Circle())
-                                }
+        ZStack(alignment: .top) {
+            ScrollView {
+                VStack(spacing: 0) {
+                        ZStack {
+                            // Image de l'annonce
+                            Image(.Samples.coktail)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 370, height: 400)
+                                .overlay(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color.clear, Color.black.opacity(0.6)]),
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                )
+                                .clipShape(
+                                    RoundedCorner(radius: 30, corners: [.bottomLeft, .bottomRight])
+                                )
+
+                            // Titre de l'annonce au centre + lieu
+                            VStack(spacing: 6) {
                                 Spacer()
-                                Button(action: {
-                                    // Action partage
-                                }) {
-                                    Image(systemName: "square.and.arrow.up")
-                                        .padding()
-                                        .background(Color.white.opacity(0.7))
-                                        .clipShape(Circle())
+                                VStack(spacing: 4) {
+                                    Text("Boire un verre en début de soirée")
+                                        .font(Font.custom("Poppins-Regular", size: 24))
+                                        .foregroundColor(.white)
+                                        .multilineTextAlignment(.center)
+                                        .shadow(radius: 4)
+                                        .frame(width: 294)
+
+                                    Text("Lyon, France")
+                                        .font(.subheadline)
+                                        .foregroundColor(.white.opacity(0.9))
                                 }
+                                .padding(.bottom, 40)
                             }
-                            .padding()
-                            Spacer()
+                       
                         }
-                    )
-
-                // Titre et lieu
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Boire un verre en début de soirée")
-                        .font(.title2)
-                        .bold()
-                    Text("Lyon, France")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                }
-                .padding(.horizontal)
-
-                // Description
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Description")
-                        .font(.headline)
-                    Text("""
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra.
-                    """)
-                        .font(.body)
-                        .foregroundColor(.secondary)
                     
-                    Label("Robert", systemImage: "person.fill")
-                        .padding(8)
-                        .background(Color.green.opacity(0.1))
-                        .cornerRadius(8)
-                }
-                .padding(.horizontal)
-
-                // Localisation (ex. carte statique)
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Localisation")
-                        .font(.headline)
-                    Image("samples/map")
-                        .resizable()
-                        .scaledToFit()
-                        .cornerRadius(10)
-                        .shadow(radius: 2)
-                }
-                .padding(.horizontal)
-
-                // Disponibilités
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Disponibilités")
-                        .font(.headline)
-                    Image("samples/calendar") // Ou intègre un vrai calendrier si tu le souhaites
-                        .resizable()
-                        .scaledToFit()
-                        .cornerRadius(10)
-                }
-                .padding(.horizontal)
-
-                // Auteur en bas
-                HStack {
-                    Image("samples/user") // Photo de profil
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 48, height: 48)
-                        .clipShape(Circle())
-                    VStack(alignment: .leading) {
-                        Text("Robert")
-                            .bold()
-                        Text("“ Très grand fan de Caipirinha ”")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
                     }
-                }
-                .padding(.horizontal)
+                .padding()
+                ZStack(){
+                    Rectangle()
+                        .fill(Color.white)
+                        .frame(width: 370, height: 650)
+                        .cornerRadius(30)
+                        .shadow(radius: 8)
+                    VStack(alignment: .leading, spacing: 24) {
+                        
+                        // Description
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("Description")
+                                .font(Font.custom("Poppins-SemiBold", size: 16))
+                                .foregroundStyle(Color("Grey-500"))
 
+                            Text("""
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra.
+                            """)
+                            .font(Font.custom("Poppins-Regular", size: 12))
+                            .foregroundStyle(Color("Grey-900"))
+                        }
+
+                        // Localisation
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Localisation")
+                                .font(Font.custom("Poppins-SemiBold", size: 16))
+                                .foregroundStyle(Color("Grey-500"))
+                            
+                            Map{
+                                
+                            }
+
+                  
+                        }
+                        .padding(15)
+                        // Disponibilités
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Disponibilités")
+                                .font(Font.custom("Poppins-SemiBold", size: 16))
+                                .foregroundStyle(Color("Grey-500"))
+
+                            Image("samples/calendar")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(height: 180)
+                                .cornerRadius(10)
+                        }
+                            .padding()
+                            .background(Color.white)
+                            .cornerRadius(30)
+                            .shadow(color: .gray.opacity(0.15), radius: 10, x: 0, y: 4)
+                            .padding(.horizontal)
+                            .offset(y: -30)
+
+                            // Auteur
+                           
+                        }
+                    .padding(20)
+                    .multilineTextAlignment(.center)
+                    .frame(width: 360, height: 650)
+                    }
+                ZStack{
+                    Rectangle()
+                        .fill(Color.accent)
+                        .frame(width: 310, height: 90)
+                        .cornerRadius(25)
+                    HStack(spacing: 12) {
+                        
+                        Image("samples/user")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 48, height: 48)
+                            .clipShape(Circle())
+
+                        VStack(alignment: .leading) {
+                            Text("Robert")
+                                .font(Font.custom("Poppins-SemiBold", size: 16))
+                                .foregroundStyle(Color("Grey-50"))
+
+                                
+
+                            Text("“ Très grand fan de Caipirinha ”")
+                                .font(Font.custom("Poppins-Regular", size: 12))
+                                .foregroundStyle(Color("Grey-50"))                        }
+                    }
+                    .padding(.horizontal)
+
+                }
+           
                 // Bouton message
                 SimpleButton(content: "Message", highlighted: true)
                     .padding()
+                }
+       
 
+            // Boutons retour / partage FIXES
+            HStack {
+                Button(action: {
+                    // Action retour
+                }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundStyle(Color("Grey-500"))
+                        .padding()
+                        .background(Color.white)
+                        .clipShape(Circle())
+                }
+                Spacer()
+                Button(action: {
+                    // Action partage
+                }) {
+                    Image(systemName: "square.and.arrow.up")
+                        .foregroundStyle(Color("Grey-500"))
+                        .padding()
+                        .background(Color.white)
+                        .clipShape(Circle())
+                }
             }
+            .padding(.horizontal)
+            .padding(.top, 50)
         }
+        .edgesIgnoringSafeArea(.top)
         .font(Font.custom("Poppins-Regular", size: 14))
     }
 }
