@@ -13,12 +13,22 @@
 
 import SwiftUI
 import MapKit
+import EventKit
 
 struct AnnonceDetailView: View {
+    
+    @State private var selectedDate: Date? = nil
+    @StateObject var eventManager = EventManager()
+      @State private var focusedDate = Date()
+      @State private var events: [EKEvent] = []
+    
+    
+    let restaurant = CLLocationCoordinate2D(latitude: 45.750951147666186, longitude: 4.824775401850031)
+    
     var body: some View {
         ZStack(alignment: .top) {
             ScrollView {
-                VStack(spacing: 0) {
+                VStack(spacing: 20) {
                         ZStack {
                             // Image de l'annonce
                             Image(.Samples.coktail)
@@ -85,9 +95,11 @@ struct AnnonceDetailView: View {
                                 .font(Font.custom("Poppins-SemiBold", size: 16))
                                 .foregroundStyle(Color("Grey-500"))
                             
-                            Map{
-                                
+                            Map() {
+                                Marker("Wanderlust Lyon",systemImage:"wineglass", coordinate: restaurant)
                             }
+           
+                       
 
                   
                         }
@@ -97,12 +109,24 @@ struct AnnonceDetailView: View {
                             Text("Disponibilités")
                                 .font(Font.custom("Poppins-SemiBold", size: 16))
                                 .foregroundStyle(Color("Grey-500"))
+                            
+                            //Calendrier
+                            MiniCalendarView(
+                                month: focusedDate,
+                                events: events,
+                                selectedDate: selectedDate,
+                                onSelectDate: { date in
+                                    selectedDate = date
+                                    print("Date sélectionnée : \(date)")
+                                }
+                            )
+                            .onAppear {
+                                let range = Calendar.current.dateInterval(of: .month, for: focusedDate)!
+                                eventManager.fetchEvents(from: range.start, to: range.end) { fetched in
+                                    events = fetched
+                                }
+                            }
 
-                            Image("samples/calendar")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(height: 180)
-                                .cornerRadius(10)
                         }
                             .padding()
                             .background(Color.white)
@@ -147,12 +171,14 @@ struct AnnonceDetailView: View {
                 }
            
                 // Bouton message
-                SimpleButton(content: "Message", highlighted: true)
+                SelectableSimpleButton(content: "Message")
                     .padding()
+
+
                 }
        
 
-            // Boutons retour / partage FIXES
+            // Boutons retour / partage
             HStack {
                 Button(action: {
                     // Action retour
