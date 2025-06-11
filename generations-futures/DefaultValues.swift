@@ -19,6 +19,7 @@ let defaultGeneration: String = "Génération Baobab"
 let defaultIllustration: String = "samples/plant"
 let defaultBadge: String = "carrot"
 let defautHobby: String = "figure.run"
+let defaultBio: String = "Un roadtrip au Brésil m’a suffi pour tomber amoureux de la samba. \n17 ans d’expériences dans les pattes!"
 
 // Valeurs visuelles par défaut
 let shadowAmount: CGFloat = 4
@@ -74,5 +75,6 @@ let hobbies: [Hobby] = [
     Hobby(icon: "carrot.fill", label: "Jardinage"),
     Hobby(icon: "popcorn.fill", label: "Cinéma"),
     Hobby(icon: "airplane", label: "Voyages"),
+    Hobby(icon: "paintbrush.pointed.fill", label: "Peinture"),
     Hobby(icon: "tortoise.fill", label: "Animaux")
    ]
