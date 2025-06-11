@@ -14,6 +14,9 @@ struct ContentView: View {
                 NavigationLink(destination: ListingAnnoncesView()) {
                     Text("ListingAnnoncesView")
                 }
+                NavigationLink(destination: ListingMessagesView()) {
+                    Text("ListingMessagesView")
+                }
                 NavigationLink(destination: MessagingDetailView()) {
                     Text("MessagingDetailView")
                 }
@@ -22,6 +25,9 @@ struct ContentView: View {
                 }
                 NavigationLink(destination: ProfilView()) {
                     Text("ProfilView")
+                }
+                NavigationLink(destination: Questionaire_View_1()) {
+                    Text("Questionaire_View_1")
                 }
             }
         }

@@ -6,13 +6,8 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		F2444DCD2DF8BCBD00AB3817 /* SelectableSimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2444DCC2DF8BCA700AB3817 /* SelectableSimpleButton.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		43B633232DEDC6550059D3C0 /* generations-futures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "generations-futures.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2444DCC2DF8BCA700AB3817 /* SelectableSimpleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableSimpleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -52,7 +47,6 @@
 			children = (
 				43B633252DEDC6550059D3C0 /* generations-futures */,
 				43B633242DEDC6550059D3C0 /* Products */,
-				F2444DCC2DF8BCA700AB3817 /* SelectableSimpleButton.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,7 +132,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2444DCD2DF8BCBD00AB3817 /* SelectableSimpleButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +264,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3LU75T9498;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "generations-futures/Info.plist";
@@ -284,7 +278,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "afpadvanced.generations-futures";
+				PRODUCT_BUNDLE_IDENTIFIER = generationsfutures;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -299,6 +293,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3LU75T9498;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "generations-futures/Info.plist";
@@ -312,7 +307,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "afpadvanced.generations-futures";
+				PRODUCT_BUNDLE_IDENTIFIER = generationsfutures;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

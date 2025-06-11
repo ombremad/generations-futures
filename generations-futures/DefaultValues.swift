@@ -43,6 +43,21 @@ let messages : [Message] = [
     Message(text: "Let's go !!!", isSender: true)
 ]
 
+struct ListingMessage: Hashable {
+    var titre: String
+    var name: String
+    var surname: String
+    var preview: String
+    var profilePicture: ImageResource
+    var isRead: Bool
+}
+
+let listingMessages: [ListingMessage] = [
+    ListingMessage(titre: defaultTitre, name: defaultName, surname: defaultSurname, preview: "Bonjour !", profilePicture: defaultProfilePicture, isRead: false),
+    ListingMessage(titre: defaultTitre, name: defaultName, surname: defaultSurname, preview: "Bonjour !", profilePicture: defaultProfilePicture, isRead: true),
+    ListingMessage(titre: defaultTitre, name: defaultName, surname: defaultSurname, preview: "Bonjour !", profilePicture: defaultProfilePicture, isRead: true)
+]
+
 struct Hobby: Hashable {
     var icon: String
     var label: String
