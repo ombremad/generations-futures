@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         NavigationStack {
             List {
+                NavigationLink(destination: AnnonceDetailView()) {
+                    Text("AnnonceDetailView")
+                }
                 NavigationLink(destination: ListingAnnoncesView()) {
                     Text("ListingAnnoncesView")
                 }
