@@ -98,7 +98,8 @@ struct AnnonceDetailView: View {
                             Map() {
                                 Marker("Wanderlust Lyon",systemImage:"wineglass", coordinate: restaurant)
                             }
-           
+                            .cornerRadius(30)
+
                        
 
                   
