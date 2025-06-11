@@ -172,7 +172,7 @@ struct AnnonceDetailView: View {
                 }
            
                 // Bouton message
-                SelectableSimpleButton(content: "Message")
+                SimpleButton(content: "Message")
                     .padding()
 
 

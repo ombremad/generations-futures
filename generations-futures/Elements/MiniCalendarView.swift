@@ -37,7 +37,7 @@ struct MiniCalendarView: View {
                     .frame(width: 32, height: 32)
                     .background(
                         isSelected ? Color.accentColor :
-                        (hasEvent ? Color.red.opacity(0.3) : Color.green.opacity(0.3))
+                        (hasEvent ? Color("Red-500") : Color("Grey-50"))
                     )
                     .clipShape(Circle())
                     .onTapGesture {
