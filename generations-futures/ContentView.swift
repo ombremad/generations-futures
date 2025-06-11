@@ -14,6 +14,9 @@ struct ContentView: View {
                 NavigationLink(destination: ListingAnnoncesView()) {
                     Text("ListingAnnoncesView")
                 }
+                NavigationLink(destination: ListingMessagesView()) {
+                    Text("ListingMessagesView")
+                }
                 NavigationLink(destination: MessagingDetailView()) {
                     Text("MessagingDetailView")
                 }
