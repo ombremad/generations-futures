@@ -12,20 +12,20 @@ struct MessagingDetailView: View {
     @State private var messageInput: String = ""
         
     func header() -> some View {
-        VStack {
-            Image(defaultProfilePicture)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .clipShape(Circle())
-                .frame(width: 48, height: 48)
-            Text(defaultName)
+        NavigationLink(destination: ProfilView()) {
+            VStack {
+                Image(defaultProfilePicture)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .clipShape(Circle())
+                    .frame(width: 48, height: 48)
+                Text(defaultName)
+            }
         }
     }
     func messagesHistory() -> some View {
         ScrollView {
             VStack {
-                AnnonceCardSmall()
-                    .padding(.bottom, 12)
                 ForEach(messages, id: \.self) { message in
                     SpeechBubble(message: message.text, isSender: message.isSender)
                 }
@@ -68,6 +68,10 @@ struct MessagingDetailView: View {
     var body: some View {
         VStack {
             header()
+            NavigationLink(destination: AnnonceDetailView()) {
+                AnnonceCardSmall()
+                    .padding()
+            }
             messagesHistory()
             footer()
         }

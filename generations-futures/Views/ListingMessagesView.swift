@@ -25,12 +25,16 @@ struct ListingMessagesView: View {
     }
 
     var body: some View {
-        VStack {
-            header()
-            listing()
+        NavigationView {
+            VStack {
+                header()
+                NavigationLink(destination: MessagingDetailView()) {
+                    listing()
+                }
+            }
+            .font(Font.custom("Poppins-Regular", size: 12))
+            .foregroundStyle(Color("Grey-900"))
         }
-        .font(Font.custom("Poppins-Regular", size: 12))
-        .foregroundStyle(Color("Grey-900"))
     }
 }
 

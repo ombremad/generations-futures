@@ -143,32 +143,34 @@ struct AnnonceDetailView: View {
                     .multilineTextAlignment(.center)
                     .frame(width: 360, height: 650)
                     }
-                ZStack{
-                    Rectangle()
-                        .fill(Color.accent)
-                        .frame(width: 310, height: 90)
-                        .cornerRadius(25)
-                    HStack(spacing: 12) {
-                        
-                        Image("samples/user")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 48, height: 48)
-                            .clipShape(Circle())
+                NavigationLink(destination: ProfilView()) {
+                    ZStack{
+                        Rectangle()
+                            .fill(Color.accent)
+                            .frame(width: 310, height: 90)
+                            .cornerRadius(25)
+                        HStack(spacing: 12) {
+                            
+                            Image(.robert)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 48, height: 48)
+                                .clipShape(Circle())
 
-                        VStack(alignment: .leading) {
-                            Text("Robert")
-                                .font(Font.custom("Poppins-SemiBold", size: 16))
-                                .foregroundStyle(Color("Grey-50"))
+                            VStack(alignment: .leading) {
+                                Text(defaultName)
+                                    .font(Font.custom("Poppins-SemiBold", size: 16))
+                                    .foregroundStyle(Color("Grey-50"))
 
-                                
+                                    
 
-                            Text("“ Très grand fan de Caipirinha ”")
-                                .font(Font.custom("Poppins-Regular", size: 12))
-                                .foregroundStyle(Color("Grey-50"))                        }
+                                Text("“ Très grand fan de Caipirinha ”")
+                                    .font(Font.custom("Poppins-Regular", size: 12))
+                                    .foregroundStyle(Color("Grey-50"))                        }
+                        }
+                        .padding(.horizontal)
+
                     }
-                    .padding(.horizontal)
-
                 }
            
                 // Bouton message

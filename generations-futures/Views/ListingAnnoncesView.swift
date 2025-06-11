@@ -41,29 +41,31 @@ struct ListingAnnoncesView: View {
             SimpleSectionTitle(title: "Annonces près de vous")
                 .padding(.horizontal)
             
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 30) {
-                    AnnonceCardBig()
-                    AnnonceCardBig(
-                        titre: "Un café et parler",
-                        thematique: "Discussion",
-                        name: "Jean-Paul",
-                        lieu: "Roubaix",
-                        illustration: "samples/coffee"
-                    )
-                    AnnonceCardBig(
-                        titre: "Le nouveau Avatar !",
-                        thematique: "Sorties",
-                        name: "Béatrice",
-                        lieu: "Marseille",
-                        illustration: "samples/cinema"
-                    )
-                    AnnonceCardBig()
-                    AnnonceCardBig()
-                    AnnonceCardBig()
+            NavigationLink(destination: AnnonceDetailView()) {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(spacing: 30) {
+                        AnnonceCardBig()
+                        AnnonceCardBig(
+                            titre: "Un café et parler",
+                            thematique: "Discussion",
+                            name: "Jean-Paul",
+                            lieu: "Roubaix",
+                            illustration: "samples/coffee"
+                        )
+                        AnnonceCardBig(
+                            titre: "Le nouveau Avatar !",
+                            thematique: "Sorties",
+                            name: "Béatrice",
+                            lieu: "Marseille",
+                            illustration: "samples/cinema"
+                        )
+                        AnnonceCardBig()
+                        AnnonceCardBig()
+                        AnnonceCardBig()
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom, 15)
                 }
-                .padding(.horizontal)
-                .padding(.bottom, 15)
             }
         }
     }
@@ -73,42 +75,52 @@ struct ListingAnnoncesView: View {
                 .padding(.horizontal)
         
         VStack(spacing:24) {
-            AnnonceCardSmall()
-            AnnonceCardSmall(
-                titre: "Un café et parler",
-                thematique: "Discussion",
-                name: "Jean-Paul",
-                illustration: "samples/coffee"
-            )
-            AnnonceCardSmall(
-                titre: "Le nouveau Avatar !",
-                thematique: "Sorties",
-                name: "Béatrice",
-                illustration: "samples/cinema"
-            )
+            NavigationLink(destination: AnnonceDetailView()) {
+                AnnonceCardSmall()
+            }
+            
+            NavigationLink(destination: AnnonceDetailView()) {
+                AnnonceCardSmall(
+                    titre: "Un café et parler",
+                    thematique: "Discussion",
+                    name: "Jean-Paul",
+                    illustration: "samples/coffee"
+                )
+            }
+            
+            NavigationLink(destination: AnnonceDetailView()) {
+                AnnonceCardSmall(
+                    titre: "Le nouveau Avatar !",
+                    thematique: "Sorties",
+                    name: "Béatrice",
+                    illustration: "samples/cinema"
+                )
+            }
         }
         .padding(.horizontal)
         }
     }
     
     var body: some View {
-        ScrollView {
-            
-            HStack {
-                Text("Annonces")
+        NavigationView {
+            ScrollView {
+                
+                HStack {
+                    Text("Annonces")
+                }
+                .font(Font.custom("Poppins-Regular", size: 16))
+                .foregroundStyle(Color("Grey-900"))
+                
+                VStack(spacing:20) {
+                    annoncesFilters()
+                    annoncesReco()
+                    annoncesRecent()
+                }
+                
             }
-            .font(Font.custom("Poppins-Regular", size: 16))
+            .font(Font.custom("Poppins-Regular", size: 12))
             .foregroundStyle(Color("Grey-900"))
-            
-            VStack(spacing:20) {
-                annoncesFilters()
-                annoncesReco()
-                annoncesRecent()
-            }
-            
         }
-        .font(Font.custom("Poppins-Regular", size: 12))
-        .foregroundStyle(Color("Grey-900"))
     }
 }
 

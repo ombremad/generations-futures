@@ -19,10 +19,9 @@ struct TabBarView: View {
             }
             
             Tab("Mon profil", systemImage: "person.fill") {
-                ProfilEditionView()
+                ProfilView()
             }
         }
-        .tabViewStyle(.sidebarAdaptable)
     }
 }
 
