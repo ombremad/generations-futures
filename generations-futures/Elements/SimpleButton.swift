@@ -11,6 +11,7 @@ struct SimpleButton: View {
     
     var content: String = "Bouton"
     var highlighted: Bool = false
+    var action: () -> Void = {}
     
     var body: some View {
 
