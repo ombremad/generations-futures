@@ -23,6 +23,9 @@ struct ContentView: View {
                 NavigationLink(destination: ProfilView()) {
                     Text("ProfilView")
                 }
+                NavigationLink(destination: Questionaire_View_1()) {
+                    Text("Questionaire_View_1")
+                }
             }
         }
     }
