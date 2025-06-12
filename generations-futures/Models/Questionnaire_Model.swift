@@ -34,8 +34,9 @@ var thematics : [Themes] = [
     Themes(title: "Repas", image: "fork.knife")
 ]
 
-struct EventCreated {
+struct EventCreated: Identifiable, Hashable{
+    var id = UUID()
     var theme : String
 }
 
-var newEvent : [EventCreated] = []
+var newEvent: [String] = []

@@ -18,7 +18,7 @@ struct Questionnaire_View_2: View {
                 ScrollView {
                     ForEach(thematics, id: \.self) { theme in
                         Button {
-                            
+                            newEvent.append(theme.title)
                         } label: {
                             ZStack {
                                 
@@ -28,7 +28,7 @@ struct Questionnaire_View_2: View {
                                     .frame(width: 240, height: 50)
                                     .background{
                                         RoundedRectangle(cornerRadius: 12)
-                                            .fill(.grey50)
+                                            .fill(newEvent.contains(theme.title) ? .grey500 : .grey50)
                                     }
                                 Circle()
                                     .frame(width: 40)
@@ -51,7 +51,7 @@ struct Questionnaire_View_2: View {
                 }.padding(.horizontal, 30)
             
                 Spacer()
-                SuivantButton()
+                SuivantButton(pageSuivante: Questionnaire_View_3())
             }
             
         }
