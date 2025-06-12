@@ -39,9 +39,19 @@ struct Profile: Hashable {
     var yearOfBirth: Int
     var generation: String
     var description: String
+    
+    init(name: String, surname: String, profilePicture: ImageResource, lieu: String, yearOfBirth: Int, generation: String, description: String) {
+        self.name = name
+        self.surname = surname
+        self.profilePicture = profilePicture
+        self.lieu = lieu
+        self.yearOfBirth = yearOfBirth
+        self.generation = generation
+        self.description = description
+    }
 }
 
-let profiles: [Profile] = [
+var profiles: [Profile] = [
     Profile(
         name: "Robert",
         surname: "Dupont",

@@ -12,7 +12,7 @@ struct MessagingDetailView: View {
     @State private var messageInput: String = ""
         
     func header() -> some View {
-        NavigationLink(destination: ProfilView()) {
+        NavigationLink(destination: ProfilView(profile: profiles[0])) {
             VStack {
                 Image(defaultProfilePicture)
                     .resizable()
