@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Questionnaire_View_2: View {
     
+    @Binding var viewModel : AnnoncesViewModel
     @State private var isSelected : Bool = false
         
     var body: some View {
@@ -21,7 +22,7 @@ struct Questionnaire_View_2: View {
                     ForEach(thematics, id: \.self) { theme in
                         Button {
                             isSelected.toggle()
-                            
+                            viewModel.theme = theme
                         } label: {
                             ZStack {
                                 
@@ -64,5 +65,5 @@ struct Questionnaire_View_2: View {
 }
 
 #Preview {
-    Questionnaire_View_2()
+    Questionnaire_View_2(viewModel: .constant(AnnoncesViewModel()))
 }

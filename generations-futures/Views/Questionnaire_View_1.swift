@@ -49,7 +49,7 @@ struct Questionnaire_View_1: View {
                         }
                     }
                     Spacer()
-                    SuivantButton(pageSuivante: Questionnaire_View_2())
+                    SuivantButton(pageSuivante: Questionnaire_View_2(viewModel: $viewModel))
                     
                     
                 }
