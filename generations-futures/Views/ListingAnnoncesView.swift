@@ -21,16 +21,12 @@ struct ListingAnnoncesView: View {
                         badge: "rectangle.stack",
                         highlighted: true
                     )
-                    SimpleBadge(
-                        thematique: "Un thème avec un nom plus long",
-                        badge: "popcorn.fill"
-                    )
-                    SimpleBadge()
-                    SimpleBadge()
-                    SimpleBadge()
-                    SimpleBadge()
-                    SimpleBadge()
-                    SimpleBadge()
+                    ForEach(hobbies, id:\.self) { hobby in
+                        SimpleBadge(
+                            thematique: hobby.label,
+                            badge: hobby.icon
+                        )
+                    }
                 }
             }
             .frame(height: 90)
@@ -44,24 +40,15 @@ struct ListingAnnoncesView: View {
             NavigationLink(destination: AnnonceDetailView()) {
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 30) {
-                        AnnonceCardBig()
-                        AnnonceCardBig(
-                            titre: "Un café et parler",
-                            thematique: "Discussion",
-                            name: "Jean-Paul",
-                            lieu: "Roubaix",
-                            illustration: "samples/coffee"
-                        )
-                        AnnonceCardBig(
-                            titre: "Le nouveau Avatar !",
-                            thematique: "Sorties",
-                            name: "Béatrice",
-                            lieu: "Marseille",
-                            illustration: "samples/cinema"
-                        )
-                        AnnonceCardBig()
-                        AnnonceCardBig()
-                        AnnonceCardBig()
+                        ForEach(annonces, id:\.self) { annonce in
+                            AnnonceCardBig(
+                                titre: annonce.titre,
+                                thematique: annonce.thematique.label,
+                                name: annonce.author.name,
+                                lieu: annonce.author.lieu,
+                                illustration: annonce.illustration
+                            )
+                        }
                     }
                     .padding(.horizontal)
                     .padding(.bottom, 15)
@@ -75,26 +62,16 @@ struct ListingAnnoncesView: View {
                 .padding(.horizontal)
         
         VStack(spacing:24) {
-            NavigationLink(destination: AnnonceDetailView()) {
-                AnnonceCardSmall()
-            }
             
-            NavigationLink(destination: AnnonceDetailView()) {
-                AnnonceCardSmall(
-                    titre: "Un café et parler",
-                    thematique: "Discussion",
-                    name: "Jean-Paul",
-                    illustration: "samples/coffee"
-                )
-            }
-            
-            NavigationLink(destination: AnnonceDetailView()) {
-                AnnonceCardSmall(
-                    titre: "Le nouveau Avatar !",
-                    thematique: "Sorties",
-                    name: "Béatrice",
-                    illustration: "samples/cinema"
-                )
+            ForEach(annonces, id:\.self) { annonce in
+                NavigationLink(destination: AnnonceDetailView()) {
+                    AnnonceCardSmall(
+                        titre: annonce.titre,
+                        thematique: annonce.thematique.label,
+                        name: annonce.author.name,
+                        illustration: annonce.illustration
+                    )
+                }
             }
         }
         .padding(.horizontal)
@@ -102,23 +79,31 @@ struct ListingAnnoncesView: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
-                
-                HStack {
-                    Text("Annonces")
-                }
-                .font(Font.custom("Poppins-Regular", size: 16))
-                .foregroundStyle(Color("Grey-900"))
-                
                 VStack(spacing:20) {
                     annoncesFilters()
                     annoncesReco()
                     annoncesRecent()
                 }
-                
             }
             .font(Font.custom("Poppins-Regular", size: 12))
+            .foregroundStyle(Color("Grey-900"))
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Annonces")
+                }
+                ToolbarItem(placement:.topBarTrailing) {
+                    NavigationLink(destination: GestionAnnoncesView()) {
+                        Image(systemName: "list.dash")
+                            .foregroundStyle(Color("Grey-500"))
+                            .fontWeight(.bold)
+                    }
+                }
+            }
+            .font(Font.custom("Poppins-Regular", size: 16))
             .foregroundStyle(Color("Grey-900"))
         }
     }

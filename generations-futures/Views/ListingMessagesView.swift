@@ -9,11 +9,6 @@ import SwiftUI
 
 struct ListingMessagesView: View {
     
-    func header() -> some View {
-        VStack {
-            Text("Messages")
-        }
-    }
     func listing() -> some View {
         ScrollView {
             VStack(spacing: 0) {
@@ -25,15 +20,26 @@ struct ListingMessagesView: View {
     }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
-                header()
                 NavigationLink(destination: MessagingDetailView()) {
                     listing()
                 }
             }
             .font(Font.custom("Poppins-Regular", size: 12))
             .foregroundStyle(Color("Grey-900"))
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    NavigationLink(destination: ProfilView()) {
+                        Text("Messages")
+                    }
+                }
+            }
+            .font(Font.custom("Poppins-Regular", size: 16))
+            .foregroundStyle(Color("Grey-900"))
+
         }
     }
 }

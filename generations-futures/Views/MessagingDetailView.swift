@@ -11,18 +11,18 @@ struct MessagingDetailView: View {
     
     @State private var messageInput: String = ""
         
-    func header() -> some View {
-        NavigationLink(destination: ProfilView()) {
-            VStack {
-                Image(defaultProfilePicture)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .clipShape(Circle())
-                    .frame(width: 48, height: 48)
-                Text(defaultName)
-            }
-        }
-    }
+//    func header() -> some View {
+//        NavigationLink(destination: ProfilView()) {
+//            VStack {
+//                Image(defaultProfilePicture)
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fill)
+//                    .clipShape(Circle())
+//                    .frame(width: 48, height: 48)
+//                Text(defaultName)
+//            }
+//        }
+//    }
     func messagesHistory() -> some View {
         ScrollView {
             VStack {
@@ -66,17 +66,38 @@ struct MessagingDetailView: View {
     }
 
     var body: some View {
-        VStack {
-            header()
-            NavigationLink(destination: AnnonceDetailView()) {
-                AnnonceCardSmall()
-                    .padding()
+        NavigationStack {
+            VStack {
+//                header()
+                NavigationLink(destination: AnnonceDetailView()) {
+                    AnnonceCardSmall()
+                        .padding()
+                }
+                messagesHistory()
+                footer()
             }
-            messagesHistory()
-            footer()
+            .font(Font.custom("Poppins-Regular", size: 12))
+            .foregroundStyle(Color("Grey-900"))
+//            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    NavigationLink(destination: ProfilView()) {
+                        VStack {
+                            Image(defaultProfilePicture)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .clipShape(Circle())
+                                .frame(width: 48, height: 48)
+                            Text(defaultName)
+                        }
+                    }
+                }
+            }
+            .font(Font.custom("Poppins-Regular", size: 16))
+            .foregroundStyle(Color("Grey-900"))
+
         }
-        .font(Font.custom("Poppins-Regular", size: 12))
-        .foregroundStyle(Color("Grey-900"))
     }
 }
 
