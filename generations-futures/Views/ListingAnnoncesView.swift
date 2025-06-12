@@ -8,52 +8,54 @@
 import SwiftUI
 
 struct ListingAnnoncesView: View {
-    var body: some View {
-        ScrollView {
-                        
-            VStack {
-                
-                SearchBar()
-                    .padding()
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack(spacing: 0) {
-                        SimpleBadge(
-                            thematique: "Filtres",
-                            badge: "rectangle.stack",
-                            highlighted: true
-                        )
-                        SimpleBadge(
-                            thematique: "Un thème avec un nom plus long",
-                            badge: "popcorn.fill"
-                        )
-                        SimpleBadge()
-                        SimpleBadge()
-                        SimpleBadge()
-                        SimpleBadge()
-                        SimpleBadge()
-                        SimpleBadge()
-                    }
+    
+    func annoncesFilters() -> some View {
+        VStack {
+            SearchBar()
+                .padding()
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(alignment: .top, spacing: 0) {
+                    SimpleBadge(
+                        thematique: "Filtres",
+                        badge: "rectangle.stack",
+                        highlighted: true
+                    )
+                    SimpleBadge(
+                        thematique: "Un thème avec un nom plus long",
+                        badge: "popcorn.fill"
+                    )
+                    SimpleBadge()
+                    SimpleBadge()
+                    SimpleBadge()
+                    SimpleBadge()
+                    SimpleBadge()
+                    SimpleBadge()
                 }
-                .frame(height: 90)
-                
-                SimpleSectionTitle(title: "Annonces près de vous")
+            }
+            .frame(height: 90)
+        }
+    }
+    func annoncesReco() -> some View {
+        VStack {
+            SimpleSectionTitle(title: "Annonces près de vous")
                 .padding(.horizontal)
-                                                
+            
+            NavigationLink(destination: AnnonceDetailView()) {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack(spacing: 24) {
+                    LazyHStack(spacing: 30) {
                         AnnonceCardBig()
                         AnnonceCardBig(
                             titre: "Un café et parler",
                             thematique: "Discussion",
-                            auteur: "Jean-Paul",
+                            name: "Jean-Paul",
                             lieu: "Roubaix",
                             illustration: "samples/coffee"
                         )
                         AnnonceCardBig(
                             titre: "Le nouveau Avatar !",
                             thematique: "Sorties",
-                            auteur: "Béatrice",
+                            name: "Béatrice",
                             lieu: "Marseille",
                             illustration: "samples/cinema"
                         )
@@ -62,29 +64,59 @@ struct ListingAnnoncesView: View {
                         AnnonceCardBig()
                     }
                     .padding(.horizontal)
-                    .padding(.bottom, 30)
+                    .padding(.bottom, 15)
+                }
+            }
+        }
+    }
+    func annoncesRecent() -> some View {
+        VStack {
+            SimpleSectionTitle(title: "Posté récemment")
+                .padding(.horizontal)
+        
+        VStack(spacing:24) {
+            NavigationLink(destination: AnnonceDetailView()) {
+                AnnonceCardSmall()
+            }
+            
+            NavigationLink(destination: AnnonceDetailView()) {
+                AnnonceCardSmall(
+                    titre: "Un café et parler",
+                    thematique: "Discussion",
+                    name: "Jean-Paul",
+                    illustration: "samples/coffee"
+                )
+            }
+            
+            NavigationLink(destination: AnnonceDetailView()) {
+                AnnonceCardSmall(
+                    titre: "Le nouveau Avatar !",
+                    thematique: "Sorties",
+                    name: "Béatrice",
+                    illustration: "samples/cinema"
+                )
+            }
+        }
+        .padding(.horizontal)
+        }
+    }
+    
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                
+                HStack {
+                    Text("Annonces")
+                }
+                .font(Font.custom("Poppins-Regular", size: 16))
+                .foregroundStyle(Color("Grey-900"))
+                
+                VStack(spacing:20) {
+                    annoncesFilters()
+                    annoncesReco()
+                    annoncesRecent()
                 }
                 
-                SimpleSectionTitle(title: "Posté récemment")
-                .padding(.horizontal)
-                
-                VStack(spacing:18) {
-                    AnnonceCardSmall()
-                    AnnonceCardSmall(
-                        titre: "Un café et parler",
-                        thematique: "Discussion",
-                        auteur: "Jean-Paul",
-                        illustration: "samples/coffee"
-                    )
-                    AnnonceCardSmall(
-                        titre: "Le nouveau Avatar !",
-                        thematique: "Sorties",
-                        auteur: "Béatrice",
-                        illustration: "samples/cinema"
-                    )
-                }
-                .padding(.horizontal)
-                                
             }
             .font(Font.custom("Poppins-Regular", size: 12))
             .foregroundStyle(Color("Grey-900"))

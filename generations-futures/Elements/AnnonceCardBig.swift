@@ -11,7 +11,7 @@ struct AnnonceCardBig: View {
     
     var titre: String = defaultTitre
     var thematique: String = defaultThematique
-    var auteur: String = defaultAuteur
+    var name: String = defaultName
     var lieu: String = defaultLieu
     var illustration: String = defaultIllustration
     
@@ -26,23 +26,26 @@ struct AnnonceCardBig: View {
                         .scaledToFill()
                         .frame(width: 200, height:220)
                         .clipped()
-                    HStack(alignment:.top) {
-                        VStack(alignment:.leading) {
-                            Text(titre)
-                                .font(Font.custom("Poppins-Medium", size: 14))
-                            Text(thematique)
-                                .font(Font.custom("Poppins-Regular", size: 10))
-                            Text("Avec \(auteur)")
-                                .font(Font.custom("Poppins-Medium", size: 10))
+                    VStack(alignment:.leading) {
+                        Text(titre)
+                            .font(Font.custom("Poppins-Medium", size: 14))
+                        HStack(alignment:.bottom) {
+                            VStack(alignment:.leading) {
+                                Text(thematique)
+                                    .font(Font.custom("Poppins-Regular", size: 10))
+                                Text("Avec \(name)")
+                                    .font(Font.custom("Poppins-Medium", size: 10))
+                            }
+                            Spacer()
+                            Text(lieu)
+                                .font(Font.custom("Poppins-Medium", size: 12))
+                                .lineLimit(1)
                         }
-                        Spacer()
-                        Text(lieu)
-                            .font(Font.custom("Poppins-Medium", size: 12))
-                            .lineLimit(1)
                     }
                     .foregroundStyle(Color("Grey-900"))
                     .padding(.horizontal, 12)
                     .padding(.bottom, 12)
+
                 }
             }
             .frame(width: 200, height: 280)

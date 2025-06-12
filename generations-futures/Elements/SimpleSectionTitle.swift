@@ -20,6 +20,7 @@ struct SimpleSectionTitle: View {
                 .fontWeight(.semibold)
             Spacer()
         }
+        .padding(.bottom, 12)
     }
 }
 

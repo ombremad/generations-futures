@@ -26,13 +26,15 @@ struct SimpleBadge: View {
             }
             .frame(width: 44, height: 44)
             Text(thematique)
-                .foregroundStyle(Color("Grey-700"))
+                .foregroundStyle(highlighted ? Color("Red-500") : Color("Grey-700"))
                 .font(Font.custom("Poppins-Regular", size: 11))
                 .lineLimit(2)
                 .multilineTextAlignment(.center)
             Spacer()
         }
         .frame(width: 90, height: 90)
+        
+        // Ceci est un commentaire
     }
 }
 
