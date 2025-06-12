@@ -19,7 +19,7 @@ struct TabBarView: View {
             }
             
             Tab("Mon profil", systemImage: "person.fill") {
-                ProfilView()
+                ProfilView(profile: profiles[0])
             }
         }
     }

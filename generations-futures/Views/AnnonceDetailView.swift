@@ -21,7 +21,7 @@ struct AnnonceDetailView: View {
     @StateObject var eventManager = EventManager()
       @State private var focusedDate = Date()
       @State private var events: [EKEvent] = []
-    
+
     
     let restaurant = CLLocationCoordinate2D(latitude: 45.750951147666186, longitude: 4.824775401850031)
     
@@ -143,7 +143,8 @@ struct AnnonceDetailView: View {
                     .multilineTextAlignment(.center)
                     .frame(width: 360, height: 650)
                     }
-                NavigationLink(destination: ProfilView()) {
+
+                NavigationLink(destination: ProfilView(profile: profiles[0])) {
                     ZStack{
                         Rectangle()
                             .fill(Color.accent)
