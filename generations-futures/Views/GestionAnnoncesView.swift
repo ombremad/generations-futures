@@ -9,22 +9,25 @@ import SwiftUI
 
 struct GestionAnnoncesView: View {
     
-    func newAnnonceButton() -> some View {
-        VStack {
-            Image(systemName: "plus")
-                   .font(.system(size: 33))
-                   .foregroundStyle(.almostWhite)
-                   .padding(20)
-                   .background{
-                       Circle()
-                           .fill(Color("Red-500"))
-                   }
-            Text("Créez votre annonce\nen quelques secondes !")
-                .multilineTextAlignment(.center)
-        }
-        .padding()
-    }
+    @Environment(\.dismiss) private var dismiss
     
+    func newAnnonceButton() -> some View {
+        NavigationLink(destination: Questionnaire_View_1()) {
+            VStack {
+                Image(systemName: "plus")
+                    .font(.system(size: 33))
+                    .foregroundStyle(.almostWhite)
+                    .padding(20)
+                    .background{
+                        Circle()
+                            .fill(Color("Red-500"))
+                    }
+                Text("Créez votre annonce\nen quelques secondes !")
+                    .multilineTextAlignment(.center)
+            }
+            .padding()
+        }
+    }
     func annoncesHistory() -> some View {
         VStack {
             SimpleSectionTitle(title: "Posté récemment")
@@ -50,12 +53,6 @@ struct GestionAnnoncesView: View {
     var body: some View {
             ScrollView {
                 
-                HStack {
-                    Text("Gestion des annonces")
-                }
-                .font(Font.custom("Poppins-Regular", size: 16))
-                .foregroundStyle(Color("Grey-900"))
-                
                 VStack(spacing:20) {
                     newAnnonceButton()
                     annoncesHistory()
@@ -64,6 +61,27 @@ struct GestionAnnoncesView: View {
             }
             .font(Font.custom("Poppins-Regular", size: 12))
             .foregroundStyle(Color("Grey-900"))
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Gestion des annonces")
+                }
+                ToolbarItem(placement:.topBarLeading) {
+                    Button { dismiss() } label: {
+                        ZStack {
+                            Circle()
+                                .fill(Color("Grey-50"))
+                                .frame(width:44, height: 44)
+                            Image(systemName: "chevron.left")
+                                .foregroundStyle(Color("Grey-500"))
+                        }
+                    }
+                }
+            }
+            .font(Font.custom("Poppins-Regular", size: 16))
+            .foregroundStyle(Color("Grey-900"))
+
     }
 }
 

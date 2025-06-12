@@ -79,23 +79,31 @@ struct ListingAnnoncesView: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
-                
-                HStack {
-                    Text("Annonces")
-                }
-                .font(Font.custom("Poppins-Regular", size: 16))
-                .foregroundStyle(Color("Grey-900"))
-                
                 VStack(spacing:20) {
                     annoncesFilters()
                     annoncesReco()
                     annoncesRecent()
                 }
-                
             }
             .font(Font.custom("Poppins-Regular", size: 12))
+            .foregroundStyle(Color("Grey-900"))
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Annonces")
+                }
+                ToolbarItem(placement:.topBarTrailing) {
+                    NavigationLink(destination: GestionAnnoncesView()) {
+                        Image(systemName: "list.dash")
+                            .foregroundStyle(Color("Grey-500"))
+                            .fontWeight(.bold)
+                    }
+                }
+            }
+            .font(Font.custom("Poppins-Regular", size: 16))
             .foregroundStyle(Color("Grey-900"))
         }
     }
