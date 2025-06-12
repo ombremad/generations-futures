@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Questionnaire_View_2: View {
+    
+    @State private var isSelected : Bool = false
         
     var body: some View {
         ZStack{
@@ -18,7 +20,8 @@ struct Questionnaire_View_2: View {
                 ScrollView {
                     ForEach(thematics, id: \.self) { theme in
                         Button {
-                            
+                            isSelected.toggle()
+                            newEvent.append(theme.title)
                         } label: {
                             ZStack {
                                 
@@ -28,7 +31,7 @@ struct Questionnaire_View_2: View {
                                     .frame(width: 240, height: 50)
                                     .background{
                                         RoundedRectangle(cornerRadius: 12)
-                                            .fill(.grey50)
+                                            .fill(isSelected ? .grey500 : .grey50)
                                     }
                                 Circle()
                                     .frame(width: 40)
@@ -45,13 +48,14 @@ struct Questionnaire_View_2: View {
                             }
 
                         }
+                        .safeAreaPadding(.horizontal, 40)
 
                     }
 // rechercher la signification des paddings horizontaux et verticaux
-                }.padding(.horizontal, 30)
-            
+                }
+                .padding(.bottom, 30)
                 Spacer()
-                SuivantButton()
+                SuivantButton(pageSuivante: Questionnaire_View_3())
             }
             
         }

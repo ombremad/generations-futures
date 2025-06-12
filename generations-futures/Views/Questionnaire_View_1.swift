@@ -36,7 +36,7 @@ struct Questionnaire_View_1: View {
                                 .fill(Color.grey50)
                         }
                     Spacer()
-                    SuivantButton()
+                    SuivantButton(pageSuivante: Questionnaire_View_2())
                     
                     
                 }
