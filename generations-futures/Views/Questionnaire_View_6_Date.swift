@@ -37,7 +37,7 @@ struct Questionnaire_View_6_Date: View {
                 
                 Spacer()
                 
-                SuivantButton()
+//                SuivantButton()
             }
             
         }

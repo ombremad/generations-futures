@@ -54,7 +54,7 @@ struct Questionnaire_View_4: View {
                 
                 
                 Spacer()
-                SuivantButton()
+                SuivantButton(pageSuivante: Questionnaire_View_5())
             }
             
         }

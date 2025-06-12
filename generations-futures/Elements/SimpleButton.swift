@@ -15,20 +15,18 @@ struct SimpleButton: View {
     
     var body: some View {
 
-        Button(action: {}, label: {
-            Text(content)
-                .frame(maxWidth: 256)
-                .padding()
-                .background {
-                    RoundedRectangle(cornerRadius: cornerRadiusBig)
-                        .fill(highlighted ? Color("Red-500") : Color("Grey-500"))
-                }
-                .font(Font.custom("Poppins-Regular", size: 12))
-                .foregroundStyle(Color("Grey-50"))
-                .contentShape(Rectangle())
-        })
-        .shadow(color: Color("Grey-300"), radius: shadowAmount, x: 0, y: 4)
-        
+        Text(content)
+            .frame(maxWidth: 256)
+            .padding()
+            .background {
+                RoundedRectangle(cornerRadius: cornerRadiusBig)
+                    .fill(highlighted ? Color("Red-500") : Color("Grey-500"))
+            }
+            .font(Font.custom("Poppins-Regular", size: 12))
+            .foregroundStyle(Color("Grey-50"))
+            .contentShape(Rectangle())
+            .shadow(color: Color("Grey-300"), radius: shadowAmount, x: 0, y: 4)
+
     }
 }
 

@@ -54,31 +54,13 @@ struct Questionnaire_View_3: View {
                            }
 
                 Spacer()
+                
+                SuivantButton(pageSuivante: Questionnaire_View_4())
+                
 
-                SuivantButton()
             }
         }
-        .onChange(of: pickerItem) { _, newValue in
-            Task {
-                if let data = try? await newValue?.loadTransferable(type: Data.self),
-                   let image = UIImage(data: data) {
-                    uiImage = image
-                    showCropper = true
-                }
-            }
-        }
-
-
-        
-        .sheet(isPresented: $showCropper) {
-                  if let uiImage = uiImage {
-                      ImageCropper(image: uiImage) { croppedImage in
-                          self.selectImage = Image(uiImage: croppedImage)
-                          self.uiImage = croppedImage
-                          self.showCropper = false
-                }
-            }
-        }
+       
     }
 }
 

@@ -39,6 +39,7 @@ struct Profile: Hashable {
     var yearOfBirth: Int
     var generation: String
     var description: String
+    var favHobbies: [Hobby]
 }
 
 let profiles: [Profile] = [
@@ -49,7 +50,9 @@ let profiles: [Profile] = [
         lieu: "Lille",
         yearOfBirth: 1961,
         generation: "Baobab",
-        description: "Un roadtrip au Brésil m’a suffi pour tomber amoureux de la samba. \n17 ans d’expériences dans les pattes!"),
+        description: "Un roadtrip au Brésil m’a suffi pour tomber amoureux de la samba. \n17 ans d’expériences dans les pattes!",
+        favHobbies: [hobbies[2], hobbies[5], hobbies[7], hobbies[12]]
+    ),
     Profile(
         name: "Malik",
         surname: "Ben Youssef",
@@ -57,15 +60,19 @@ let profiles: [Profile] = [
         lieu: "Bruxelles",
         yearOfBirth: 1981,
         generation: "Baobab",
-        description: "dev web, musique électronique, tech, débats philosophiques, balades nocturnes en ville... !!!"),
+        description: "dev web, musique électronique, tech, débats philosophiques, balades nocturnes en ville... !!!",
+        favHobbies: [hobbies[0], hobbies[7], hobbies[8], hobbies[13]]
+    ),
     Profile(
         name: "Béatrice",
         surname: "Moreau",
         profilePicture: .beatrice,
         lieu: "Lyon",
-        yearOfBirth: 1987,
+        yearOfBirth: 1977,
         generation: "Baobab",
-        description: "Passionnée de photographie urbaine et de littérature contemporaine. J'aime capturer l’instant et raconter des histoires. Je travaille dans la médiation culturelle et j'adore les escapades en solitaire !")
+        description: "Passionnée de photographie urbaine et de littérature contemporaine. J'aime capturer l’instant et raconter des histoires. Je travaille dans la médiation culturelle et j'adore les escapades en solitaire !",
+        favHobbies: [hobbies[1], hobbies[3], hobbies[4], hobbies[5], hobbies[8]]
+    )
 ]
 
 struct Annonce: Hashable {
@@ -77,17 +84,28 @@ struct Annonce: Hashable {
 }
 
 let annonces: [Annonce] = [
-    Annonce(titre: "Un café et parler",
-            description: "Parler de tout et de rien, de mon roadtrip au Brésil, de la samba, des plantes, des hobbies en général...",
-            illustration: .Samples.coffee,
-            thematique: hobbies[12],
-            author: profiles[0]),
-    Annonce(titre: "Le nouveau Avatar !",
-            description: "Aller voir le nouveau Avatar au cinéma ?!",
-            illustration: .Samples.cinema,
-            thematique: hobbies[8],
-            author: profiles[2])
-    ]
+    Annonce(
+        titre: "Un café et parler",
+        description: "Parler de tout et de rien, de mon roadtrip au Brésil, de la samba, des plantes, des hobbies en général...",
+        illustration: .Samples.coffee,
+        thematique: hobbies[12],
+        author: profiles[0]
+    ),
+    Annonce(
+        titre: "Le nouveau Avatar !",
+        description: "Aller voir le nouveau Avatar au cinéma ?!",
+        illustration: .Samples.cinema,
+        thematique: hobbies[8],
+        author: profiles[2]
+    ),
+    Annonce(
+        titre:"Mise en pot",
+        description: "Mes plantes ont besoin d'un terreau tout frais ! Mais j'ai bien besoin d'aide.",
+        illustration: .Samples.plant,
+        thematique: hobbies[7],
+        author: profiles[1]
+    )
+]
 
 struct Message: Hashable {
     var text: String
