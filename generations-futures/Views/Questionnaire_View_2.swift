@@ -21,7 +21,7 @@ struct Questionnaire_View_2: View {
                     ForEach(thematics, id: \.self) { theme in
                         Button {
                             isSelected.toggle()
-//                            newEvent.append(theme.title)
+                            
                         } label: {
                             ZStack {
                                 
