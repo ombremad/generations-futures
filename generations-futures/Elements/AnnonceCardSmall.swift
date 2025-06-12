@@ -12,7 +12,8 @@ struct AnnonceCardSmall: View {
     var titre: String = defaultTitre
     var thematique: String = defaultThematique
     var name: String = defaultName
-    var illustration: String = defaultIllustration
+    var illustration: ImageResource = defaultIllustration
+    var isAuthor: Bool = false
     
     var body: some View {
             ZStack {
@@ -30,9 +31,11 @@ struct AnnonceCardSmall: View {
                             Text(titre)
                                 .font(Font.custom("Poppins-Medium", size: 14))
                                 .lineLimit(2)
-                            Text("Avec \(name)")
-                                .font(Font.custom("Poppins-Medium", size: 10))
-                                .lineLimit(1)
+                            if !isAuthor {
+                                Text("Avec \(name)")
+                                    .font(Font.custom("Poppins-Medium", size: 10))
+                                    .lineLimit(1)
+                            }
                         }
                         Spacer()
                         Text(thematique)
