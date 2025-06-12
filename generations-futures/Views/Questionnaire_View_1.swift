@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Questionaire_View_1: View {
+struct Questionnaire_View_1: View {
     @State var saisieText = ""
     
     var body: some View {
@@ -46,5 +46,5 @@ struct Questionaire_View_1: View {
 }
 
 #Preview {
-    Questionaire_View_1()
+    Questionnaire_View_1()
 }

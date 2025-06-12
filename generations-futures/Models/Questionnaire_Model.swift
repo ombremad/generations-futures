@@ -16,3 +16,26 @@ func LimitingCharacters(description: String) -> Int{
     }
     
 }
+
+struct Themes: Identifiable, Hashable{
+    var id = UUID()
+    var title : String
+    var image : String
+    
+    }
+
+var thematics : [Themes] = [
+    Themes(title: "Artistique", image: "building.columns"),
+    Themes(title: "Café", image: "cup.and.heat.waves"),
+    Themes(title: "Atelier", image: "scissors"),
+    Themes(title: "Sport", image: "figure.run"),
+    Themes(title: "Discussion", image: "ellipsis.message"),
+    Themes(title: "Balade", image: "figure.hiking"),
+    Themes(title: "Repas", image: "fork.knife")
+]
+
+struct EventCreated {
+    var theme : String
+}
+
+var newEvent : [EventCreated] = []
