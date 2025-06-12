@@ -48,7 +48,6 @@ struct Questionnaire_View_3: View {
                                selectImage
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
-                                .clipShape(Circle())
                                 .frame(width: 200, height: 200)
                                               .shadow(color: Color(shadowColor), radius: shadowAmount, x: 0, y: 4)
                                               .padding(.top, 30)
