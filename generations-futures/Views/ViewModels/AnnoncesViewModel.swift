@@ -16,6 +16,9 @@ class AnnoncesViewModel {
     var title = ""
     var theme: Theme?
     var image = ""
+    var description = ""
+    var location = ""
+    var preciseDate : Date?
     
     func createNewEvent() {
         annonceList.append(Annonce(titre: "Test", description: ":)", illustration: .beatrice, thematique: .init(icon: "pencil", label: "Stylo :)"), author: profiles.first!))

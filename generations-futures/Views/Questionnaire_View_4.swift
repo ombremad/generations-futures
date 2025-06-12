@@ -18,6 +18,7 @@ struct Questionnaire_View_4: View {
         }
         
     }
+    @Binding var viewModel : AnnoncesViewModel
     @State var description = ""
     
     var body: some View {
@@ -47,8 +48,16 @@ struct Questionnaire_View_4: View {
                         .frame(width: 320, alignment: .trailing)
                 
                 
+                Button {
+                    // injecter ma valeur dans la varible de mon viewModel
+                    viewModel.description = description
+                } label: {
+                    Image(systemName: "checkmark")
+                        .font(.system(size: 40))
+                }
+
                 Spacer()
-                SuivantButton(pageSuivante: Questionnaire_View_5())
+                SuivantButton(pageSuivante: Questionnaire_View_5( viewModel: $viewModel))
             }
             
         }
@@ -56,5 +65,5 @@ struct Questionnaire_View_4: View {
 }
 
 #Preview {
-    Questionnaire_View_4()
+    Questionnaire_View_4(viewModel: .constant(AnnoncesViewModel()))
 }

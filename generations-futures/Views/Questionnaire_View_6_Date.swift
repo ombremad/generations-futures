@@ -9,6 +9,7 @@ import SwiftUI
 import EventKit
 
 struct Questionnaire_View_6_Date: View {
+    @Binding var viewModel : AnnoncesViewModel
     @State var selectedDate: Date = Date.now
     
     var body: some View {
@@ -29,25 +30,24 @@ struct Questionnaire_View_6_Date: View {
                     }.padding(.bottom, 24)
                 
                 // faire en sorte de pouvoir selectionner une date supérieure à la date du jour et de faire une date range
-                    // possible en natif ?
+                // possible en natif ?
                 
                 DatePicker("Moment Selectionnée", selection: $selectedDate,in: Date.now...)
                     .labelsHidden()
                     .font(Font.custom("Poppins-Regular", size: 12))
                     .padding(.horizontal, 24)
                 Button {
-//                    newEvent.append()
-                } label: {
-                    Text("VALIDER")
-                        .font(Font.custom("Poppins-Regular", size: 28))
-                        .foregroundStyle(.grey500)
-                        .fontWeight(.black)
-                }
-
-               
+                    viewModel.preciseDate = selectedDate                } label: {
+                        Text("VALIDER")
+                            .font(Font.custom("Poppins-Regular", size: 28))
+                            .foregroundStyle(.grey500)
+                            .fontWeight(.black)
+                    }
+                
+                
                 Spacer()
                 
-//                SuivantButton()
+                //                SuivantButton()
             }
             
         }
@@ -55,5 +55,5 @@ struct Questionnaire_View_6_Date: View {
 }
 
 #Preview {
-    Questionnaire_View_6_Date(selectedDate: Date.now)
+    Questionnaire_View_6_Date(viewModel: .constant(AnnoncesViewModel()), selectedDate: Date.now)
 }

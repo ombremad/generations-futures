@@ -28,6 +28,7 @@ struct Questionnaire_View_5: View {
         }
     }
     
+    @Binding var viewModel : AnnoncesViewModel
     @State var recherche = ""
     
     var body: some View {
@@ -61,7 +62,7 @@ struct Questionnaire_View_5: View {
                     Button {
                         // Doit enregistrer le choix de l'utilisateur (pour l'array du récap') et l'afficher sur la Map en dessous
 //                        newEvent.append(town)
-                        
+                        viewModel.location = town
                     } label: {
                         Text(town)
                             .font(Font.custom("Poppins-Regular", size: 12))
@@ -116,5 +117,5 @@ struct Questionnaire_View_5: View {
 }
 
 #Preview {
-    Questionnaire_View_5()
+    Questionnaire_View_5( viewModel: .constant(AnnoncesViewModel()))
 }
