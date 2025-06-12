@@ -32,7 +32,7 @@ struct SimpleBadge: View {
                 .multilineTextAlignment(.center)
             Spacer()
         }
-        .frame(width: 90, height: 90)
+        .frame(width: 78, height: 90)
         
         // Ceci est un commentaire
     }

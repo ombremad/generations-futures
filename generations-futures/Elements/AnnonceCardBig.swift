@@ -13,7 +13,7 @@ struct AnnonceCardBig: View {
     var thematique: String = defaultThematique
     var name: String = defaultName
     var lieu: String = defaultLieu
-    var illustration: String = defaultIllustration
+    var illustration: ImageResource = defaultIllustration
     
     var body: some View {
         
