@@ -10,7 +10,9 @@ import PhotosUI
 
 struct Questionnaire_View_3: View {
     @State private var pickerItem: PhotosPickerItem?
+    @State private var uiImage: UIImage?
     @State private var selectImage: Image?
+    @State private var showCropper = false
 
     var body: some View {
         ZStack {
@@ -41,22 +43,43 @@ struct Questionnaire_View_3: View {
                     }
                 }
                 .padding(.top, 100)
+                
+                if let selectImage = selectImage {
+                               selectImage
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .clipShape(Circle())
+                                .frame(width: 200, height: 200)
+                                              .shadow(color: Color(shadowColor), radius: shadowAmount, x: 0, y: 4)
+                                              .padding(.top, 30)
+                           }
 
                 Spacer()
 
                 SuivantButton()
             }
         }
-        .onChange(of: pickerItem) {
+        .onChange(of: pickerItem) { _, newValue in
             Task {
-                if let data = try? await pickerItem?.loadTransferable(type: Data.self),
-                   let uiImage = UIImage(data: data) {
-                    selectImage = Image(uiImage: uiImage)
+                if let data = try? await newValue?.loadTransferable(type: Data.self),
+                   let image = UIImage(data: data) {
+                    uiImage = image
+                    showCropper = true
                 }
             }
         }
 
 
+        
+        .sheet(isPresented: $showCropper) {
+                  if let uiImage = uiImage {
+                      ImageCropper(image: uiImage) { croppedImage in
+                          self.selectImage = Image(uiImage: croppedImage)
+                          self.uiImage = croppedImage
+                          self.showCropper = false
+                }
+            }
+        }
     }
 }
 
