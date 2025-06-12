@@ -123,11 +123,28 @@ struct ListingMessage: Hashable {
     var isRead: Bool
 }
 
-let listingMessages: [ListingMessage] = [
-    ListingMessage(titre: defaultTitre, name: defaultName, surname: defaultSurname, preview: "Bonjour !", profilePicture: defaultProfilePicture, isRead: false),
-    ListingMessage(titre: defaultTitre, name: defaultName, surname: defaultSurname, preview: "Bonjour !", profilePicture: defaultProfilePicture, isRead: true),
-    ListingMessage(titre: defaultTitre, name: defaultName, surname: defaultSurname, preview: "Bonjour !", profilePicture: defaultProfilePicture, isRead: true)
+let previews = [
+    "Bonjour !",
+    "Hey, comment ça va ?",
+    "Bonjour, je suis très intéressé par votre annonce"
 ]
+
+let titles = [
+    "Mise en pot",
+    "Cours de cuisine",
+    "Photographie"
+]
+
+let listingMessages: [ListingMessage] = profiles.enumerated().map { index, profile in
+    ListingMessage(
+        titre: titles[index],
+        name: profile.name,
+        surname: profile.surname,
+        preview: previews[index],
+        profilePicture: profile.profilePicture,
+        isRead: true
+    )
+}
 
 struct Hobby: Hashable {
     var icon: String

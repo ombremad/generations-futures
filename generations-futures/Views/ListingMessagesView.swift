@@ -25,7 +25,7 @@ struct ListingMessagesView: View {
     }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 header()
                 NavigationLink(destination: MessagingDetailView()) {

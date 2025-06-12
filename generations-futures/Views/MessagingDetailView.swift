@@ -14,12 +14,12 @@ struct MessagingDetailView: View {
     func header() -> some View {
         NavigationLink(destination: ProfilView(profile: profiles[0])) {
             VStack {
-                Image(defaultProfilePicture)
+                Image(profiles[0].profilePicture)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .clipShape(Circle())
                     .frame(width: 48, height: 48)
-                Text(defaultName)
+                Text(profiles[0].name)
             }
         }
     }
