@@ -12,7 +12,7 @@ struct AnnonceCardSmall: View {
     var titre: String = defaultTitre
     var thematique: String = defaultThematique
     var name: String = defaultName
-    var illustration: String = defaultIllustration
+    var illustration: ImageResource = defaultIllustration
     var isAuthor: Bool = false
     
     var body: some View {

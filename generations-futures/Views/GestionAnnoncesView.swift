@@ -30,34 +30,20 @@ struct GestionAnnoncesView: View {
             SimpleSectionTitle(title: "Posté récemment")
                 .padding(.horizontal)
         
-        VStack(spacing:24) {
-            NavigationLink(destination: AnnonceDetailView()) {
-                AnnonceCardSmall(
-                    isAuthor: true
-                )
+        NavigationLink(destination: AnnonceDetailView()) {
+            VStack(spacing:24) {
+                ForEach(annonces, id:\.self) { annonce in
+                        AnnonceCardSmall(
+                            titre: annonce.titre,
+                            thematique: annonce.thematique.label,
+                            name: annonce.author.name,
+                            illustration: annonce.illustration,
+                            isAuthor: true
+                        )
+                    }
+                }
             }
-            
-            NavigationLink(destination: AnnonceDetailView()) {
-                AnnonceCardSmall(
-                    titre: "Un café et parler",
-                    thematique: "Discussion",
-                    name: "Jean-Paul",
-                    illustration: "samples/coffee",
-                    isAuthor: true
-                )
-            }
-            
-            NavigationLink(destination: AnnonceDetailView()) {
-                AnnonceCardSmall(
-                    titre: "Le nouveau Avatar !",
-                    thematique: "Sorties",
-                    name: "Béatrice",
-                    illustration: "samples/cinema",
-                    isAuthor: true
-                )
-            }
-        }
-        .padding(.horizontal)
+            .padding(.horizontal)
         }
     }
     

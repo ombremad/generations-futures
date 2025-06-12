@@ -16,7 +16,7 @@ let defaultProfilePicture: ImageResource = .robert
 let defaultLieu: String = "Lille"
 let defaultYearOfBirth: Int = 1961
 let defaultGeneration: String = "Génération Baobab"
-let defaultIllustration: String = "samples/plant"
+let defaultIllustration: ImageResource = .Samples.plant
 let defaultBadge: String = "carrot"
 let defautHobby: String = "figure.run"
 let defaultBio: String = "Un roadtrip au Brésil m’a suffi pour tomber amoureux de la samba. \n17 ans d’expériences dans les pattes!"
@@ -49,7 +49,23 @@ let profiles: [Profile] = [
         lieu: "Lille",
         yearOfBirth: 1961,
         generation: "Baobab",
-        description: "Un roadtrip au Brésil m’a suffi pour tomber amoureux de la samba. \n17 ans d’expériences dans les pattes!")
+        description: "Un roadtrip au Brésil m’a suffi pour tomber amoureux de la samba. \n17 ans d’expériences dans les pattes!"),
+    Profile(
+        name: "Malik",
+        surname: "Ben Youssef",
+        profilePicture: .malik,
+        lieu: "Bruxelles",
+        yearOfBirth: 1981,
+        generation: "Baobab",
+        description: "dev web, musique électronique, tech, débats philosophiques, balades nocturnes en ville... !!!"),
+    Profile(
+        name: "Béatrice",
+        surname: "Moreau",
+        profilePicture: .beatrice,
+        lieu: "Lyon",
+        yearOfBirth: 1987,
+        generation: "Baobab",
+        description: "Passionnée de photographie urbaine et de littérature contemporaine. J'aime capturer l’instant et raconter des histoires. Je travaille dans la médiation culturelle et j'adore les escapades en solitaire !")
 ]
 
 struct Annonce: Hashable {
@@ -65,7 +81,12 @@ let annonces: [Annonce] = [
             description: "Parler de tout et de rien, de mon roadtrip au Brésil, de la samba, des plantes, des hobbies en général...",
             illustration: .Samples.coffee,
             thematique: hobbies[12],
-            author: profiles[0])
+            author: profiles[0]),
+    Annonce(titre: "Le nouveau Avatar !",
+            description: "Aller voir le nouveau Avatar au cinéma ?!",
+            illustration: .Samples.cinema,
+            thematique: hobbies[8],
+            author: profiles[2])
     ]
 
 struct Message: Hashable {
