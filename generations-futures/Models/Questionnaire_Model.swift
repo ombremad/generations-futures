@@ -19,7 +19,7 @@ func LimitingCharacters(description: String) -> Int{
 }
 
 // MARK: Thèmes -> Questionaire 2
-struct Themes: Identifiable, Hashable{
+struct Theme: Identifiable, Hashable{
     var id = UUID()
     var title : String
     var image : String
@@ -29,19 +29,19 @@ struct Themes: Identifiable, Hashable{
     }
 
 
-var thematics : [Themes] = [
-    Themes(title: "Artistique", image: "building.columns"),
-    Themes(title: "Café", image: "cup.and.heat.waves"),
-    Themes(title: "Atelier", image: "scissors"),
-    Themes(title: "Sport", image: "figure.run"),
-    Themes(title: "Discussion", image: "ellipsis.message"),
-    Themes(title: "Balade", image: "figure.hiking"),
-    Themes(title: "Repas", image: "fork.knife")
+var thematics : [Theme] = [
+    Theme(title: "Artistique", image: "building.columns"),
+    Theme(title: "Café", image: "cup.and.heat.waves"),
+    Theme(title: "Atelier", image: "scissors"),
+    Theme(title: "Sport", image: "figure.run"),
+    Theme(title: "Discussion", image: "ellipsis.message"),
+    Theme(title: "Balade", image: "figure.hiking"),
+    Theme(title: "Repas", image: "fork.knife")
 ]
 
 
 //MARK: Données pour la map -> Questionaire 5
-//struct Location : Hashable, Identifiable{
+//struct Location : Hashable, Identifiable, Equatable{
 //    var id = UUID()
 //    var name: String = "Paris"
 //    var coord : (Double , Double) = (48.8566, 2.3522) // Coordonnées par défaut sur Paris
@@ -53,6 +53,7 @@ struct EventCreated: Observable, Identifiable, Hashable{
     var id = UUID()
     var theme : String
 //    var town : Location
+    var date : Date
 }
 
-var newEvent: [String] = []
+var newEvent: [EventCreated] = []

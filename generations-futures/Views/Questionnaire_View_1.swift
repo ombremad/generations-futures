@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct Questionnaire_View_1: View {
+    
+    @Binding var viewModel : AnnoncesViewModel
+    
     @State var saisieText = ""
     
     var body: some View {
@@ -46,5 +49,5 @@ struct Questionnaire_View_1: View {
 }
 
 #Preview {
-    Questionnaire_View_1()
+    Questionnaire_View_1(viewModel: .constant(AnnoncesViewModel()))
 }

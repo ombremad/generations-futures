@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import EventKit
 
 struct Questionnaire_View_6_Date: View {
     @State var selectedDate: Date = Date.now
@@ -34,7 +35,16 @@ struct Questionnaire_View_6_Date: View {
                     .labelsHidden()
                     .font(Font.custom("Poppins-Regular", size: 12))
                     .padding(.horizontal, 24)
-                
+                Button {
+//                    newEvent.append()
+                } label: {
+                    Text("VALIDER")
+                        .font(Font.custom("Poppins-Regular", size: 28))
+                        .foregroundStyle(.grey500)
+                        .fontWeight(.black)
+                }
+
+               
                 Spacer()
                 
 //                SuivantButton()

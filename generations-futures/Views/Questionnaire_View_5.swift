@@ -60,7 +60,7 @@ struct Questionnaire_View_5: View {
                 ForEach(towns, id: \.self) { town in
                     Button {
                         // Doit enregistrer le choix de l'utilisateur (pour l'array du récap') et l'afficher sur la Map en dessous
-                        newEvent.append(town)
+//                        newEvent.append(town)
                         
                     } label: {
                         Text(town)
