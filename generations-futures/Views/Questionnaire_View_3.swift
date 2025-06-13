@@ -20,7 +20,7 @@ struct Questionnaire_View_3: View {
                 .ignoresSafeArea()
 
             VStack {
-                HeaderQuestionnaire(num: 3, titre: "Une image pour votre thème?")
+                HeaderQuestionnaire(num: 3, titre: "Une image pour votre thème ??")
 
                 PhotosPicker(
                     selection: $pickerItem,
