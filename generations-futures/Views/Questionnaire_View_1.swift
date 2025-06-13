@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct Questionnaire_View_1: View {
+    
+    @Binding var viewModel : AnnoncesViewModel
+    
     @State var saisieText = ""
     
     var body: some View {
@@ -25,18 +28,28 @@ struct Questionnaire_View_1: View {
                     //modifier l'emplacement du textField pour le centrer
                     Spacer()
                     
-                    TextField("Inscrire le titre ici", text: $saisieText)
-                        .font(Font.custom("Poppins-Regular", size: 16))
-                        .foregroundStyle(.grey900)
-                        .frame(width: 300, height: 50)
-                        .multilineTextAlignment(.center)
-//                        .padding(.leading, 20)
-                        .background {
-                            RoundedRectangle(cornerRadius: 32)
-                                .fill(Color.grey50)
+                    HStack {
+                        TextField("Inscrire le titre ici", text: $saisieText)
+                            .font(Font.custom("Poppins-Regular", size: 16))
+                            .foregroundStyle(.grey900)
+                            .frame(width: 300, height: 50)
+                            .multilineTextAlignment(.center)
+                        //                        .padding(.leading, 20)
+                            .background {
+                                RoundedRectangle(cornerRadius: 32)
+                                    .fill(Color.grey50)
+                            }
+                        Button {
+                            // valider et append dans le doc final
+//                            viewModel.annonceList.append(saisieText)
+                        } label: {
+                            Image(systemName: "checkmark")
+                                .font(.system(size: 30))
+                                
                         }
+                    }
                     Spacer()
-                    SuivantButton(pageSuivante: Questionnaire_View_2())
+                    SuivantButton(pageSuivante: Questionnaire_View_2(viewModel: $viewModel))
                     
                     
                 }
@@ -46,5 +59,5 @@ struct Questionnaire_View_1: View {
 }
 
 #Preview {
-    Questionnaire_View_1()
+    Questionnaire_View_1(viewModel: .constant(AnnoncesViewModel()))
 }

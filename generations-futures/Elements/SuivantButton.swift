@@ -43,5 +43,5 @@ struct SuivantButton: View {
 }
 
 #Preview {
-    SuivantButton(pageSuivante: Questionnaire_View_1())
+    SuivantButton(pageSuivante: Questionnaire_View_1(viewModel: .constant(AnnoncesViewModel())))
 }

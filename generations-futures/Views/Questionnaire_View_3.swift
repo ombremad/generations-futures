@@ -55,7 +55,7 @@ struct Questionnaire_View_3: View {
 
                 Spacer()
                 
-                SuivantButton(pageSuivante: Questionnaire_View_4())
+                SuivantButton(pageSuivante: Questionnaire_View_4(viewModel: .constant(AnnoncesViewModel())))
                 
 
             }

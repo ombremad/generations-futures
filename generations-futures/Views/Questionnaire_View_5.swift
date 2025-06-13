@@ -14,11 +14,21 @@ struct Questionnaire_View_5: View {
     
     @State var position = MapCameraPosition.region(
         MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275),
+            center: CLLocationCoordinate2D(latitude: 48.8566, longitude: 2.3522),
             span: MKCoordinateSpan(latitudeDelta: -10, longitudeDelta: 1)
         )
     )
     
+    var searchResult: [String] {
+        if recherche .isEmpty{
+            return towns
+        }
+        else{
+            return towns.filter{ $0.contains(recherche)}
+        }
+    }
+    
+    @Binding var viewModel : AnnoncesViewModel
     @State var recherche = ""
     
     var body: some View {
@@ -39,25 +49,27 @@ struct Questionnaire_View_5: View {
                                 .fill(.grey50)
                             
                         }
-                        .searchable(text: $recherche)
+                        
                     
                     Image(systemName: "chevron.down")
                         .font(.system(size: 20))
                         .frame(width: 250, alignment: .trailing)
                         .foregroundStyle(.grey300)
-                }.padding(.bottom, 24)
+                }
+                .padding(.bottom, 24)
                 
                 ForEach(towns, id: \.self) { town in
                     Button {
                         // Doit enregistrer le choix de l'utilisateur (pour l'array du récap') et l'afficher sur la Map en dessous
-                        newEvent.append(town)
-                        
+//                        newEvent.append(town)
+                        viewModel.location = town
                     } label: {
                         Text(town)
                             .font(Font.custom("Poppins-Regular", size: 12))
                     }
                     
                 }
+                .searchable(text: $recherche)
                 
                 
                 
@@ -105,5 +117,5 @@ struct Questionnaire_View_5: View {
 }
 
 #Preview {
-    Questionnaire_View_5()
+    Questionnaire_View_5( viewModel: .constant(AnnoncesViewModel()))
 }

@@ -11,8 +11,10 @@ struct GestionAnnoncesView: View {
     
     @Environment(\.dismiss) private var dismiss
     
+    @State private var viewModel = AnnoncesViewModel()
+    
     func newAnnonceButton() -> some View {
-        NavigationLink(destination: Questionnaire_View_1()) {
+        NavigationLink(destination: Questionnaire_View_1(viewModel: $viewModel)) {
             VStack {
                 Image(systemName: "plus")
                     .font(.system(size: 33))
@@ -35,7 +37,7 @@ struct GestionAnnoncesView: View {
         
         NavigationLink(destination: AnnonceDetailView()) {
             VStack(spacing:24) {
-                ForEach(annonces, id:\.self) { annonce in
+                ForEach(viewModel.annonceList, id:\.self) { annonce in
                         AnnonceCardSmall(
                             titre: annonce.titre,
                             thematique: annonce.thematique.label,
@@ -51,8 +53,11 @@ struct GestionAnnoncesView: View {
     }
     
     var body: some View {
+        NavigationStack {
             ScrollView {
-                
+                //                Button("test :)") {
+                //                    viewModel.createNewEvent()
+                //                }
                 VStack(spacing:20) {
                     newAnnonceButton()
                     annoncesHistory()
@@ -81,7 +86,7 @@ struct GestionAnnoncesView: View {
             }
             .font(Font.custom("Poppins-Regular", size: 16))
             .foregroundStyle(Color("Grey-900"))
-
+        }
     }
 }
 

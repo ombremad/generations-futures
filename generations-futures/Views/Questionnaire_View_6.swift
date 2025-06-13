@@ -16,18 +16,18 @@ struct Questionnaire_View_6: View {
                 HeaderQuestionnaire(num: 6, titre: "Quand êtes vous\n disponible pour cette expérience?")
                 
                 NavigationLink {
-                    //
+                    Questionnaire_View_6_Date(viewModel: .constant(AnnoncesViewModel()))
                 } label: {
-                    Text("Renseigner une date précise")
-                        .font(Font.custom("Poppins-Regular", size: 12))
-                        .foregroundStyle(.almostWhite)
-                        .frame(width: 300, height: 50)
-                        .background{
-                            RoundedRectangle(cornerRadius: 32)
-                                .foregroundStyle(.grey500)
-                        }
-                    
-                }.padding(.bottom, 24)
+                        Text("Renseigner une date précise")
+                            .font(Font.custom("Poppins-Regular", size: 12))
+                            .foregroundStyle(.almostWhite)
+                            .frame(width: 300, height: 50)
+                            .background{
+                                RoundedRectangle(cornerRadius: 32)
+                                    .foregroundStyle(.grey500)
+                            }
+                        
+                    }.padding(.bottom, 24)
                 
                 NavigationLink {
                     //
@@ -42,11 +42,11 @@ struct Questionnaire_View_6: View {
                         }
                     
                 }
-
+                
                 Spacer()
                 
             }
-
+            
         }
     }
 }

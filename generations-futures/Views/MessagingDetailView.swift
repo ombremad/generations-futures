@@ -11,18 +11,20 @@ struct MessagingDetailView: View {
     
     @State private var messageInput: String = ""
         
-//    func header() -> some View {
-//        NavigationLink(destination: ProfilView()) {
-//            VStack {
-//                Image(defaultProfilePicture)
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fill)
-//                    .clipShape(Circle())
-//                    .frame(width: 48, height: 48)
-//                Text(defaultName)
-//            }
-//        }
-//    }
+
+    func header() -> some View {
+        NavigationLink(destination: ProfilView(profile: profiles[0])) {
+            VStack {
+                Image(profiles[0].profilePicture)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .clipShape(Circle())
+                    .frame(width: 48, height: 48)
+                Text(profiles[0].name)
+            }
+        }
+    }
+
     func messagesHistory() -> some View {
         ScrollView {
             VStack {

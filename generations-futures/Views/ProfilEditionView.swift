@@ -7,53 +7,8 @@
 
 import SwiftUI
 
-//struct HobbiesView: View {
-//    @Environment(\.dismiss) var dismiss
-//    
-//    let columns = [
-//            GridItem(.adaptive(minimum: 90))
-//        ]
-//
-//    var body: some View {
-//        VStack {
-//            HStack {
-//                Spacer()
-//                Button {
-//                    dismiss()
-//                } label: {
-//                    Image(systemName: "xmark.circle.fill")
-//                        .font(.system(size: 30))
-//                        .foregroundColor(.grey100)
-//                }
-//            } .padding(.bottom)
-//            
-//            VStack {
-//                Text("Indiquez vos passions")
-//                    .font(Font.custom("Poppins-Regular", size: 20))
-//                Text("Maximum 4")
-//                    .font(Font.custom("Poppins-Regular", size: 15))
-//                
-//                LazyVGrid(columns: columns) {
-//                    ForEach(hobbies, id: \.self) { hobby in
-//                        HobbyButtonView(icon: hobby.icon, label: hobby.label)
-//                    }
-//                }
-//            }
-//            Spacer()
-//            
-//            Button {
-//            } label: {
-//                Text("Valider")
-//                    .font(Font.custom("Poppins-Bold", size: 20))
-//                    .foregroundColor(.accentColor)
-//            }
-//        } .padding()
-//    }
-//}
-
 struct ProfilEditionView: View {
-    @State var showingHobbies = false
-    @State var surname: String = defaultSurname
+    @State var surname = defaultSurname
     @State var name: String = defaultName
     @State var lieu: String = defaultLieu
     @State var biography: String = "Un roadtrip au Brésil m’a suffi pour tomber amoureux de la samba. 17 ans d’expériences dans les pattes!"
@@ -61,8 +16,6 @@ struct ProfilEditionView: View {
     let columns = [
                GridItem(.adaptive(minimum: 90))
             ]
-    let yearOfBirth: String = String(defaultYearOfBirth)
-    let generation: String = defaultGeneration
     
     func editingPen() -> some View {
         Image(systemName: "pencil")
@@ -73,154 +26,152 @@ struct ProfilEditionView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack {
-                ScrollView {
+        VStack {
+            ScrollView {
+                VStack {
+                    Text("Edition du profil")
+                        .padding(.bottom, 30)
+                    
                     VStack {
-                        Text("Edition du profil")
-                            .padding(.bottom, 30)
-                        
-                        VStack {
-                            HStack(alignment: .top) {
-                                VStack {
-                                    ZStack {
-                                        Image(.robert)
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .overlay(alignment: .center) {
-                                                Circle()
-                                                    .fill(.black.opacity(0.3))
-                                                    .overlay {
-                                                        Image(systemName: "camera.fill")
-                                                            .foregroundStyle(.white.opacity(0.6))
-                                                            .font(.system(size: 35))
-                                                    }
-                                            }
-                                            .clipShape(Circle()).frame(width: 150, height: 150)
-                                            .overlay(alignment: .bottomTrailing) {
-                                                Image(systemName: "checkmark.circle.badge.xmark")
-                                                    .foregroundStyle(.accent)
-                                                    .font(.system(size: 34))
-                                                    .offset(x: -10, y: -10)
-                                            }
+                        HStack(alignment: .top) {
+                            VStack {
+                                ZStack {
+                                    Image(defaultProfilePicture)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .overlay(alignment: .center) {
+                                            Circle()
+                                                .fill(.black.opacity(0.3))
+                                                .overlay {
+                                                    Image(systemName: "camera.fill")
+                                                        .foregroundStyle(.white.opacity(0.6))
+                                                        .font(.system(size: 35))
+                                                }
+                                        }
+                                        .clipShape(Circle()).frame(width: 150, height: 150)
+                                        .overlay(alignment: .bottomTrailing) {
+                                            Image(systemName: "checkmark.circle.badge.xmark")
+                                                .foregroundStyle(.accent)
+                                                .font(.system(size: 34))
+                                                .offset(x: -10, y: -10)
+                                        }
+                                }
+                                
+                                Text("Vérifier le profil")
+                                    .foregroundStyle(.accent)
+                                    .font(Font.custom("Poppins-Regular", size: 14))
+                            } .padding(.trailing, 15)
+                            
+                            VStack(alignment: .leading) {
+                                VStack(alignment: .leading) {
+                                    Text("Nom")
+                                        .font(Font.custom("Poppins-Regular", size: 15))
+                                    HStack {
+                                        TextField(
+                                                    "Surname",
+                                                    text: $surname
+                                                )
+                                        .textFieldStyle(.roundedBorder)
+                                        .font(.custom("Poppins-Bold", size: 20))
+                                        .overlay(alignment: .bottomTrailing) {
+                                            editingPen()
+                                        }
                                     }
-                                    
-                                    Text("Vérifier le profil")
-                                        .foregroundStyle(.accent)
-                                        .font(Font.custom("Poppins-Regular", size: 14))
-                                } .padding(.trailing, 15)
+                                }
                                 
                                 VStack(alignment: .leading) {
-                                    VStack(alignment: .leading) {
-                                        Text("Nom")
-                                            .font(Font.custom("Poppins-Regular", size: 15))
-                                        HStack {
-                                            TextField(
-                                                        "Surname",
-                                                        text: $surname
-                                                    )
-                                            .textFieldStyle(.roundedBorder)
-                                            .font(.custom("Poppins-Bold", size: 20))
-                                            .overlay(alignment: .bottomTrailing) {
-                                                editingPen()
-                                            }
+                                    Text("Prénom")
+                                        .font(Font.custom("Poppins-Regular", size: 15))
+                                    HStack {
+                                        TextField(
+                                                    "Name",
+                                                    text: $name
+                                                )
+                                        .textFieldStyle(.roundedBorder)
+                                        .font(.custom("Poppins-Bold", size: 20))
+                                        .overlay(alignment: .bottomTrailing) {
+                                            editingPen()
                                         }
                                     }
-                                    
-                                    VStack(alignment: .leading) {
-                                        Text("Prénom")
-                                            .font(Font.custom("Poppins-Regular", size: 15))
-                                        HStack {
-                                            TextField(
-                                                        "Name",
-                                                        text: $name
-                                                    )
-                                            .textFieldStyle(.roundedBorder)
-                                            .font(.custom("Poppins-Bold", size: 20))
-                                            .overlay(alignment: .bottomTrailing) {
-                                                editingPen()
-                                            }
-                                        }
-                                    }
-                                    
-                                    VStack(alignment: .leading) {
-                                        Text("Localisation")
-                                            .font(Font.custom("Poppins-Regular", size: 15))
-                                        HStack {
-                                            TextField(
-                                                        "Localisation",
-                                                        text: $lieu
-                                                    )
-                                            .textFieldStyle(.roundedBorder)
-                                            .font(.custom("Poppins-Regular", size: 16))
-                                            .overlay(alignment: .bottomTrailing) {
-                                                editingPen()
-                                            }
-                                        }
-                                    }
-                                    
-                                    VStack(alignment: .leading) {
-                                        Text("Année de naissance")
-                                            .font(Font.custom("Poppins-Regular", size: 15))
-                                        HStack {
-                                            Text(yearOfBirth)
-                                                .font(Font.custom("Poppins-Bold", size: 15))
-                                            Text(generation)
-                                                .font(Font.custom("Poppins-Regular", size: 14))
-                                                .foregroundColor(.accent)
-                                        }
-                                    } .padding(.vertical)
                                 }
-                            }
-                        
-                            HStack {
-                                Text("Biographie")
-                                    .font(Font.custom("Poppins-Regular", size: 15))
-                                Spacer()
-                            }
-                            
-                            HStack {
-                                TextEditor(text: $biography)
-                                    .padding()
-                                    .scrollContentBackground(.hidden)
-                                    .background(
-                                            RoundedRectangle(cornerRadius: 14)
-                                                .fill(Color.grey100.opacity(0.5))
-                                        )
-                                    .frame(height: 150)
-                                    .overlay(alignment: .bottomTrailing) {
-                                        editingPen()
+                                
+                                VStack(alignment: .leading) {
+                                    Text("Localisation")
+                                        .font(Font.custom("Poppins-Regular", size: 15))
+                                    HStack {
+                                        TextField(
+                                                    "Localisation",
+                                                    text: $lieu
+                                                )
+                                        .textFieldStyle(.roundedBorder)
+                                        .font(.custom("Poppins-Regular", size: 16))
+                                        .overlay(alignment: .bottomTrailing) {
+                                            editingPen()
+                                        }
                                     }
-                            }
-                            
-                            HStack {
-                                Spacer()
-                                Text("\(biography.count)/200 caractères")
-                                    .font(Font.custom("Poppins-Regular", size: 14))
-                                    .foregroundColor(Color.grey200)
-                            } .padding(.bottom)
-                            
-                            HStack {
-                                Text("Centres d'intérêt")
-                                    .font(Font.custom("Poppins-Regular", size: 15))
-                                Spacer()
-                            }
-                            
-                            LazyVGrid(columns: columns) {
-                                ForEach(hobbies, id: \.self) { hobby in
-                                    HobbyButtonView(icon: hobby.icon, label: hobby.label)
                                 }
+                                
+                                VStack(alignment: .leading) {
+                                    Text("Année de naissance")
+                                        .font(Font.custom("Poppins-Regular", size: 15))
+                                    HStack {
+                                        Text(String(defaultYearOfBirth))
+                                            .font(Font.custom("Poppins-Bold", size: 15))
+                                        Text(defaultGeneration)
+                                            .font(Font.custom("Poppins-Regular", size: 14))
+                                            .foregroundColor(.accent)
+                                    }
+                                } .padding(.vertical)
                             }
                         }
-                    } .padding(10)
-                }
-                
-                NavigationLink(destination: ProfilView()) {
-                    SimpleButton(
-                        content:"Enregistrer",
-                        highlighted: true
-                    ) .padding(.top, 30)
-                }
+                    
+                        HStack {
+                            Text("Biographie")
+                                .font(Font.custom("Poppins-Regular", size: 15))
+                            Spacer()
+                        }
+                        
+                        HStack {
+                            TextEditor(text: $biography)
+                                .padding()
+                                .scrollContentBackground(.hidden)
+                                .background(
+                                        RoundedRectangle(cornerRadius: 14)
+                                            .fill(Color.grey100.opacity(0.5))
+                                    )
+                                .frame(height: 150)
+                                .overlay(alignment: .bottomTrailing) {
+                                    editingPen()
+                                }
+                        }
+                        
+                        HStack {
+                            Spacer()
+                            Text("\(biography.count)/200 caractères")
+                                .font(Font.custom("Poppins-Regular", size: 14))
+                                .foregroundColor(Color.grey200)
+                        } .padding(.bottom)
+                        
+                        HStack {
+                            Text("Centres d'intérêt")
+                                .font(Font.custom("Poppins-Regular", size: 15))
+                            Spacer()
+                        }
+                        
+                        LazyVGrid(columns: columns) {
+                            ForEach(hobbies, id: \.self) { hobby in
+                                HobbyButtonView(icon: hobby.icon, label: hobby.label)
+                            }
+                        }
+                    }
+                } .padding(10)
+            }
+            
+            NavigationLink(destination: ProfilView(profile: profiles[0])) {
+                SimpleButton(
+                    content:"Enregistrer",
+                    highlighted: true
+                ) .padding(.top, 30)
             }
         }
     }
