@@ -42,7 +42,7 @@ struct ListingMessagesView: View {
 
         }
     }
-}
+//}
 
 #Preview {
     ListingMessagesView()
