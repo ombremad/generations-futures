@@ -32,22 +32,29 @@ struct Questionnaire_View_6_Date: View {
                 // faire en sorte de pouvoir selectionner une date supérieure à la date du jour et de faire une date range
                 // possible en natif ?
                 
-                DatePicker("Moment Selectionnée", selection: $selectedDate,in: Date.now...)
-                    .labelsHidden()
-                    .font(Font.custom("Poppins-Regular", size: 12))
-                    .padding(.horizontal, 24)
-                Button {
-                    viewModel.preciseDate = selectedDate                } label: {
-                        Text("VALIDER")
-                            .font(Font.custom("Poppins-Regular", size: 28))
-                            .foregroundStyle(.grey500)
-                            .fontWeight(.black)
-                    }
+                HStack {
+                    DatePicker("Moment Selectionnée", selection: $selectedDate,in: Date.now...)
+                        .labelsHidden()
+                        .font(Font.custom("Poppins-Regular", size: 12))
+                        .padding(.horizontal, 24)
+                    
+                    Button {
+                        viewModel.preciseDate = selectedDate                } label: {
+                            Image(systemName: "checkmark")
+                                .font(.system(size: 30))
+//                            Text("VALIDER")
+//                                .font(Font.custom("Poppins-Regular", size: 28))
+//                                .foregroundStyle(.grey500)
+//                                .fontWeight(.black)
+//                                .padding(40)
+                        }
+
+                }
                 
                 
                 Spacer()
                 
-                //                SuivantButton()
+//                                SuivantButton()
             }
             
         }

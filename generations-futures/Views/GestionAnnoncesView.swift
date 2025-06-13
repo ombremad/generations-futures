@@ -14,7 +14,7 @@ struct GestionAnnoncesView: View {
     @State private var viewModel = AnnoncesViewModel()
     
     func newAnnonceButton() -> some View {
-        NavigationLink(destination: Questionnaire_View_1(viewModel: $viewModel)) {
+        NavigationLink(destination: Questionnaire_View_1()) {
             VStack {
                 Image(systemName: "plus")
                     .font(.system(size: 33))
@@ -86,7 +86,7 @@ struct GestionAnnoncesView: View {
             }
             .font(Font.custom("Poppins-Regular", size: 16))
             .foregroundStyle(Color("Grey-900"))
-        }
+        }.environment(viewModel)
     }
 }
 

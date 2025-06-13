@@ -84,7 +84,7 @@ struct MessagingDetailView: View {
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    NavigationLink(destination: ProfilView()) {
+                    NavigationLink(destination: ProfilView(profile: profiles[0])) {
                         VStack {
                             Image(defaultProfilePicture)
                                 .resizable()

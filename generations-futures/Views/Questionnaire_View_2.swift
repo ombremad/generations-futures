@@ -9,10 +9,11 @@ import SwiftUI
 
 struct Questionnaire_View_2: View {
     
-    @Binding var viewModel : AnnoncesViewModel
+    @Environment(AnnoncesViewModel.self) var viewModel
     @State private var isSelected : Bool = false
         
     var body: some View {
+        
         ZStack{
             Color.almostWhite
                 .ignoresSafeArea()
@@ -65,5 +66,9 @@ struct Questionnaire_View_2: View {
 }
 
 #Preview {
-    Questionnaire_View_2(viewModel: .constant(AnnoncesViewModel()))
+    @Previewable
+    @State var viewModel = AnnoncesViewModel()
+
+    Questionnaire_View_2()
+        .environment(AnnoncesViewModel())
 }

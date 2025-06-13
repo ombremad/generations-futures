@@ -18,7 +18,7 @@ struct Questionnaire_View_4: View {
         }
         
     }
-    @Binding var viewModel : AnnoncesViewModel
+    @Environment(AnnoncesViewModel.self) var viewModel
     @State var description = ""
     
     var body: some View {
@@ -57,7 +57,7 @@ struct Questionnaire_View_4: View {
                 }
 
                 Spacer()
-                SuivantButton(pageSuivante: Questionnaire_View_5( viewModel: $viewModel))
+//                SuivantButton(pageSuivante: Questionnaire_View_5( viewModel: $viewModel))
             }
             
         }
@@ -65,5 +65,9 @@ struct Questionnaire_View_4: View {
 }
 
 #Preview {
-    Questionnaire_View_4(viewModel: .constant(AnnoncesViewModel()))
+    @Previewable
+    @State var viewModel = AnnoncesViewModel()
+    
+    Questionnaire_View_4()
+        .environment(AnnoncesViewModel())
 }

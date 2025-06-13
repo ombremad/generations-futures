@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct Questionnaire_View_1: View {
-    
-    @Binding var viewModel : AnnoncesViewModel
+    @Environment(AnnoncesViewModel.self) var viewModel
     
     @State var saisieText = ""
     
@@ -49,7 +48,7 @@ struct Questionnaire_View_1: View {
                         }
                     }
                     Spacer()
-                    SuivantButton(pageSuivante: Questionnaire_View_2(viewModel: $viewModel))
+//                    SuivantButton(pageSuivante: Questionnaire_View_2())
                     
                     
                 }
@@ -59,5 +58,9 @@ struct Questionnaire_View_1: View {
 }
 
 #Preview {
-    Questionnaire_View_1(viewModel: .constant(AnnoncesViewModel()))
+    @Previewable
+    @State var viewModel = AnnoncesViewModel()
+
+    Questionnaire_View_1()
+        .environment(viewModel)
 }

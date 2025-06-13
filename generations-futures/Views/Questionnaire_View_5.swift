@@ -27,8 +27,8 @@ struct Questionnaire_View_5: View {
             return towns.filter{ $0.contains(recherche)}
         }
     }
+    @Environment(AnnoncesViewModel.self) var viewModel
     
-    @Binding var viewModel : AnnoncesViewModel
     @State var recherche = ""
     
     var body: some View {
@@ -117,5 +117,9 @@ struct Questionnaire_View_5: View {
 }
 
 #Preview {
-    Questionnaire_View_5( viewModel: .constant(AnnoncesViewModel()))
+    @Previewable
+    @State var viewModel = AnnoncesViewModel()
+    
+    Questionnaire_View_5()
+        .environment(AnnoncesViewModel())
 }

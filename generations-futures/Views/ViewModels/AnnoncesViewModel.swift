@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import DeveloperToolsSupport
 
 @Observable
 class AnnoncesViewModel {
@@ -19,9 +20,13 @@ class AnnoncesViewModel {
     var description = ""
     var location = ""
     var preciseDate : Date?
+    var startingDateRangeSelected : Date?
+    var endingDateSelected : Date?
+
     
     func createNewEvent() {
-        annonceList.append(Annonce(titre: "Test", description: ":)", illustration: .beatrice, thematique: .init(icon: "pencil", label: "Stylo :)"), author: profiles.first!))
+        //        annonceList.append(Annonce(titre: "Test", description: ":)", illustration: .beatrice, thematique: .init(icon: "pencil", label: "Stylo :)"), author: profiles.first!))
+        //        annonceList.append(Annonce(titre: <#T##String#>, description: <#T##String#>, illustration: <#T##ImageResource#>, thematique: <#T##Hobby#>, author: <#T##Profile#>)
     }
     
     
