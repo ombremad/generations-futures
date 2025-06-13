@@ -19,6 +19,7 @@ struct Questionnaire_View_4: View {
         
     }
     @State var description = ""
+    @FocusState private var Nfocus: Bool
     
     var body: some View {
         
@@ -29,17 +30,22 @@ struct Questionnaire_View_4: View {
             VStack{
                 HeaderQuestionnaire(num: 4, titre: "Décrivez en quelques \n mots ce que vous souhaitez faire")
                 
-                // trouver un moyen de mettre de le prompt du textfield en leadingtop de son background
-                // contenir le textfield dans la frame du background
-                
-                TextField("Retrouvons nous dans l'après-midi pour ...", text: $description)
+            
+                    TextEditor(text: $description)
+                    .focused($Nfocus)
+                    .frame(height: 160).colorMultiply(Color(.grey50))
                     .font(Font.custom("Poppins-Regular", size: 12))
                     .frame(width: 320,height: 180)
                     .padding(.leading, 16)
-                    .background{
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(.grey50)
+                    .background(.grey50,in: RoundedRectangle(cornerRadius: 20))
+                    .overlay(alignment: .topLeading){
+                        if !Nfocus && description.isEmpty{
+                            Text("Retrouvons nous dans l'après-midi pour...")
+                                .font(Font.custom("Poppins-Regular", size: 12))
+                                .foregroundColor(.grey300).padding(8)
+                        }
                     }
+                        
                 
                 Text("\(description.count)/300 caractères")
                         .font(Font.custom("Poppins-Regular", size: 10))
