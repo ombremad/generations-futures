@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Questionnaire_Recap_View_7: View {
+    
+    @Environment(AnnoncesViewModel.self) var viewModel
     func header() -> some View{
         HStack{
             ZStack{
@@ -53,6 +55,7 @@ struct Questionnaire_Recap_View_7: View {
             .padding()
     }
     
+    
     var body: some View {
         ZStack {
             Color.grey500
@@ -73,5 +76,9 @@ struct Questionnaire_Recap_View_7: View {
 }
 
 #Preview {
+    @Previewable
+    @State var viewModel = AnnoncesViewModel()
+    
     Questionnaire_Recap_View_7()
+        .environment(AnnoncesViewModel())
 }

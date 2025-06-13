@@ -9,7 +9,6 @@ import SwiftUI
 
 struct Questionnaire_View_1: View {
     @Environment(AnnoncesViewModel.self) var viewModel
-    
     @State var saisieText = ""
     
     var body: some View {
@@ -40,15 +39,29 @@ struct Questionnaire_View_1: View {
                             }
                         Button {
                             // valider et append dans le doc final
-//                            viewModel.annonceList.append(saisieText)
+                            //                            viewModel.annonceList.append(saisieText)
                         } label: {
                             Image(systemName: "checkmark")
                                 .font(.system(size: 30))
-                                
+                            
                         }
                     }
                     Spacer()
-//                    SuivantButton(pageSuivante: Questionnaire_View_2())
+                    
+                    NavigationLink {
+                        Questionnaire_View_2()
+                    } label: {
+                        HStack{
+                            Text("Suivant")
+                                .font(Font.custom("Poppins-SemiBold", size: 24))
+                                .foregroundStyle(.grey500)
+                            Image(systemName: "chevron.right")
+                                .foregroundStyle(.grey500)
+                        }
+                    }
+                    .frame(width: 350, alignment: .trailing)
+                    .padding(.trailing, 40)
+                    .padding(.bottom, 120)
                     
                     
                 }
@@ -60,7 +73,7 @@ struct Questionnaire_View_1: View {
 #Preview {
     @Previewable
     @State var viewModel = AnnoncesViewModel()
-
+    
     Questionnaire_View_1()
         .environment(viewModel)
 }

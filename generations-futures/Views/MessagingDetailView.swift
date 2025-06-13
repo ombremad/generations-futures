@@ -101,7 +101,7 @@ struct MessagingDetailView: View {
 
         }
     }
-//}
+}
 
 #Preview {
     MessagingDetailView()

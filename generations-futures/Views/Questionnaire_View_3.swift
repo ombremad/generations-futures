@@ -13,15 +13,16 @@ struct Questionnaire_View_3: View {
     @State private var uiImage: UIImage?
     @State private var selectImage: Image?
     @State private var showCropper = false
-
+    
     var body: some View {
+        
         ZStack {
             Color.almostWhite
                 .ignoresSafeArea()
-
+            
             VStack {
                 HeaderQuestionnaire(num: 3, titre: "Une image pour votre thème ??")
-
+                
                 PhotosPicker(
                     selection: $pickerItem,
                     matching: .images,
@@ -45,22 +46,35 @@ struct Questionnaire_View_3: View {
                 .padding(.top, 100)
                 
                 if let selectImage = selectImage {
-                               selectImage
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 200, height: 200)
-                                              .shadow(color: Color(shadowColor), radius: shadowAmount, x: 0, y: 4)
-                                              .padding(.top, 30)
-                           }
-
+                    selectImage
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 200, height: 200)
+                        .shadow(color: Color(shadowColor), radius: shadowAmount, x: 0, y: 4)
+                        .padding(.top, 30)
+                }
+                
                 Spacer()
                 
-                SuivantButton(pageSuivante: Questionnaire_View_4(viewModel: .constant(AnnoncesViewModel())))
+                NavigationLink {
+                    Questionnaire_View_4()
+                } label: {
+                    HStack{
+                        Text("Suivant")
+                            .font(Font.custom("Poppins-SemiBold", size: 24))
+                            .foregroundStyle(.grey500)
+                        Image(systemName: "chevron.right")
+                            .foregroundStyle(.grey500)
+                    }
+                }
+                .frame(width: 350, alignment: .trailing)
+                .padding(.trailing, 40)
+                .padding(.bottom, 120)
                 
-
+                
             }
         }
-      
+        
         .onChange(of: pickerItem) { _, newValue in
             Task {
                 if let data = try? await newValue?.loadTransferable(type: Data.self),
@@ -70,19 +84,19 @@ struct Questionnaire_View_3: View {
                 }
             }
         }
-
-
+        
+        
         
         .sheet(isPresented: $showCropper) {
-                  if let uiImage = uiImage {
-                      ImageCropper(image: uiImage) { croppedImage in
-                          self.selectImage = Image(uiImage: croppedImage)
-                          self.uiImage = croppedImage
-                          self.showCropper = false
+            if let uiImage = uiImage {
+                ImageCropper(image: uiImage) { croppedImage in
+                    self.selectImage = Image(uiImage: croppedImage)
+                    self.uiImage = croppedImage
+                    self.showCropper = false
                 }
             }
         }
-       
+        
     }
 }
 
