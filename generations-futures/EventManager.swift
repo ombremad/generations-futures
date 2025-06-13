@@ -16,11 +16,14 @@ class EventManager: ObservableObject {
     }
 
     func requestAccess() {
-        eventStore.requestAccess(to: .event) { granted, error in
+        eventStore.requestFullAccessToEvents { granted, error in
             if let error = error {
-                print("Erreur d'accès au calendrier : \(error)")
+                print("Erreur d'accès complet au calendrier : \(error)")
+            } else {
+                print("Accès accordé : \(granted)")
             }
         }
+
     }
 
     func fetchEvents(from start: Date, to end: Date, completion: @escaping ([EKEvent]) -> Void) {
