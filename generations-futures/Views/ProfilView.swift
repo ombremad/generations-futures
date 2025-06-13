@@ -87,6 +87,7 @@ struct ProfilView: View {
                     }
                 }
             }
+            .toolbarBackground(.hidden)
         }
     }
 }

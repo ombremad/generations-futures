@@ -183,31 +183,31 @@ struct AnnonceDetailView: View {
 
                 }
        
-
-            // Boutons retour / partage
-            HStack {
-                Button { dismiss() } label: {
-                    BackButton()
-                }
-                Spacer()
-                Button(action: {
-                    // Action partage
-                }) {
-                    Image(systemName: "square.and.arrow.up")
-                        .foregroundStyle(Color("Grey-500"))
-                        .padding()
-                        .background(Color.white)
-                        .clipShape(Circle())
-                }
-            }
-            .padding(.horizontal)
-            .padding(.top, 50)
         }
         .edgesIgnoringSafeArea(.top)
         .font(Font.custom("Poppins-Regular", size: 14))
-        .navigationBarHidden(true)
-        .font(Font.custom("Poppins-Regular", size: 16))
-        .foregroundStyle(Color("Grey-900"))
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement:.topBarLeading) {
+                Button { dismiss() } label: {
+                    BackButton()
+                }
+            }
+            ToolbarItem(placement:.topBarTrailing) {
+                Button { } label: {
+                    ZStack {
+                        Circle()
+                            .fill(Color("Grey-50"))
+                            .frame(width:44, height: 44)
+                        Image(systemName: "square.and.arrow.up")
+                            .foregroundStyle(Color("Grey-500"))
+                    }
+                }
+            }
+        }
+        .toolbarBackground(.hidden)
+
     }
 }
 
