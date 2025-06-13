@@ -32,7 +32,7 @@ struct ListingMessagesView: View {
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    NavigationLink(destination: ProfilView()) {
+                    //NavigationLink(destination: ProfilView()) {
                         Text("Messages")
                     }
                 }
@@ -42,7 +42,7 @@ struct ListingMessagesView: View {
 
         }
     }
-}
+//}
 
 #Preview {
     ListingMessagesView()
