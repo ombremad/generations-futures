@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct HobbyBadge: View {
-    
-    var hobby: String = defautHobby
+    var iconName: String = defautHobby
     
     var body: some View {
-        Image(systemName: hobby)
+        Image(systemName: iconName)
             .font(.system(size: 32, weight: .bold))
             .foregroundStyle(.grey100)
             .padding()

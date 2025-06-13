@@ -41,10 +41,10 @@ struct ProfilView: View {
                             .fixedSize(horizontal: false, vertical: true)
                             .multilineTextAlignment(.center)
                         HStack {
-                            HobbyBadge(hobby: "figure.run")
-                            HobbyBadge(hobby: "theatermasks.fill")
-                            HobbyBadge(hobby: "airplane")
-                            HobbyBadge(hobby: "tortoise.fill")
+                            ForEach(profile.favHobbies, id: \.self) { hobby in
+                                let _ = print("Hobby trouvé: \(hobby.label), icône: \(hobby.icon)")
+                                HobbyBadge(iconName: hobby.icon)
+                            }
                         } .padding(.vertical, 50)
                         
                         NavigationLink(destination: MessagingDetailView()) {
@@ -76,5 +76,6 @@ struct ProfilView: View {
         lieu: "Lille",
         yearOfBirth: 1961,
         generation: "Baobab",
-        description: "Un roadtrip au Brésil m’a suffi pour tomber amoureux de la samba. \n17 ans d’expériences dans les pattes!"))
+        description: "Un roadtrip au Brésil m’a suffi pour tomber amoureux de la samba. \n17 ans d’expériences dans les pattes!",
+        favHobbies: [hobbies[2], hobbies[5], hobbies[7], hobbies[12]]))
 }
