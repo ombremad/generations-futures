@@ -57,7 +57,7 @@ struct Questionnaire_View_6_Date: View {
                     Spacer()
                     
                     NavigationLink {
-                        Questionnaire_Recap_View_7()
+                        Questionnaire_View_7_Recap()
                     } label: {
                         HStack{
                             Text("Suivant")

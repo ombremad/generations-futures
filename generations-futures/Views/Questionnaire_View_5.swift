@@ -15,6 +15,7 @@ struct Questionnaire_View_5: View {
     @State var position = MapCameraPosition.region(
         MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 48.8566, longitude: 2.3522),
+            // Coordonées à chercher par ville et à changer en fonction de la ville choisie par l'utilisateur
             span: MKCoordinateSpan(latitudeDelta: -10, longitudeDelta: 1)
         )
     )
@@ -63,7 +64,6 @@ struct Questionnaire_View_5: View {
                     ForEach(towns, id: \.self) { town in
                         Button {
                             // Doit enregistrer le choix de l'utilisateur (pour l'array du récap') et l'afficher sur la Map en dessous
-                            //                        newEvent.append(town)
                             viewModel.location = town
                         } label: {
                             Text(town)
