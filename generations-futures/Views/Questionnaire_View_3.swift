@@ -87,7 +87,10 @@ struct Questionnaire_View_3: View {
         
         
         
-        .sheet(isPresented: $showCropper) {
+        .sheet(isPresented: Binding(
+            get: { showCropper && uiImage != nil },
+            set: { showCropper = $0 }
+        )) {
             if let uiImage = uiImage {
                 ImageCropper(image: uiImage) { croppedImage in
                     self.selectImage = Image(uiImage: croppedImage)
@@ -96,6 +99,7 @@ struct Questionnaire_View_3: View {
                 }
             }
         }
+
         
     }
 }
