@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProfilEditionView: View {
+    
+    @Environment(\.dismiss) private var dismiss
+
     @State var surname = defaultSurname
     @State var name: String = defaultName
     @State var lieu: String = defaultLieu
@@ -29,9 +32,6 @@ struct ProfilEditionView: View {
         VStack {
             ScrollView {
                 VStack {
-                    Text("Edition du profil")
-                        .padding(.bottom, 30)
-                    
                     VStack {
                         HStack(alignment: .top) {
                             VStack {
@@ -174,6 +174,20 @@ struct ProfilEditionView: View {
                 ) .padding(.top, 30)
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("Édition du profil")
+            }
+            ToolbarItem(placement:.topBarLeading) {
+                Button { dismiss() } label: {
+                    BackButton()
+                }
+            }
+        }
+        .font(Font.custom("Poppins-Regular", size: 16))
+        .foregroundStyle(Color("Grey-900"))
     }
 }
 

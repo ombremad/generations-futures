@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProfilView: View {
+    
+    @Environment(\.dismiss) private var dismiss
+
     var profile: Profile
     
     var body: some View {
@@ -26,7 +29,7 @@ struct ProfilView: View {
                                     .foregroundColor(.accentColor)
                                     .font(.system(size: 50))
                             }
-                            .padding(.top, 50)
+                            .padding(.top, 30)
                         Text(profile.name)
                             .font(Font.custom("Poppins-Bold", size: 25))
                         Text(profile.generation)
@@ -45,7 +48,7 @@ struct ProfilView: View {
                             HobbyBadge(hobby: "theatermasks.fill")
                             HobbyBadge(hobby: "airplane")
                             HobbyBadge(hobby: "tortoise.fill")
-                        } .padding(.vertical, 50)
+                        } .padding(.vertical, 30)
                         
                         NavigationLink(destination: MessagingDetailView()) {
                             SimpleButton(
@@ -60,7 +63,27 @@ struct ProfilView: View {
                             .fill(Color("Red-500"))
                             .frame(width:500, height:500)
                             .shadow(color: Color(shadowColor), radius: shadowAmount, x: 0, y: 4)
-                            .offset(y:-450)
+                            .offset(y:-500)
+                    }
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement:.primaryAction) {
+                    NavigationLink(destination: ProfilEditionView()) {
+                        ZStack {
+                            Circle()
+                                .fill(Color("Grey-50"))
+                                .frame(width:44, height: 44)
+                            Image(systemName: "pencil")
+                                .foregroundStyle(Color("Grey-500"))
+                        }
+                    }
+                }
+                ToolbarItem(placement:.topBarLeading) {
+                    Button { dismiss() } label: {
+                        BackButton()
                     }
                 }
             }

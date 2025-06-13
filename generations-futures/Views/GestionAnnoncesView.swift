@@ -69,13 +69,7 @@ struct GestionAnnoncesView: View {
                 }
                 ToolbarItem(placement:.topBarLeading) {
                     Button { dismiss() } label: {
-                        ZStack {
-                            Circle()
-                                .fill(Color("Grey-50"))
-                                .frame(width:44, height: 44)
-                            Image(systemName: "chevron.left")
-                                .foregroundStyle(Color("Grey-500"))
-                        }
+                        BackButton()
                     }
                 }
             }

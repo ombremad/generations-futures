@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MessagingDetailView: View {
     
+    @Environment(\.dismiss) private var dismiss
+    
     @State private var messageInput: String = ""
         
 
@@ -81,18 +83,23 @@ struct MessagingDetailView: View {
             .font(Font.custom("Poppins-Regular", size: 12))
             .foregroundStyle(Color("Grey-900"))
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(false)
+            .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     NavigationLink(destination: ProfilView(profile: profiles[0])) {
-                        VStack {
+                        HStack {
                             Image(defaultProfilePicture)
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .clipShape(Circle())
-                                .frame(width: 48, height: 48)
+                                .frame(width: 36, height: 36)
                             Text(defaultName)
                         }
+                    }
+                }
+                ToolbarItem(placement:.topBarLeading) {
+                    Button { dismiss() } label: {
+                        BackButton()
                     }
                 }
             }

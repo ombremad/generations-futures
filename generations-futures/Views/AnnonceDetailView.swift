@@ -17,6 +17,8 @@ import EventKit
 
 struct AnnonceDetailView: View {
     
+    @Environment(\.dismiss) private var dismiss
+    
     @State private var selectedDate: Date? = nil
     @StateObject var eventManager = EventManager()
       @State private var focusedDate = Date()
@@ -184,14 +186,8 @@ struct AnnonceDetailView: View {
 
             // Boutons retour / partage
             HStack {
-                Button(action: {
-                    // Action retour
-                }) {
-                    Image(systemName: "chevron.left")
-                        .foregroundStyle(Color("Grey-500"))
-                        .padding()
-                        .background(Color.white)
-                        .clipShape(Circle())
+                Button { dismiss() } label: {
+                    BackButton()
                 }
                 Spacer()
                 Button(action: {
@@ -209,6 +205,9 @@ struct AnnonceDetailView: View {
         }
         .edgesIgnoringSafeArea(.top)
         .font(Font.custom("Poppins-Regular", size: 14))
+        .navigationBarHidden(true)
+        .font(Font.custom("Poppins-Regular", size: 16))
+        .foregroundStyle(Color("Grey-900"))
     }
 }
 
