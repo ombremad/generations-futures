@@ -8,18 +8,26 @@
 import SwiftUI
 
 struct HeaderQuestionnaire: View {
+    @Environment(\.dismiss) private var dismiss
+
     func header() -> some View{
         HStack{
-            ZStack{
-                
-                Circle()
-                    .fill(.white)
-                    .frame(width: 40)
-                
-                Image(systemName: "chevron.left")
-                    .foregroundStyle(.grey500)
-                
-            }.padding(.leading, 30)
+            Button {
+                dismiss()
+            } label: {
+                ZStack{
+                    
+                    Circle()
+                        .fill(.white)
+                        .frame(width: 40)
+                    
+                    Image(systemName: "chevron.left")
+                        .foregroundStyle(.grey500)
+                    
+                }.padding(.leading, 30)
+            }
+
+            
             
             Spacer()
             

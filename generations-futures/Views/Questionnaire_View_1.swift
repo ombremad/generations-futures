@@ -9,6 +9,8 @@ import SwiftUI
 
 struct Questionnaire_View_1: View {
     @Environment(AnnoncesViewModel.self) var viewModel
+//    @Environment(\.dismiss) private var dismiss
+
     @State var saisieText = ""
     
     var body: some View {
@@ -23,7 +25,6 @@ struct Questionnaire_View_1: View {
                     HeaderQuestionnaire(num: 1, titre: "Trouvez un titre pour votre annonce")
                     
                     // modifier la couleur du label du textField
-                    //modifier l'emplacement du textField pour le centrer
                     Spacer()
                     
                     HStack {
@@ -67,6 +68,8 @@ struct Questionnaire_View_1: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
+
     }
 }
 

@@ -128,6 +128,8 @@ struct Questionnaire_View_5: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
+
       
         
     }

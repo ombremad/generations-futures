@@ -75,6 +75,8 @@ struct Questionnaire_View_6_Date: View {
             }
 
         }
+        .navigationBarBackButtonHidden(true)
+
     }
 }
 

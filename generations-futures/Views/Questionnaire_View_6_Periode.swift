@@ -77,6 +77,8 @@ struct Questionnaire_View_6_Periode: View {
             }
 
         }
+        .navigationBarBackButtonHidden(true)
+
     }}
 
 #Preview {

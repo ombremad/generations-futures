@@ -74,7 +74,8 @@ struct Questionnaire_Recap_View_7: View {
             }
 
         }
-        
+        .navigationBarBackButtonHidden(true)
+
         
     }
 }

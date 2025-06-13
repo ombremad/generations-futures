@@ -77,6 +77,7 @@ struct Questionnaire_View_2: View {
             }
 
         }
+        .navigationBarBackButtonHidden(true)
         
     }
 }

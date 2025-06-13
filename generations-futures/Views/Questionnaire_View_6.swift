@@ -55,6 +55,8 @@ struct Questionnaire_View_6: View {
             }
 
         }
+        .navigationBarBackButtonHidden(true)
+
     }
 }
 

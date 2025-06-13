@@ -80,6 +80,8 @@ struct Questionnaire_View_4: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
+
     }
 }
 
