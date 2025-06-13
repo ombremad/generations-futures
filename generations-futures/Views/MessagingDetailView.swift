@@ -80,11 +80,11 @@ struct MessagingDetailView: View {
             }
             .font(Font.custom("Poppins-Regular", size: 12))
             .foregroundStyle(Color("Grey-900"))
-//            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(true)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(false)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    NavigationLink(destination: ProfilView()) {
+                    NavigationLink(destination: ProfilView(profile: profiles[0])) {
                         VStack {
                             Image(defaultProfilePicture)
                                 .resizable()
