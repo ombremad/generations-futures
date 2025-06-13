@@ -39,7 +39,7 @@ struct Profile: Hashable {
     var yearOfBirth: Int
     var generation: String
     var description: String
-
+    var favHobbies: [Hobby]
     
     init(name: String, surname: String, profilePicture: ImageResource, lieu: String, yearOfBirth: Int, generation: String, description: String) {
         self.name = name
@@ -49,9 +49,10 @@ struct Profile: Hashable {
         self.yearOfBirth = yearOfBirth
         self.generation = generation
         self.description = description
+        self.favHobbies = []
     }
 
-    var favHobbies: [Hobby]
+    
 
 }
 
@@ -64,7 +65,7 @@ var profiles: [Profile] = [
         yearOfBirth: 1961,
         generation: "Baobab",
         description: "Un roadtrip au Brésil m’a suffi pour tomber amoureux de la samba. \n17 ans d’expériences dans les pattes!",
-        favHobbies: [hobbies[2], hobbies[5], hobbies[7], hobbies[12]]
+//        favHobbies: [hobbies[2], hobbies[5], hobbies[7], hobbies[12]]
     ),
     Profile(
         name: "Malik",
@@ -74,7 +75,7 @@ var profiles: [Profile] = [
         yearOfBirth: 1981,
         generation: "Baobab",
         description: "dev web, musique électronique, tech, débats philosophiques, balades nocturnes en ville... !!!",
-        favHobbies: [hobbies[0], hobbies[7], hobbies[8], hobbies[13]]
+//        favHobbies: [hobbies[0], hobbies[7], hobbies[8], hobbies[13]]
     ),
     Profile(
         name: "Béatrice",
@@ -84,7 +85,7 @@ var profiles: [Profile] = [
         yearOfBirth: 1977,
         generation: "Baobab",
         description: "Passionnée de photographie urbaine et de littérature contemporaine. J'aime capturer l’instant et raconter des histoires. Je travaille dans la médiation culturelle et j'adore les escapades en solitaire !",
-        favHobbies: [hobbies[1], hobbies[3], hobbies[4], hobbies[5], hobbies[8]]
+//        favHobbies: [hobbies[1], hobbies[3], hobbies[4], hobbies[5], hobbies[8]]
     )
 ]
 
