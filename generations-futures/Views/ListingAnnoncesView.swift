@@ -95,11 +95,15 @@ struct ListingAnnoncesView: View {
                 ToolbarItem(placement: .principal) {
                     Text("Annonces")
                 }
-                ToolbarItem(placement:.topBarTrailing) {
+                ToolbarItem(placement:.primaryAction) {
                     NavigationLink(destination: GestionAnnoncesView()) {
-                        Image(systemName: "list.dash")
-                            .foregroundStyle(Color("Grey-500"))
-                            .fontWeight(.bold)
+                        ZStack {
+                            Circle()
+                                .fill(Color("Grey-50"))
+                                .frame(width:44, height: 44)
+                            Image(systemName: "pencil")
+                                .foregroundStyle(Color("Grey-500"))
+                        }
                     }
                 }
             }
