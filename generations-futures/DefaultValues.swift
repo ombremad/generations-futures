@@ -178,7 +178,7 @@ let hobbies: [Hobby] = [
     Hobby(icon: "theatermasks.fill", label: "Théâtre"),
     Hobby(icon: "music.note", label: "Musique"),
     Hobby(icon: "book.fill", label: "Lecture"),
-    Hobby(icon: "pencil", label: "Écriture"),
+    Hobby(icon: "character.book.closed.fill", label: "Écriture"),
     Hobby(icon: "camera.fill", label: "Photo"),
     Hobby(icon: "gamecontroller.fill", label: "Jeux vidéo"),
     Hobby(icon: "carrot.fill", label: "Jardinage"),
