@@ -10,7 +10,7 @@ import SwiftUI
 struct Questionnaire_View_2: View {
     
     @Environment(AnnoncesViewModel.self) var viewModel
-    @State private var isSelected : Bool = false
+//    @State private var isSelected : Bool = false
     
     var body: some View {
         NavigationStack{

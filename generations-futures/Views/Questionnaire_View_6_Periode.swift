@@ -36,15 +36,25 @@ struct Questionnaire_View_6_Periode: View {
                         .padding(.bottom,40)
                     
                     HStack {
+                        
+                        Text("Du")
+                            .font(Font.custom("Poppins-Regular", size: 16))
+                            .foregroundStyle(.grey900)
+                            .padding([.leading,.trailing], 12)
+                        
                         DatePicker("Moment Selectionnée", selection: $startingDateSelected,in: Date.now..., displayedComponents: .date)
                             .labelsHidden()
-                            .font(Font.custom("Poppins-Regular", size: 12))
+                            .frame(width: 80)
                             .padding(.horizontal, 12)
                         
+                        Text("au")
+                            .font(Font.custom("Poppins-Regular", size: 16))
+                            .foregroundStyle(.grey900)
+                            .padding(.leading,12)
                         
                         DatePicker("Moment Selectionnée", selection: $endingDateSelected,in: startingDateSelected..., displayedComponents: .date)
                             .labelsHidden()
-                            .font(Font.custom("Poppins-Regular", size: 12))
+                            .frame(width: 80)
                             .padding(.horizontal, 24)
                         
                         Button {
