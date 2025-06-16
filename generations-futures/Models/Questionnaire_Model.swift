@@ -23,7 +23,7 @@ struct Theme: Identifiable, Hashable{
     var id = UUID()
     var title : String
     var image : String
-    var isSelected : Bool = true
+    var isSelected : Bool = false
 
     
     }

@@ -41,6 +41,7 @@ struct Questionnaire_View_1: View {
                         Button {
                             // valider et append dans le doc final
                             //                            viewModel.annonceList.append(saisieText)
+                            viewModel.title = saisieText
                         } label: {
                             Image(systemName: "checkmark")
                                 .font(.system(size: 30))

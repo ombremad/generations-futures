@@ -25,11 +25,17 @@ struct Questionnaire_View_6: View {
                     } label: {
                         Text("Renseigner une date précise")
                             .font(Font.custom("Poppins-Regular", size: 12))
-                            .foregroundStyle(.almostWhite)
+                            .foregroundStyle(.grey500)
                             .frame(width: 300, height: 50)
                             .background{
                                 RoundedRectangle(cornerRadius: 32)
                                     .foregroundStyle(.grey500)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 30)
+                                            .frame(width: 295, height: 45)
+                                            .foregroundStyle(.almostWhite)
+                                    
+                                    }
                             }
                         
                     }.padding(.bottom, 48)
@@ -39,11 +45,17 @@ struct Questionnaire_View_6: View {
                     } label: {
                         Text("Renseigner une période de disponibilités")
                             .font(Font.custom("Poppins-Regular", size: 12))
-                            .foregroundStyle(.almostWhite)
+                            .foregroundStyle(.grey500)
                             .frame(width: 300, height: 50)
                             .background{
                                 RoundedRectangle(cornerRadius: 32)
                                     .foregroundStyle(.grey500)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 30)
+                                            .frame(width: 295, height: 45)
+                                            .foregroundStyle(.almostWhite)
+                                    
+                                    }
                             }
                         
                     }.padding(.bottom,90)

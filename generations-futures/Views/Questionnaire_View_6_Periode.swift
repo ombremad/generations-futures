@@ -25,7 +25,7 @@ struct Questionnaire_View_6_Periode: View {
                     HeaderQuestionnaire(num: 6, titre: "Quand êtes vous\n disponible pour cette expérience?")
                     
                     
-                    Text("Renseigner une période de disponibilités")
+                    Text("Renseignez une période de disponibilités")
                         .font(Font.custom("Poppins-Regular", size: 12))
                         .foregroundStyle(.almostWhite)
                         .frame(width: 300, height: 50)
@@ -48,8 +48,8 @@ struct Questionnaire_View_6_Periode: View {
                             .padding(.horizontal, 24)
                         
                         Button {
-                            viewModel.startingDateRangeSelected = startingDateSelected
-                            viewModel.endingDateSelected = endingDateSelected
+                            viewModel.startingDateRangeSelected = String(startingDateSelected.formatted(date: .long, time: .shortened))
+                            viewModel.endingDateSelected = (endingDateSelected.formatted(date: .long, time: .shortened))
                         } label: {
                             Image(systemName: "checkmark")
                                 .font(.system(size: 30))

@@ -9,6 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct Questionnaire_View_3: View {
+    @Environment(AnnoncesViewModel.self) var viewModel
     @State private var pickerItem: PhotosPickerItem?
     @State private var uiImage: UIImage?
     @State private var selectImage: Image?
@@ -107,5 +108,9 @@ struct Questionnaire_View_3: View {
     
 
 #Preview {
+    @Previewable
+    @State var viewModel = AnnoncesViewModel()
+    
     Questionnaire_View_3()
+        .environment(AnnoncesViewModel())
 }

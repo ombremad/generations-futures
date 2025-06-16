@@ -41,7 +41,8 @@ struct Questionnaire_View_6_Date: View {
                             .padding(.horizontal, 24)
                         
                         Button {
-                            viewModel.preciseDate = selectedDate                } label: {
+                            viewModel.preciseDate = String(selectedDate.formatted(date: .long, time: .shortened))
+                        } label: {
                                 Image(systemName: "checkmark")
                                     .font(.system(size: 30))
                                 //                            Text("VALIDER")

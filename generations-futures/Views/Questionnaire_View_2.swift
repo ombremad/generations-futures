@@ -23,7 +23,7 @@ struct Questionnaire_View_2: View {
                         ForEach(thematics, id: \.self) { theme in
                             Button {
                                 isSelected.toggle()
-                                viewModel.theme = theme
+                                viewModel.theme = Theme(title: theme.title, image: theme.image)
                             } label: {
                                 ZStack {
                                     

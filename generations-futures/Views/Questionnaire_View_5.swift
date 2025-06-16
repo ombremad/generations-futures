@@ -32,18 +32,26 @@ struct Questionnaire_View_5: View {
     
     @State var recherche = ""
     
+     var searchResults: [String] {
+        if recherche.isEmpty {
+            return towns
+        } else {
+            return towns.filter { $0.contains(recherche) }
+        }
+    }
+
+    
     var body: some View {
-        
-        NavigationStack{
             ZStack{
                 Color.almostWhite
                     .ignoresSafeArea()
                 VStack{
                     HeaderQuestionnaire(num: 5, titre: "Où voulez vous aller?")
                     
-                    ZStack {
+//                    ZStack {
                         // créer un filtre pour chercher les plus grandes villes de France
                         TextField("Recherchez le lieu ici", text: $recherche)
+                            .searchable(text: $recherche)
                             .font(Font.custom("Poppins-Regular", size: 12))
                             .multilineTextAlignment(.center)
                             .frame(width: 300, height: 50)
@@ -54,11 +62,11 @@ struct Questionnaire_View_5: View {
                             }
                         
                         
-                        Image(systemName: "chevron.down")
-                            .font(.system(size: 20))
-                            .frame(width: 250, alignment: .trailing)
-                            .foregroundStyle(.grey300)
-                    }
+//                        Image(systemName: "chevron.down")
+//                            .font(.system(size: 20))
+//                            .frame(width: 250, alignment: .trailing)
+//                            .foregroundStyle(.grey300)
+//                    }
                     .padding(.bottom, 24)
                     
                     ForEach(towns, id: \.self) { town in
@@ -71,7 +79,7 @@ struct Questionnaire_View_5: View {
                         }
                         
                     }
-                    .searchable(text: $recherche)
+//                    .searchable(text: $recherche)
                     
                     
                     
@@ -126,8 +134,10 @@ struct Questionnaire_View_5: View {
                     .padding(.trailing, 40)
                     .padding(.bottom, 120)
                 }
-            }
+            
         }
+
+        
         .navigationBarBackButtonHidden(true)
 
       
