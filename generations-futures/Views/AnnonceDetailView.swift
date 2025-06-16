@@ -24,8 +24,8 @@ struct AnnonceDetailView: View {
       @State private var focusedDate = Date()
       @State private var events: [EKEvent] = []
 
-    
-    let restaurant = CLLocationCoordinate2D(latitude: 45.750951147666186, longitude: 4.824775401850031)
+ 
+    let restaurant = CLLocationCoordinate2D(latitude:  45.7611078774429, longitude: 4.832697026986098)
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -33,7 +33,7 @@ struct AnnonceDetailView: View {
                 VStack(spacing: 20) {
                         ZStack {
                             // Image de l'annonce
-                            Image(.Samples.coktail)
+                            Image(.Samples.coffee)
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 370, height: 400)
@@ -47,12 +47,13 @@ struct AnnonceDetailView: View {
                                 .clipShape(
                                     RoundedCorner(radius: 30, corners: [.bottomLeft, .bottomRight])
                                 )
+                                .padding(.top, -20)
 
                             // Titre de l'annonce au centre + lieu
                             VStack(spacing: 6) {
                                 Spacer()
                                 VStack(spacing: 4) {
-                                    Text("Boire un verre en début de soirée")
+                                    Text("Un café et parler")
                                         .font(Font.custom("Poppins-Regular", size: 24))
                                         .foregroundColor(.white)
                                         .multilineTextAlignment(.center)
@@ -84,9 +85,8 @@ struct AnnonceDetailView: View {
                                 .font(Font.custom("Poppins-SemiBold", size: 16))
                                 .foregroundStyle(Color("Grey-500"))
 
-                            Text("""
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra.
-                            """)
+                            Text(
+                                    "Parler de tout et de rien, de mon roadtrip au Brésil, de la samba, des plantes, des hobbies en général...")
                             .font(Font.custom("Poppins-Regular", size: 12))
                             .foregroundStyle(Color("Grey-900"))
                         }
@@ -98,7 +98,7 @@ struct AnnonceDetailView: View {
                                 .foregroundStyle(Color("Grey-500"))
                             
                             Map() {
-                                Marker("Wanderlust Lyon",systemImage:"wineglass", coordinate: restaurant)
+                                Marker("Slake Lyon",systemImage:"cup.and.heat.waves.fill", coordinate: restaurant)
                             }
                             .cornerRadius(30)
 
