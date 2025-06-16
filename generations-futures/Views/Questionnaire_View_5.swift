@@ -10,7 +10,6 @@ import MapKit
 
 struct Questionnaire_View_5: View {
     
-    var towns : [String] = ["Paris", "Lille", "Madrid"]
     
     @State var position = MapCameraPosition.region(
         MKCoordinateRegion(
@@ -20,28 +19,21 @@ struct Questionnaire_View_5: View {
         )
     )
     
-    var searchResult: [String] {
-        if recherche .isEmpty{
-            return towns
-        }
-        else{
-            return towns.filter{ $0.contains(recherche)}
-        }
-    }
     @Environment(AnnoncesViewModel.self) var viewModel
     
     @State var recherche = ""
     
      var searchResults: [String] {
         if recherche.isEmpty {
-            return towns
+            return []
         } else {
-            return towns.filter { $0.contains(recherche) }
+            return viewModel.towns.filter {$0.contains(recherche)}
         }
     }
 
     
     var body: some View {
+        
             ZStack{
                 Color.almostWhite
                     .ignoresSafeArea()
@@ -69,17 +61,16 @@ struct Questionnaire_View_5: View {
 //                    }
                     .padding(.bottom, 24)
                     
-                    ForEach(towns, id: \.self) { town in
-                        Button {
-                            // Doit enregistrer le choix de l'utilisateur (pour l'array du récap') et l'afficher sur la Map en dessous
-                            viewModel.location = town
-                        } label: {
-                            Text(town)
-                                .font(Font.custom("Poppins-Regular", size: 12))
-                        }
-                        
-                    }
-//                    .searchable(text: $recherche)
+                        ForEach(viewModel.towns, id: \.self) { town in
+                            Button {
+                                // Doit enregistrer le choix de l'utilisateur (pour l'array du récap') et l'afficher sur la Map en dessous
+                                viewModel.location = town
+                            } label: {
+                                Text(town)
+                                    .font(Font.custom("Poppins-Regular", size: 12))
+                            }
+                            
+                        }.searchable(text: $recherche)
                     
                     
                     

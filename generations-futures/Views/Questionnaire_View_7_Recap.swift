@@ -33,26 +33,11 @@ struct Questionnaire_View_7_Recap: View {
             Text("Récapitulatif")
                 .font(Font.custom("Poppins-Regular", size: 16))
                 .foregroundStyle(.grey50)
-                .padding(.leading,45)
+                .padding(.trailing,40)
             
             Spacer()
             
-            NavigationLink {
-                AnnonceDetailView()
-            } label: {
-                HStack {
-                    
-                    Text("VALIDER")
-                        .font(Font.custom("Poppins-Regular", size: 12))
-                        .fontWeight(.black)
-                        .contentShape(Rectangle())
-                    
-                    Image(systemName: "chevron.right")
-                        .fontWeight(.semibold)
-                        .font(.system(size: 20))
-                    
-                }
-            }
+            
             
             
         }.padding()
@@ -100,9 +85,12 @@ struct Questionnaire_View_7_Recap: View {
                         ScrollView {
                             
                             VStack{
-                                Text("Titre")
-                                    .font(Font.custom("Poppins-Bold", size: 20))
-                                    .foregroundStyle(.grey50)
+                                    Text("Titre")
+                                        .font(Font.custom("Poppins-Bold", size: 20))
+                                        .foregroundStyle(.grey50)
+                                    
+                                
+                           
                                 
                                 Text(viewModel.title)
                                     .font(Font.custom("Poppins-SemiBold", size: 18))
@@ -141,7 +129,7 @@ struct Questionnaire_View_7_Recap: View {
                                         .foregroundStyle(.grey900)
                                     
                                     
-                                    Image(systemName: thematics.first?.image ?? "")
+                                    Image(systemName: viewModel.theme.image)
                                         .font(.system(size: 14))
                                         .padding()
                                         .background{
@@ -185,8 +173,31 @@ struct Questionnaire_View_7_Recap: View {
                                     .scaledToFit()
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
                                     .frame(width: 250,height: 300)
+                                    .padding(.bottom)
+
                                 
-                                
+                                NavigationLink {
+                                    AnnonceDetailView()
+                                } label: {
+                                    HStack {
+                                        
+                                        Text("VALIDER")
+                                            .font(Font.custom("Poppins-Regular", size: 12))
+                                            .fontWeight(.black)
+                                            
+//                                            .contentShape(Rectangle())
+                                        
+                                        Image(systemName: "chevron.right")
+                                            .fontWeight(.semibold)
+                                            .font(.system(size: 20))
+                                        
+                                    }
+                                    .padding(15)
+                                    .background{
+                                        RoundedRectangle(cornerRadius: 12)
+                                            .fill(.white)
+                                    }
+                                }
                                 
                                 
                             }
