@@ -18,49 +18,77 @@ struct Questionnaire_View_4: View {
         }
         
     }
+    @Environment(AnnoncesViewModel.self) var viewModel
     @State var description = ""
     @FocusState private var Nfocus: Bool
     
     var body: some View {
         
-        
-        ZStack {
-            Color.almostWhite
-                .ignoresSafeArea()
-            VStack{
-                HeaderQuestionnaire(num: 4, titre: "Décrivez en quelques \n mots ce que vous souhaitez faire")
-                
-            
+        NavigationStack{
+            ZStack {
+                Color.almostWhite
+                    .ignoresSafeArea()
+                VStack{
+                    HeaderQuestionnaire(num: 4, titre: "Décrivez en quelques \n mots ce que vous souhaitez faire")
+                    
+                    
                     TextEditor(text: $description)
-                    .focused($Nfocus)
-                    .frame(height: 160).colorMultiply(Color(.grey50))
-                    .font(Font.custom("Poppins-Regular", size: 12))
-                    .frame(width: 320,height: 180)
-                    .padding(.leading, 16)
-                    .background(.grey50,in: RoundedRectangle(cornerRadius: 20))
-                    .overlay(alignment: .topLeading){
-                        if !Nfocus && description.isEmpty{
-                            Text("Retrouvons nous dans l'après-midi pour...")
-                                .font(Font.custom("Poppins-Regular", size: 12))
-                                .foregroundColor(.grey300).padding(8)
+                        .focused($Nfocus)
+                        .frame(height: 160).colorMultiply(Color(.grey50))
+                        .font(Font.custom("Poppins-Regular", size: 12))
+                        .frame(width: 320,height: 180)
+                        .padding(.leading, 16)
+                        .background(.grey50,in: RoundedRectangle(cornerRadius: 20))
+                        .overlay(alignment: .topLeading){
+                            if !Nfocus && description.isEmpty{
+                                Text("Retrouvons nous dans l'après-midi pour...")
+                                    .font(Font.custom("Poppins-Regular", size: 12))
+                                    .foregroundColor(.grey300).padding(8)
+                            }
                         }
-                    }
-                        
-                
-                Text("\(description.count)/300 caractères")
+                    
+                    
+                    Text("\(description.count)/300 caractères")
                         .font(Font.custom("Poppins-Regular", size: 10))
                         .foregroundStyle(.grey300)
                         .frame(width: 320, alignment: .trailing)
-                
-                
-                Spacer()
-                SuivantButton(pageSuivante: Questionnaire_View_5())
+                    
+                    
+                    Button {
+                        // injecter ma valeur dans la varible de mon viewModel
+                        viewModel.description = description
+                    } label: {
+                        Image(systemName: "checkmark")
+                            .font(.system(size: 40))
+                    }
+                    
+                    Spacer()
+                    NavigationLink {
+                        Questionnaire_View_6()
+                    } label: {
+                        HStack{
+                            Text("Suivant")
+                                .font(Font.custom("Poppins-SemiBold", size: 24))
+                                .foregroundStyle(.grey500)
+                            Image(systemName: "chevron.right")
+                                .foregroundStyle(.grey500)
+                        }
+                    }
+                    .frame(width: 350, alignment: .trailing)
+                    .padding(.trailing, 40)
+                    .padding(.bottom, 120)
+                }
             }
-            
         }
+        .navigationBarBackButtonHidden(true)
+
     }
 }
 
 #Preview {
+    @Previewable
+    @State var viewModel = AnnoncesViewModel()
+    
     Questionnaire_View_4()
+        .environment(AnnoncesViewModel())
 }

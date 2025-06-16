@@ -32,7 +32,9 @@ struct ListingMessagesView: View {
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Text("Messages")
+                    NavigationLink(destination: ProfilView(profile: profiles[0])) {
+                        Text("Messages")
+                    }
                 }
             }
             .font(Font.custom("Poppins-Regular", size: 16))

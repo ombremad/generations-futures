@@ -1,17 +1,19 @@
 //
-//  Questionnaire_View_6_Date.swift
+//  Questionnaire_View_6_Periode.swift
 //  generations-futures
 //
-//  Created by Apprenant125 on 07/06/2025.
+//  Created by Apprenant125 on 12/06/2025.
 //
 
 import SwiftUI
-import EventKit
 
-struct Questionnaire_View_6_Date: View {
+struct Questionnaire_View_6_Periode: View {
     
     @Environment(AnnoncesViewModel.self) var viewModel
-    @State var selectedDate: Date = Date.now
+    
+    @State var startingDateSelected : Date
+    @State var endingDateSelected : Date
+    
     
     var body: some View {
         NavigationStack{
@@ -22,37 +24,37 @@ struct Questionnaire_View_6_Date: View {
                 VStack {
                     HeaderQuestionnaire(num: 6, titre: "Quand êtes vous\n disponible pour cette expérience?")
                     
-                    Text("Renseignez une date précise")
+                    
+                    Text("Renseigner une période de disponibilités")
                         .font(Font.custom("Poppins-Regular", size: 12))
                         .foregroundStyle(.almostWhite)
                         .frame(width: 300, height: 50)
                         .background{
                             RoundedRectangle(cornerRadius: 32)
                                 .foregroundStyle(.grey500)
-                        }.padding(.bottom, 24)
-                    
-                    // faire en sorte de pouvoir selectionner une date supérieure à la date du jour et de faire une date range
-                    // possible en natif ?
+                        }
+                        .padding(.bottom,40)
                     
                     HStack {
-                        DatePicker("Moment Selectionnée", selection: $selectedDate,in: Date.now...)
+                        DatePicker("Moment Selectionnée", selection: $startingDateSelected,in: Date.now..., displayedComponents: .date)
+                            .labelsHidden()
+                            .font(Font.custom("Poppins-Regular", size: 12))
+                            .padding(.horizontal, 12)
+                        
+                        
+                        DatePicker("Moment Selectionnée", selection: $endingDateSelected,in: startingDateSelected..., displayedComponents: .date)
                             .labelsHidden()
                             .font(Font.custom("Poppins-Regular", size: 12))
                             .padding(.horizontal, 24)
                         
                         Button {
-                            viewModel.preciseDate = selectedDate                } label: {
-                                Image(systemName: "checkmark")
-                                    .font(.system(size: 30))
-                                //                            Text("VALIDER")
-                                //                                .font(Font.custom("Poppins-Regular", size: 28))
-                                //                                .foregroundStyle(.grey500)
-                                //                                .fontWeight(.black)
-                                //                                .padding(40)
-                            }
-                        
+                            viewModel.startingDateRangeSelected = startingDateSelected
+                            viewModel.endingDateSelected = endingDateSelected
+                        } label: {
+                            Image(systemName: "checkmark")
+                                .font(.system(size: 30))
+                        }
                     }
-                    
                     
                     Spacer()
                     
@@ -70,21 +72,19 @@ struct Questionnaire_View_6_Date: View {
                     .frame(width: 350, alignment: .trailing)
                     .padding(.trailing, 40)
                     .padding(.bottom, 120)
+                    
                 }
-                
             }
 
         }
         .navigationBarBackButtonHidden(true)
 
-    }
-}
+    }}
 
 #Preview {
     @Previewable
     @State var viewModel = AnnoncesViewModel()
     
-    Questionnaire_View_6_Date(selectedDate: Date.now)
+    Questionnaire_View_6_Periode(startingDateSelected: Date.now, endingDateSelected: Date.now)
         .environment(AnnoncesViewModel())
-    
 }
