@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "pexels-khoa-le-1920596591-32569640.jpg",
+      "filename" : "plant@1x.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "pexels-khoa-le-1920596591-32569640 1.jpg",
+      "filename" : "plant@2x.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "pexels-khoa-le-1920596591-32569640 2.jpg",
+      "filename" : "plant@3x.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

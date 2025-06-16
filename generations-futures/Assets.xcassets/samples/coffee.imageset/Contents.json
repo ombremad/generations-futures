@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "pexels-chevanon-312418.jpg",
+      "filename" : "coffee@1x.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "pexels-chevanon-312418 1.jpg",
+      "filename" : "coffee@2x.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "pexels-chevanon-312418 2.jpg",
+      "filename" : "coffee@3x.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

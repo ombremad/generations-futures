@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "pexels-tima-miroshnichenko-7991378.jpg",
+      "filename" : "cinema@1x.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "pexels-tima-miroshnichenko-7991378 1.jpg",
+      "filename" : "cinema@2x.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "pexels-tima-miroshnichenko-7991378 2.jpg",
+      "filename" : "cinema@3x.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }
