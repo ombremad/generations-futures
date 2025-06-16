@@ -10,39 +10,40 @@ import MapKit
 
 struct Questionnaire_View_5: View {
     
-    var towns : [String] = ["Paris", "Lille", "Madrid"]
     
     @State var position = MapCameraPosition.region(
         MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 48.8566, longitude: 2.3522),
+            // Coordonées à chercher par ville et à changer en fonction de la ville choisie par l'utilisateur
             span: MKCoordinateSpan(latitudeDelta: -10, longitudeDelta: 1)
         )
     )
     
-    var searchResult: [String] {
-        if recherche .isEmpty{
-            return towns
-        }
-        else{
-            return towns.filter{ $0.contains(recherche)}
-        }
-    }
     @Environment(AnnoncesViewModel.self) var viewModel
     
     @State var recherche = ""
     
+     var searchResults: [String] {
+        if recherche.isEmpty {
+            return []
+        } else {
+            return viewModel.towns.filter {$0.contains(recherche)}
+        }
+    }
+
+    
     var body: some View {
         
-        NavigationStack{
             ZStack{
                 Color.almostWhite
                     .ignoresSafeArea()
                 VStack{
                     HeaderQuestionnaire(num: 5, titre: "Où voulez vous aller?")
                     
-                    ZStack {
+//                    ZStack {
                         // créer un filtre pour chercher les plus grandes villes de France
                         TextField("Recherchez le lieu ici", text: $recherche)
+                            .searchable(text: $recherche)
                             .font(Font.custom("Poppins-Regular", size: 12))
                             .multilineTextAlignment(.center)
                             .frame(width: 300, height: 50)
@@ -53,25 +54,23 @@ struct Questionnaire_View_5: View {
                             }
                         
                         
-                        Image(systemName: "chevron.down")
-                            .font(.system(size: 20))
-                            .frame(width: 250, alignment: .trailing)
-                            .foregroundStyle(.grey300)
-                    }
+//                        Image(systemName: "chevron.down")
+//                            .font(.system(size: 20))
+//                            .frame(width: 250, alignment: .trailing)
+//                            .foregroundStyle(.grey300)
+//                    }
                     .padding(.bottom, 24)
                     
-                    ForEach(towns, id: \.self) { town in
-                        Button {
-                            // Doit enregistrer le choix de l'utilisateur (pour l'array du récap') et l'afficher sur la Map en dessous
-                            //                        newEvent.append(town)
-                            viewModel.location = town
-                        } label: {
-                            Text(town)
-                                .font(Font.custom("Poppins-Regular", size: 12))
-                        }
-                        
-                    }
-                    .searchable(text: $recherche)
+                        ForEach(viewModel.towns, id: \.self) { town in
+                            Button {
+                                // Doit enregistrer le choix de l'utilisateur (pour l'array du récap') et l'afficher sur la Map en dessous
+                                viewModel.location = town
+                            } label: {
+                                Text(town)
+                                    .font(Font.custom("Poppins-Regular", size: 12))
+                            }
+                            
+                        }.searchable(text: $recherche)
                     
                     
                     
@@ -126,8 +125,10 @@ struct Questionnaire_View_5: View {
                     .padding(.trailing, 40)
                     .padding(.bottom, 120)
                 }
-            }
+            
         }
+
+        
         .navigationBarBackButtonHidden(true)
 
       

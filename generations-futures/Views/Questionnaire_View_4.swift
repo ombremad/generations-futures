@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct Questionnaire_View_4: View {
-    func LimitingCharacters(description: String) -> Int{
-        
-        if description.count <= 300 {
-            return 300
-        }
-        else{
-            return description.count
-        }
-        
-    }
+//    func LimitingCharacters(description: String) -> Int{
+//        
+//        if description.count <= 300 {
+//            return 300
+//        }
+//        else{
+//            return description.count
+//        }
+//        
+//    }
     @Environment(AnnoncesViewModel.self) var viewModel
     @State var description = ""
     @FocusState private var Nfocus: Bool
@@ -43,15 +43,15 @@ struct Questionnaire_View_4: View {
                             if !Nfocus && description.isEmpty{
                                 Text("Retrouvons nous dans l'après-midi pour...")
                                     .font(Font.custom("Poppins-Regular", size: 12))
-                                    .foregroundColor(.grey300).padding(8)
+                                    .foregroundColor(.grey300).padding()
                             }
                         }
                     
                     
-                    Text("\(description.count)/300 caractères")
-                        .font(Font.custom("Poppins-Regular", size: 10))
-                        .foregroundStyle(.grey300)
-                        .frame(width: 320, alignment: .trailing)
+//                    Text("\(description.count)/300 caractères")
+//                        .font(Font.custom("Poppins-Regular", size: 10))
+//                        .foregroundStyle(.grey300)
+//                        .frame(width: 320, alignment: .trailing)
                     
                     
                     Button {
@@ -60,11 +60,12 @@ struct Questionnaire_View_4: View {
                     } label: {
                         Image(systemName: "checkmark")
                             .font(.system(size: 40))
-                    }
+                            .padding(.top)
+                    }/*.alert("Description enregistrée!", isPresented: <#T##Binding<Bool>#>, actions: <#T##() -> View#>)*/
                     
                     Spacer()
                     NavigationLink {
-                        Questionnaire_View_6()
+                        Questionnaire_View_5()
                     } label: {
                         HStack{
                             Text("Suivant")

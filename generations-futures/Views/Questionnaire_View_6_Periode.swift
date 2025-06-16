@@ -25,7 +25,7 @@ struct Questionnaire_View_6_Periode: View {
                     HeaderQuestionnaire(num: 6, titre: "Quand êtes vous\n disponible pour cette expérience?")
                     
                     
-                    Text("Renseigner une période de disponibilités")
+                    Text("Renseignez une période de disponibilités")
                         .font(Font.custom("Poppins-Regular", size: 12))
                         .foregroundStyle(.almostWhite)
                         .frame(width: 300, height: 50)
@@ -36,20 +36,30 @@ struct Questionnaire_View_6_Periode: View {
                         .padding(.bottom,40)
                     
                     HStack {
+                        
+                        Text("Du")
+                            .font(Font.custom("Poppins-Regular", size: 16))
+                            .foregroundStyle(.grey900)
+                            .padding([.leading,.trailing], 12)
+                        
                         DatePicker("Moment Selectionnée", selection: $startingDateSelected,in: Date.now..., displayedComponents: .date)
                             .labelsHidden()
-                            .font(Font.custom("Poppins-Regular", size: 12))
+                            .frame(width: 80)
                             .padding(.horizontal, 12)
                         
+                        Text("au")
+                            .font(Font.custom("Poppins-Regular", size: 16))
+                            .foregroundStyle(.grey900)
+                            .padding(.leading,12)
                         
                         DatePicker("Moment Selectionnée", selection: $endingDateSelected,in: startingDateSelected..., displayedComponents: .date)
                             .labelsHidden()
-                            .font(Font.custom("Poppins-Regular", size: 12))
+                            .frame(width: 80)
                             .padding(.horizontal, 24)
                         
                         Button {
-                            viewModel.startingDateRangeSelected = startingDateSelected
-                            viewModel.endingDateSelected = endingDateSelected
+                            viewModel.startingDateRangeSelected = String(startingDateSelected.formatted(date: .long, time: .shortened))
+                            viewModel.endingDateSelected = (endingDateSelected.formatted(date: .long, time: .shortened))
                         } label: {
                             Image(systemName: "checkmark")
                                 .font(.system(size: 30))
@@ -59,7 +69,7 @@ struct Questionnaire_View_6_Periode: View {
                     Spacer()
                     
                     NavigationLink {
-                        Questionnaire_Recap_View_7()
+                        Questionnaire_View_7_Recap()
                     } label: {
                         HStack{
                             Text("Suivant")

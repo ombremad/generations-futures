@@ -19,11 +19,11 @@ func LimitingCharacters(description: String) -> Int{
 }
 
 // MARK: Thèmes -> Questionaire 2
-struct Theme: Identifiable, Hashable{
+struct Theme: Identifiable, Hashable, Equatable{
     var id = UUID()
     var title : String
     var image : String
-    var isSelected : Bool = true
+    var isSelected : Bool = false
 
     
     }

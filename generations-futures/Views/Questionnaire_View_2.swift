@@ -10,7 +10,7 @@ import SwiftUI
 struct Questionnaire_View_2: View {
     
     @Environment(AnnoncesViewModel.self) var viewModel
-    @State private var isSelected : Bool = false
+//    @State private var isSelected : Bool = false
     
     var body: some View {
         NavigationStack{
@@ -22,18 +22,18 @@ struct Questionnaire_View_2: View {
                     ScrollView {
                         ForEach(thematics, id: \.self) { theme in
                             Button {
-                                isSelected.toggle()
-                                viewModel.theme = theme
+                                viewModel.theme.isSelected.toggle()
+                                viewModel.theme = Theme(title: theme.title, image: theme.image)
                             } label: {
                                 ZStack {
                                     
                                     Text(theme.title)
                                         .font(Font.custom("Poppins-Regular", size: 12))
-                                        .foregroundStyle(.grey900)
+                                        .foregroundStyle(viewModel.theme.isSelected ? .almostWhite : .grey900)
                                         .frame(width: 240, height: 50)
                                         .background{
                                             RoundedRectangle(cornerRadius: 12)
-                                                .fill(isSelected ? .grey500 : .grey50)
+                                                .fill(viewModel.theme.isSelected ? .grey500 : .grey50)
                                         }
                                     Circle()
                                         .frame(width: 40)
