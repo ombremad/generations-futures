@@ -17,6 +17,8 @@ import EventKit
 
 struct AnnonceDetailView: View {
     
+    @Environment(\.dismiss) private var dismiss
+    
     @State private var selectedDate: Date? = nil
     @StateObject var eventManager = EventManager()
       @State private var focusedDate = Date()
@@ -181,34 +183,31 @@ struct AnnonceDetailView: View {
 
                 }
        
-
-            // Boutons retour / partage
-            HStack {
-                Button(action: {
-                    // Action retour
-                }) {
-                    Image(systemName: "chevron.left")
-                        .foregroundStyle(Color("Grey-500"))
-                        .padding()
-                        .background(Color.white)
-                        .clipShape(Circle())
-                }
-                Spacer()
-                Button(action: {
-                    // Action partage
-                }) {
-                    Image(systemName: "square.and.arrow.up")
-                        .foregroundStyle(Color("Grey-500"))
-                        .padding()
-                        .background(Color.white)
-                        .clipShape(Circle())
-                }
-            }
-            .padding(.horizontal)
-            .padding(.top, 50)
         }
         .edgesIgnoringSafeArea(.top)
         .font(Font.custom("Poppins-Regular", size: 14))
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement:.topBarLeading) {
+                Button { dismiss() } label: {
+                    BackButton()
+                }
+            }
+            ToolbarItem(placement:.topBarTrailing) {
+                Button { } label: {
+                    ZStack {
+                        Circle()
+                            .fill(Color("Grey-50"))
+                            .frame(width:44, height: 44)
+                        Image(systemName: "square.and.arrow.up")
+                            .foregroundStyle(Color("Grey-500"))
+                    }
+                }
+            }
+        }
+        .toolbarBackground(.hidden)
+
     }
 }
 

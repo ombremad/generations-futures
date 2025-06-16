@@ -39,7 +39,7 @@ struct Profile: Hashable {
     var yearOfBirth: Int
     var generation: String
     var description: String
-
+    var favHobbies: [Hobby]
     
     init(name: String, surname: String, profilePicture: ImageResource, lieu: String, yearOfBirth: Int, generation: String, description: String) {
         self.name = name
@@ -49,9 +49,10 @@ struct Profile: Hashable {
         self.yearOfBirth = yearOfBirth
         self.generation = generation
         self.description = description
+        self.favHobbies = []
     }
 
-//    var favHobbies: [Hobby]
+    
 
 }
 
