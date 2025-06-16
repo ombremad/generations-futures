@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ListingAnnoncesView: View {
     
+    @State private var viewModel = AnnoncesViewModel()
+    
     func annoncesFilters() -> some View {
         VStack {
             SearchBar()
@@ -110,6 +112,7 @@ struct ListingAnnoncesView: View {
             .font(Font.custom("Poppins-Regular", size: 16))
             .foregroundStyle(Color("Grey-900"))
         }
+        .environment(viewModel)
     }
 }
 
