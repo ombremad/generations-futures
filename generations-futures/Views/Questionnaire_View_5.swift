@@ -43,7 +43,7 @@ struct Questionnaire_View_5: View {
 //                    ZStack {
                         // créer un filtre pour chercher les plus grandes villes de France
                         TextField("Recherchez le lieu ici", text: $recherche)
-                            .searchable(text: $recherche)
+                        .searchable(text: $recherche)
                             .font(Font.custom("Poppins-Regular", size: 12))
                             .multilineTextAlignment(.center)
                             .frame(width: 300, height: 50)
@@ -70,7 +70,7 @@ struct Questionnaire_View_5: View {
                                     .font(Font.custom("Poppins-Regular", size: 12))
                             }
                             
-                        }.searchable(text: $recherche)
+                        }
                     
                     
                     
@@ -127,8 +127,7 @@ struct Questionnaire_View_5: View {
                 }
             
         }
-
-        
+            .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
 
       

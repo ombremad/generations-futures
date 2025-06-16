@@ -52,6 +52,8 @@ struct Profile: Hashable {
         self.favHobbies = []
     }
 
+    
+
 }
 
 var profiles: [Profile] = [

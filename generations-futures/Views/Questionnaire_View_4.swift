@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct Questionnaire_View_4: View {
-//    func LimitingCharacters(description: String) -> Int{
-//        
-//        if description.count <= 300 {
-//            return 300
-//        }
-//        else{
-//            return description.count
-//        }
-//        
-//    }
+    func LimitingCharacters(description: String) -> Int{
+        
+        if description.count <= 300 {
+            return description.count
+        }
+        else{
+            return description.count
+        }
+        
+    }
     @Environment(AnnoncesViewModel.self) var viewModel
     @State var description = ""
     @FocusState private var Nfocus: Bool
@@ -48,10 +48,10 @@ struct Questionnaire_View_4: View {
                         }
                     
                     
-//                    Text("\(description.count)/300 caractères")
-//                        .font(Font.custom("Poppins-Regular", size: 10))
-//                        .foregroundStyle(.grey300)
-//                        .frame(width: 320, alignment: .trailing)
+                    Text("\(description.count)/300 caractères")
+                        .font(Font.custom("Poppins-Regular", size: 10))
+                        .foregroundStyle(.grey300)
+                        .frame(width: 320, alignment: .trailing)
                     
                     
                     Button {
