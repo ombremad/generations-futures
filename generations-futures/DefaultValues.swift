@@ -89,7 +89,9 @@ var profiles: [Profile] = [
     )
 ]
 
-struct Annonce: Hashable {
+struct Annonce: Hashable, Identifiable {
+    let id: UUID = UUID()
+    
     var titre: String
     var description: String
     var illustration: ImageResource
@@ -187,5 +189,7 @@ let hobbies: [Hobby] = [
     Hobby(icon: "paintbrush.pointed.fill", label: "Peinture"),
     Hobby(icon: "tortoise.fill", label: "Animaux"),
     Hobby(icon: "bubble.left.and.text.bubble.right.fill", label: "Discussion"),
-    Hobby(icon: "questionmark.circle.dashed", label: "Autres")
+    Hobby(icon: "questionmark.circle.dashed", label: "Autres"),
+    Hobby(icon: "Café", label: "cup.and.heat.waves")
    ]
+//Theme(title: "Café", image: "cup.and.heat.waves")

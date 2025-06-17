@@ -26,16 +26,11 @@ struct Questionnaire_View_6: View {
                         Text("Renseigner une date précise")
                             .font(Font.custom("Poppins-Regular", size: 12))
                             .foregroundStyle(.grey500)
-                            .frame(width: 300, height: 50)
+                            .frame(width: 250, height: 45)
                             .background{
                                 RoundedRectangle(cornerRadius: 32)
-                                    .foregroundStyle(.grey500)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 30)
-                                            .frame(width: 295, height: 45)
-                                            .foregroundStyle(.almostWhite)
-                                    
-                                    }
+                                    .foregroundStyle(.almostWhite)
+                                    .shadow(radius: 4, y: 3)
                             }
                         
                     }.padding(.bottom, 48)
@@ -44,18 +39,14 @@ struct Questionnaire_View_6: View {
                         Questionnaire_View_6_Periode(startingDateSelected: Date.now, endingDateSelected: Date.now)
                     } label: {
                         Text("Renseigner une période de disponibilités")
-                            .font(Font.custom("Poppins-Regular", size: 12))
+                            .font(Font.custom("Poppins-Regular", size: 10))
                             .foregroundStyle(.grey500)
-                            .frame(width: 300, height: 50)
+                            .frame(width: 250, height: 45)
                             .background{
                                 RoundedRectangle(cornerRadius: 32)
-                                    .foregroundStyle(.grey500)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 30)
-                                            .frame(width: 295, height: 45)
-                                            .foregroundStyle(.almostWhite)
-                                    
-                                    }
+                                    .foregroundStyle(.almostWhite)
+                                    .shadow(radius: 4, y: 3)
+                                   
                             }
                         
                     }.padding(.bottom,90)

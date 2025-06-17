@@ -29,14 +29,14 @@ struct Questionnaire_View_4: View {
                 Color.almostWhite
                     .ignoresSafeArea()
                 VStack{
-                    HeaderQuestionnaire(num: 4, titre: "Décrivez en quelques \n mots ce que vous souhaitez faire")
+                    HeaderQuestionnaire(num: 4, titre: "Décrivez en quelques \n mots ce que vous \nsouhaitez faire")
                     
                     
                     TextEditor(text: $description)
                         .focused($Nfocus)
                         .frame(height: 160).colorMultiply(Color(.grey50))
                         .font(Font.custom("Poppins-Regular", size: 12))
-                        .frame(width: 320,height: 180)
+                        .frame(width: 310,height: 200)
                         .padding(.leading, 16)
                         .background(.grey50,in: RoundedRectangle(cornerRadius: 20))
                         .overlay(alignment: .topLeading){
@@ -54,14 +54,14 @@ struct Questionnaire_View_4: View {
                         .frame(width: 320, alignment: .trailing)
                     
                     
-                    Button {
-                        // injecter ma valeur dans la varible de mon viewModel
-                        viewModel.description = description
-                    } label: {
-                        Image(systemName: "checkmark")
-                            .font(.system(size: 40))
-                            .padding(.top)
-                    }/*.alert("Description enregistrée!", isPresented: <#T##Binding<Bool>#>, actions: <#T##() -> View#>)*/
+//                    Button {
+//                        // injecter ma valeur dans la varible de mon viewModel
+//                        viewModel.description = description
+//                    } label: {
+//                        Image(systemName: "checkmark")
+//                            .font(.system(size: 40))
+//                            .padding(.top)
+//                    }/*.alert("Description enregistrée!", isPresented: <#T##Binding<Bool>#>, actions: <#T##() -> View#>)*/
                     
                     Spacer()
                     NavigationLink {

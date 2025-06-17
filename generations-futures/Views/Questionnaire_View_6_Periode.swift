@@ -10,10 +10,13 @@ import SwiftUI
 struct Questionnaire_View_6_Periode: View {
     
     @Environment(AnnoncesViewModel.self) var viewModel
+    @Environment(\.dismiss) var dismiss
     
     @State var startingDateSelected : Date
     @State var endingDateSelected : Date
     
+    @State var isShowingAlert = false
+
     
     var body: some View {
         NavigationStack{
@@ -26,13 +29,13 @@ struct Questionnaire_View_6_Periode: View {
                     
                     
                     Text("Renseignez une période de disponibilités")
-                        .font(Font.custom("Poppins-Regular", size: 12))
+                        .font(Font.custom("Poppins-Regular", size: 10))
                         .foregroundStyle(.almostWhite)
-                        .frame(width: 300, height: 50)
+                        .frame(width: 250, height: 45)
                         .background{
                             RoundedRectangle(cornerRadius: 32)
                                 .foregroundStyle(.grey500)
-                        }
+                            .shadow(radius: 4, y: 3)                        }
                         .padding(.bottom,40)
                     
                     HStack {
@@ -58,11 +61,14 @@ struct Questionnaire_View_6_Periode: View {
                             .padding(.horizontal, 24)
                         
                         Button {
-                            viewModel.startingDateRangeSelected = String(startingDateSelected.formatted(date: .long, time: .shortened))
-                            viewModel.endingDateSelected = (endingDateSelected.formatted(date: .long, time: .shortened))
+                            viewModel.startingDateRangeSelected = String(startingDateSelected.formatted(date: .long, time: .omitted))
+                            viewModel.endingDateSelected = (endingDateSelected.formatted(date: .long, time: .omitted))
+                            isShowingAlert.toggle()
                         } label: {
                             Image(systemName: "checkmark")
                                 .font(.system(size: 30))
+                        }.alert("Dates enregistrées!", isPresented: $isShowingAlert) {
+                            Button("Parfait!",role: .cancel) { }
                         }
                     }
                     
@@ -85,10 +91,10 @@ struct Questionnaire_View_6_Periode: View {
                     
                 }
             }
-
+            
         }
         .navigationBarBackButtonHidden(true)
-
+        
     }}
 
 #Preview {
