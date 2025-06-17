@@ -46,8 +46,10 @@ struct HeaderQuestionnaire: View {
             Text("\(titre)")
                 .font(Font.custom("Poppins-SemiBold", size: 24))
                 .multilineTextAlignment(.center)
+                .lineLimit(4)
                 .foregroundStyle(.grey500)
-                .padding(.bottom, 40)
+                .frame(width: 350)
+                .padding(.bottom, 25)
                 .padding([.leading, .trailing], 24)
         }
         

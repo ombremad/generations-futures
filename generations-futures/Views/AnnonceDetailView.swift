@@ -85,11 +85,10 @@ struct AnnonceDetailView: View {
                                 .font(Font.custom("Poppins-SemiBold", size: 16))
                                 .foregroundStyle(Color("Grey-500"))
 
-                            Text(
-                                    "Parler de tout et de rien, de mon roadtrip au Brésil, de la samba, des plantes, des hobbies en général...")
+                            Text("Retrouvons nous dans l'après-midi pour discuter autour d'un verre ou d'une tasse.\nParler de tout et de rien, se tenir compagnie pour une jolie journée ensoleillée.")
                             .font(Font.custom("Poppins-Regular", size: 12))
                             .foregroundStyle(Color("Grey-900"))
-                        }
+                        }.frame(width: 300)
 
                         // Localisation
                         VStack(alignment: .leading, spacing: 8) {

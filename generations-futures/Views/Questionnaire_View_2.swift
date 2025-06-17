@@ -42,7 +42,7 @@ struct Questionnaire_View_2: View {
                                         .padding(.bottom,25)
                                     
                                     Image(systemName: theme.image)
-                                        .foregroundStyle(.red500)
+                                        .foregroundStyle(viewModel.theme.isSelected ? .grey300 : .red500)
                                         .frame(width: 150, alignment: .leading)
                                     
                                     Spacer()

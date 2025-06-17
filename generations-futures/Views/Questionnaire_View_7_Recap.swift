@@ -26,7 +26,7 @@ struct Questionnaire_View_7_Recap: View {
                     
                 }
             }
- 
+            
             
             Spacer()
             
@@ -40,12 +40,13 @@ struct Questionnaire_View_7_Recap: View {
             
             
             
-        }.padding()
+        }.padding(.vertical)
     }
     
-    
+//    @State var path : [String] = []
+
     var body: some View {
-        NavigationStack{
+        NavigationStack/*(path:$path)*/{
             ZStack {
                 Color.gray
                     .opacity(0.25)
@@ -80,17 +81,18 @@ struct Questionnaire_View_7_Recap: View {
                             .fill(.almostWhite)
                             .opacity(0.25)
                             .shadow(radius: 10)
-                            .frame(width: 350)
+                            .frame(width: 350,height: 640)
+                            .padding(.bottom)
                         
                         ScrollView {
                             
                             VStack{
-                                    Text("Titre")
-                                        .font(Font.custom("Poppins-Bold", size: 20))
-                                        .foregroundStyle(.grey50)
-                                    
+                                Text("Titre")
+                                    .font(Font.custom("Poppins-Bold", size: 20))
+                                    .foregroundStyle(.grey50)
                                 
-                           
+                                
+                                
                                 
                                 Text(viewModel.title)
                                     .font(Font.custom("Poppins-SemiBold", size: 18))
@@ -103,11 +105,11 @@ struct Questionnaire_View_7_Recap: View {
                                 }
                                 else{
                                     VStack{
-                                    Text("À \(viewModel.location)")
+                                        Text("À \(viewModel.location)")
                                             .font(Font.custom("Poppins-Regular", size: 14))
                                             .foregroundStyle(.grey900)
                                             .padding(.top)
-                                }
+                                    }
                                     Text("Disponible du \(viewModel.startingDateRangeSelected) au \(viewModel.endingDateSelected).")
                                         .font(Font.custom("Poppins-Regular", size: 14))
                                         .foregroundStyle(.grey900)
@@ -136,14 +138,14 @@ struct Questionnaire_View_7_Recap: View {
                                             Circle()
                                                 .fill(.grey100)
                                         }
-                                       
+                                    
                                 } .padding(15)
                                     .padding([.leading,.trailing], 40)
                                     .background{
-                                            RoundedRectangle(cornerRadius: 24)
-                                                .fill(.almostWhite)
-                                                .opacity(0.5)
-                                       
+                                        RoundedRectangle(cornerRadius: 24)
+                                            .fill(.almostWhite)
+                                            .opacity(0.5)
+                                        
                                     }.padding(.bottom)
                                 
                                 Divider()
@@ -168,41 +170,43 @@ struct Questionnaire_View_7_Recap: View {
                                     .foregroundStyle(.grey50)
                                 //                                    .padding(.bottom)
                                 
-                                Image(.Samples.coktail)
+                                Image(.Samples.coffee)
                                     .resizable()
                                     .scaledToFit()
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
                                     .frame(width: 250,height: 300)
                                     .padding(.bottom)
-
                                 
-                                NavigationLink {
+                                NavigationLink{
                                     AnnonceDetailView()
+//                                Button{
+//                                    viewModel.createNewEvent()
+////                                    viewModel.isAllowedToNavigate = true
+//                                    path.append("")
                                 } label: {
                                     HStack {
                                         
                                         Text("VALIDER")
-                                            .font(Font.custom("Poppins-Regular", size: 12))
+                                            .font(Font.custom("Poppins-Regular", size: 18))
                                             .fontWeight(.black)
-                                            
-//                                            .contentShape(Rectangle())
+                                        
+                                        //                                            .contentShape(Rectangle())
                                         
                                         Image(systemName: "chevron.right")
                                             .fontWeight(.semibold)
-                                            .font(.system(size: 20))
+                                            .font(.system(size: 18))
                                         
                                     }
-                                    .padding(15)
+                                    .padding(10)
+                                    .padding(.horizontal, 60)
                                     .background{
                                         RoundedRectangle(cornerRadius: 12)
                                             .fill(.white)
                                     }
-                                }
-                                
-                                
+                                }                                
                             }
                             
-                        }.safeAreaPadding(30).frame(height: 667)
+                        }.safeAreaPadding([.horizontal,.bottom]).frame(height: 624)
                     }
                     
                     
@@ -210,7 +214,7 @@ struct Questionnaire_View_7_Recap: View {
                 .padding(.horizontal,30)
             }
         }.navigationBarBackButtonHidden(true)
-
+        
         
     }
     

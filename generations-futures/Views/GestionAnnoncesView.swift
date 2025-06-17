@@ -26,8 +26,9 @@ struct GestionAnnoncesView: View {
                     }
                 Text("Créez votre annonce\nen quelques secondes !")
                     .multilineTextAlignment(.center)
+                    .padding(.top)
             }
-            .padding()
+            .padding(.vertical, 95)
         }
     }
     func annoncesHistory() -> some View {
