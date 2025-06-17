@@ -190,6 +190,6 @@ let hobbies: [Hobby] = [
     Hobby(icon: "tortoise.fill", label: "Animaux"),
     Hobby(icon: "bubble.left.and.text.bubble.right.fill", label: "Discussion"),
     Hobby(icon: "questionmark.circle.dashed", label: "Autres"),
-    Hobby(icon: "Café", label: "cup.and.heat.waves")
+    Hobby(icon: "cup.and.heat.waves", label: "Café")
    ]
 //Theme(title: "Café", image: "cup.and.heat.waves")
