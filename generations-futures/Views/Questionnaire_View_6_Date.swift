@@ -25,11 +25,11 @@ struct Questionnaire_View_6_Date: View {
                     Text("Renseignez une date précise")
                         .font(Font.custom("Poppins-Regular", size: 12))
                         .foregroundStyle(.almostWhite)
-                        .frame(width: 300, height: 50)
+                        .frame(width: 250, height: 45)
                         .background{
                             RoundedRectangle(cornerRadius: 32)
                                 .foregroundStyle(.grey500)
-                        }.padding(.bottom, 24)
+                            .shadow(radius: 4, y: 3)                        }.padding(.bottom, 24)
                     
                     // faire en sorte de pouvoir selectionner une date supérieure à la date du jour et de faire une date range
                     // possible en natif ?
@@ -43,14 +43,14 @@ struct Questionnaire_View_6_Date: View {
                         Button {
                             viewModel.preciseDate = String(selectedDate.formatted(date: .long, time: .shortened))
                         } label: {
-                                Image(systemName: "checkmark")
-                                    .font(.system(size: 30))
-                                //                            Text("VALIDER")
-                                //                                .font(Font.custom("Poppins-Regular", size: 28))
-                                //                                .foregroundStyle(.grey500)
-                                //                                .fontWeight(.black)
-                                //                                .padding(40)
-                            }
+                            Image(systemName: "checkmark")
+                                .font(.system(size: 30))
+                            //                            Text("VALIDER")
+                            //                                .font(Font.custom("Poppins-Regular", size: 28))
+                            //                                .foregroundStyle(.grey500)
+                            //                                .fontWeight(.black)
+                            //                                .padding(40)
+                        }
                         
                     }
                     
@@ -74,10 +74,10 @@ struct Questionnaire_View_6_Date: View {
                 }
                 
             }
-
+            
         }
         .navigationBarBackButtonHidden(true)
-
+        
     }
 }
 

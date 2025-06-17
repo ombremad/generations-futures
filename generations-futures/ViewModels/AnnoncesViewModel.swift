@@ -42,4 +42,7 @@ class AnnoncesViewModel: Identifiable {
     
 //    // pour la navigation et fonction du bouton suivant
 //    var isAllowedToNavigate = false
+    
+    // pour les dates du Questionnaire_View_6_Periode
+//    var isShowingAlert = false
 }

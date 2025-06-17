@@ -20,7 +20,7 @@ struct Questionnaire_View_5: View {
         MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 48.8566, longitude: 2.3522),
             // Coordonées à chercher par ville et à changer en fonction de la ville choisie par l'utilisateur
-            span: MKCoordinateSpan(latitudeDelta: -10, longitudeDelta: 1)
+            span: MKCoordinateSpan(latitudeDelta: -10, longitudeDelta: 0.1)
         )
     )
 
@@ -47,7 +47,7 @@ struct Questionnaire_View_5: View {
                         .searchable(text: $search)
                         .font(Font.custom("Poppins-Regular", size: 12))
                         .multilineTextAlignment(.center)
-                        .frame(width: 300, height: 50)
+                        .frame(width: 260, height: 50)
                         .background{
                             RoundedRectangle(cornerRadius: 32)
                                 .fill(.grey50)
@@ -59,7 +59,7 @@ struct Questionnaire_View_5: View {
                             MKCoordinateRegion(
                                 center: CLLocationCoordinate2D(latitude: 45.750000, longitude: 4.850000),
                                 // Coordonées à chercher par ville et à changer en fonction de la ville choisie par l'utilisateur
-                                span: MKCoordinateSpan(latitudeDelta: -10, longitudeDelta: 1)
+                                span: MKCoordinateSpan(latitudeDelta: -100, longitudeDelta: 0.1)
                             )
                         )
                         }
